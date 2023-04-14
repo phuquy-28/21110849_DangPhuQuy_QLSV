@@ -47,10 +47,10 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             USER user = new USER();
 
-            string fname = tbFname.Text;
-            string lname = tbLastname.Text;
-            string uname = tbUsername.Text;
-            string pass = tbPass.Text;
+            string fname = tbFname.Text.Trim();
+            string lname = tbLastname.Text.Trim();
+            string uname = tbUsername.Text.Trim();
+            string pass = tbPass.Text.Trim();
             MemoryStream pic = new MemoryStream();
 
             if (verif())

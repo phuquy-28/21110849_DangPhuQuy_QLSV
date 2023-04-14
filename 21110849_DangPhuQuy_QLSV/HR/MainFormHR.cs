@@ -36,8 +36,6 @@ namespace _21110849_DangPhuQuy_QLSV
                 picbxAvatar.Image = Image.FromStream(picture);
                 lbUsername.Text = "Welcome back ( " + table.Rows[0]["uname"].ToString().Trim() + " )";
             }
-
-
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
@@ -54,6 +52,22 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             EditUserDataForm editUserDataFrm = new EditUserDataForm();
             editUserDataFrm.Show(this);
+        }
+
+        private void lbRefresh_Click(object sender, EventArgs e)
+        {
+            getImageAndUsername();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddContactForm addContactFrm = new AddContactForm();
+            addContactFrm.Show(this);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

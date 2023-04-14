@@ -95,6 +95,7 @@
             this.lbRefresh.Size = new System.Drawing.Size(54, 16);
             this.lbRefresh.TabIndex = 3;
             this.lbRefresh.Text = "Refresh";
+            this.lbRefresh.Click += new System.EventHandler(this.lbRefresh_Click);
             // 
             // label3
             // 
@@ -115,6 +116,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -125,6 +127,7 @@
             this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // groupBox1
             // 

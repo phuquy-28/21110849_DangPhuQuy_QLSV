@@ -89,6 +89,12 @@
     <Compile Include="ACCOUNT\AccountListForm.Designer.cs">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddContactForm.Designer.cs">
+      <DependentUpon>AddContactForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONTACT.cs" />
     <Compile Include="COURSE\CourseListForm.cs">
       <SubType>Form</SubType>
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ACCOUNT\AccountListForm.resx">
       <DependentUpon>AccountListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddContactForm.resx">
+      <DependentUpon>AddContactForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSE\CourseListForm.resx">
       <DependentUpon>CourseListForm.cs</DependentUpon>
