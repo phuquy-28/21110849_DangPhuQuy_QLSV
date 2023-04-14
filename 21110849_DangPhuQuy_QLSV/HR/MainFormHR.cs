@@ -49,5 +49,11 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             getImageAndUsername();
         }
+
+        private void labEditInfo_Click(object sender, EventArgs e)
+        {
+            EditUserDataForm editUserDataFrm = new EditUserDataForm();
+            editUserDataFrm.Show(this);
+        }
     }
 }

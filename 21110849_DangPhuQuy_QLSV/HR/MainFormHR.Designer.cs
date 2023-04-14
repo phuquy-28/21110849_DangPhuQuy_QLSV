@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picbxAvatar = new System.Windows.Forms.PictureBox();
             this.lbUsername = new System.Windows.Forms.Label();
             this.labEditInfo = new System.Windows.Forms.Label();
             this.lbRefresh = new System.Windows.Forms.Label();
@@ -36,10 +35,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbContactId = new System.Windows.Forms.TextBox();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.tbContactId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnShowFull = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -47,39 +46,30 @@
             this.tbGrpAdd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbGrpEdit = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbGrpEdit = new System.Windows.Forms.ComboBox();
             this.btnGrpEdit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnGrpRemove = new System.Windows.Forms.Button();
-            this.cbGrpEdit = new System.Windows.Forms.ComboBox();
-            this.tbGrpEdit = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.cbGrpRemove = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picbxAvatar)).BeginInit();
+            this.btnGrpRemove = new System.Windows.Forms.Button();
+            this.picbxAvatar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxAvatar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picbxAvatar
-            // 
-            this.picbxAvatar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.picbxAvatar.Location = new System.Drawing.Point(2, 2);
-            this.picbxAvatar.Name = "picbxAvatar";
-            this.picbxAvatar.Size = new System.Drawing.Size(68, 61);
-            this.picbxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbxAvatar.TabIndex = 0;
-            this.picbxAvatar.TabStop = false;
             // 
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsername.Location = new System.Drawing.Point(77, 20);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(44, 16);
+            this.lbUsername.Size = new System.Drawing.Size(57, 20);
             this.lbUsername.TabIndex = 1;
             this.lbUsername.Text = "label1";
             // 
@@ -87,33 +77,32 @@
             // 
             this.labEditInfo.AutoSize = true;
             this.labEditInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labEditInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labEditInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labEditInfo.Location = new System.Drawing.Point(77, 47);
             this.labEditInfo.Name = "labEditInfo";
-            this.labEditInfo.Size = new System.Drawing.Size(87, 16);
+            this.labEditInfo.Size = new System.Drawing.Size(75, 16);
             this.labEditInfo.TabIndex = 2;
             this.labEditInfo.Text = "Edit my info";
+            this.labEditInfo.Click += new System.EventHandler(this.labEditInfo_Click);
             // 
             // lbRefresh
             // 
             this.lbRefresh.AutoSize = true;
             this.lbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRefresh.Location = new System.Drawing.Point(182, 47);
             this.lbRefresh.Name = "lbRefresh";
-            this.lbRefresh.Size = new System.Drawing.Size(61, 16);
+            this.lbRefresh.Size = new System.Drawing.Size(54, 16);
             this.lbRefresh.TabIndex = 3;
             this.lbRefresh.Text = "Refresh";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(150, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 25);
+            this.label3.Size = new System.Drawing.Size(116, 31);
             this.label3.TabIndex = 4;
             this.label3.Text = "Contact";
             // 
@@ -149,23 +138,15 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // label4
+            // btnRemove
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Enter Contact ID:";
-            // 
-            // tbContactId
-            // 
-            this.tbContactId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbContactId.Location = new System.Drawing.Point(142, 17);
-            this.tbContactId.Name = "tbContactId";
-            this.tbContactId.Size = new System.Drawing.Size(100, 22);
-            this.tbContactId.TabIndex = 1;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(113, 55);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(117, 39);
+            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
             // 
             // btnSelect
             // 
@@ -176,15 +157,23 @@
             this.btnSelect.Text = "SelectContact";
             this.btnSelect.UseVisualStyleBackColor = true;
             // 
-            // btnRemove
+            // tbContactId
             // 
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(113, 55);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(117, 39);
-            this.btnRemove.TabIndex = 6;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.tbContactId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContactId.Location = new System.Drawing.Point(142, 17);
+            this.tbContactId.Name = "tbContactId";
+            this.tbContactId.Size = new System.Drawing.Size(100, 22);
+            this.tbContactId.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Enter Contact ID:";
             // 
             // btnShowFull
             // 
@@ -199,10 +188,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(539, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 25);
+            this.label5.Size = new System.Drawing.Size(94, 31);
             this.label5.TabIndex = 9;
             this.label5.Text = "Group";
             // 
@@ -258,6 +247,32 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
+            // tbGrpEdit
+            // 
+            this.tbGrpEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGrpEdit.Location = new System.Drawing.Point(142, 47);
+            this.tbGrpEdit.Name = "tbGrpEdit";
+            this.tbGrpEdit.Size = new System.Drawing.Size(192, 22);
+            this.tbGrpEdit.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(126, 16);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Enter New Name:";
+            // 
+            // cbGrpEdit
+            // 
+            this.cbGrpEdit.FormattingEnabled = true;
+            this.cbGrpEdit.Location = new System.Drawing.Point(142, 19);
+            this.cbGrpEdit.Name = "cbGrpEdit";
+            this.cbGrpEdit.Size = new System.Drawing.Size(192, 21);
+            this.cbGrpEdit.TabIndex = 7;
+            // 
             // btnGrpEdit
             // 
             this.btnGrpEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,42 +305,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // btnGrpRemove
-            // 
-            this.btnGrpRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrpRemove.Location = new System.Drawing.Point(10, 42);
-            this.btnGrpRemove.Name = "btnGrpRemove";
-            this.btnGrpRemove.Size = new System.Drawing.Size(324, 25);
-            this.btnGrpRemove.TabIndex = 6;
-            this.btnGrpRemove.Text = "Remove";
-            this.btnGrpRemove.UseVisualStyleBackColor = true;
-            // 
-            // cbGrpEdit
-            // 
-            this.cbGrpEdit.FormattingEnabled = true;
-            this.cbGrpEdit.Location = new System.Drawing.Point(142, 19);
-            this.cbGrpEdit.Name = "cbGrpEdit";
-            this.cbGrpEdit.Size = new System.Drawing.Size(192, 21);
-            this.cbGrpEdit.TabIndex = 7;
-            // 
-            // tbGrpEdit
-            // 
-            this.tbGrpEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGrpEdit.Location = new System.Drawing.Point(142, 47);
-            this.tbGrpEdit.Name = "tbGrpEdit";
-            this.tbGrpEdit.Size = new System.Drawing.Size(192, 22);
-            this.tbGrpEdit.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 16);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Enter New Name:";
-            // 
             // cbGrpRemove
             // 
             this.cbGrpRemove.FormattingEnabled = true;
@@ -343,6 +322,26 @@
             this.label8.Size = new System.Drawing.Size(101, 16);
             this.label8.TabIndex = 8;
             this.label8.Text = "Select Group:";
+            // 
+            // btnGrpRemove
+            // 
+            this.btnGrpRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrpRemove.Location = new System.Drawing.Point(10, 42);
+            this.btnGrpRemove.Name = "btnGrpRemove";
+            this.btnGrpRemove.Size = new System.Drawing.Size(324, 25);
+            this.btnGrpRemove.TabIndex = 6;
+            this.btnGrpRemove.Text = "Remove";
+            this.btnGrpRemove.UseVisualStyleBackColor = true;
+            // 
+            // picbxAvatar
+            // 
+            this.picbxAvatar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.picbxAvatar.Location = new System.Drawing.Point(2, 2);
+            this.picbxAvatar.Name = "picbxAvatar";
+            this.picbxAvatar.Size = new System.Drawing.Size(68, 61);
+            this.picbxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbxAvatar.TabIndex = 0;
+            this.picbxAvatar.TabStop = false;
             // 
             // MainFormHR
             // 
@@ -365,7 +364,6 @@
             this.Name = "MainFormHR";
             this.Text = "MainFormHR";
             this.Load += new System.EventHandler(this.MainFormHR_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picbxAvatar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -374,6 +372,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

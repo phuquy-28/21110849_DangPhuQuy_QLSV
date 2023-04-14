@@ -89,11 +89,18 @@
     <Compile Include="ACCOUNT\AccountListForm.Designer.cs">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CONTACT.cs" />
     <Compile Include="COURSE\CourseListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="COURSE\CourseListForm.Designer.cs">
       <DependentUpon>CourseListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditUserDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUserDataForm.Designer.cs">
+      <DependentUpon>EditUserDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\Globals.cs" />
     <Compile Include="HR\MainFormHR.cs">
@@ -266,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="COURSE\CourseListForm.resx">
       <DependentUpon>CourseListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUserDataForm.resx">
+      <DependentUpon>EditUserDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\MainFormHR.resx">
       <DependentUpon>MainFormHR.cs</DependentUpon>
