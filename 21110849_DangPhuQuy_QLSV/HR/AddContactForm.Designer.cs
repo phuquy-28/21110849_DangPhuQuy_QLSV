@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tbFname = new System.Windows.Forms.TextBox();
             this.tbLname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,11 +43,11 @@
             this.tbContactId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbGrp = new System.Windows.Forms.ComboBox();
-            this.picbxPic = new System.Windows.Forms.PictureBox();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.picbxPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,11 +70,6 @@
             this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Firstname:";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // tbFname
             // 
@@ -121,6 +114,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(198, 26);
             this.tbPhone.TabIndex = 9;
+            this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.isDigit_KeyPress);
             // 
             // label5
             // 
@@ -197,16 +191,6 @@
             this.cbGrp.Size = new System.Drawing.Size(198, 26);
             this.cbGrp.TabIndex = 16;
             // 
-            // picbxPic
-            // 
-            this.picbxPic.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.picbxPic.Location = new System.Drawing.Point(124, 323);
-            this.picbxPic.Name = "picbxPic";
-            this.picbxPic.Size = new System.Drawing.Size(126, 110);
-            this.picbxPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbxPic.TabIndex = 17;
-            this.picbxPic.TabStop = false;
-            // 
             // btnUpload
             // 
             this.btnUpload.Location = new System.Drawing.Point(124, 439);
@@ -251,6 +235,16 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Picture:";
             // 
+            // picbxPic
+            // 
+            this.picbxPic.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.picbxPic.Location = new System.Drawing.Point(124, 323);
+            this.picbxPic.Name = "picbxPic";
+            this.picbxPic.Size = new System.Drawing.Size(126, 110);
+            this.picbxPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbxPic.TabIndex = 17;
+            this.picbxPic.TabStop = false;
+            // 
             // AddContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +282,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox tbFname;
         private System.Windows.Forms.TextBox tbLname;
         private System.Windows.Forms.Label label3;

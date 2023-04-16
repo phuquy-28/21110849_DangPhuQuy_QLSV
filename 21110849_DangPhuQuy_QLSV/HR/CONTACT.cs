@@ -40,17 +40,17 @@ namespace _21110849_DangPhuQuy_QLSV
             }
         }
 
-        public bool updateContact(string fname, string lname, string phone, string address, string email, int userid, int groupid, MemoryStream picture)
+        public bool updateContact(int userid, string fname, string lname, int groupid, string phone, string email, string address, MemoryStream picture)
         {
-            SqlCommand cmd = new SqlCommand("update mycontact set fname = @fn, lname = @ln, phone = @phn, address = @adr, email = @mail, group_id = @grp, pic = @pic where userid = @uid", mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("update mycontact set fname = @fn, lname = @ln, group_id = @grp, phone = @phn, email = @mail, address = @add, pic = @pic where userid = @uid", mydb.getConnection);
 
+            cmd.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
             cmd.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             cmd.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
-            cmd.Parameters.Add("@phn", SqlDbType.VarChar).Value = phone;
-            cmd.Parameters.Add("@adr", SqlDbType.VarChar).Value = address;
-            cmd.Parameters.Add("@mail", SqlDbType.VarChar).Value = email;
-            cmd.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
             cmd.Parameters.Add("@grp", SqlDbType.Int).Value = groupid;
+            cmd.Parameters.Add("@phn", SqlDbType.VarChar).Value = phone;
+            cmd.Parameters.Add("@mail", SqlDbType.VarChar).Value = email;
+            cmd.Parameters.Add("@add", SqlDbType.VarChar).Value = address;
             cmd.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
 
             mydb.openConnection();
@@ -97,7 +97,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
         public DataTable getContactById(int contactid)
         {
-            SqlCommand command = new SqlCommand("select id, fname, lname, group_id, phone, email, address, pic, userid from mycontact where id = @id ", mydb.getConnection);
+            SqlCommand command = new SqlCommand("select fname, lname, group_id, phone, email, address, pic, userid from mycontact where userid = @id ", mydb.getConnection);
             command.Parameters.Add("@id", SqlDbType.Int).Value = contactid;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();

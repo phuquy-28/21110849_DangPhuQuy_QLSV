@@ -33,15 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EPPlus, Version=6.2.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.6.2.0\lib\net462\EPPlus.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
-    </Reference>
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
@@ -89,23 +80,29 @@
     <Compile Include="ACCOUNT\AccountListForm.Designer.cs">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddContactForm.cs">
+    <Compile Include="HR\AddContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddContactForm.Designer.cs">
+    <Compile Include="HR\AddContactForm.Designer.cs">
       <DependentUpon>AddContactForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTACT.cs" />
+    <Compile Include="HR\CONTACT.cs" />
     <Compile Include="COURSE\CourseListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="COURSE\CourseListForm.Designer.cs">
       <DependentUpon>CourseListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditUserDataForm.cs">
+    <Compile Include="HR\EditContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUserDataForm.Designer.cs">
+    <Compile Include="HR\EditContactForm.Designer.cs">
+      <DependentUpon>EditContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR\EditUserDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\EditUserDataForm.Designer.cs">
       <DependentUpon>EditUserDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\Globals.cs" />
@@ -143,6 +140,12 @@
     </Compile>
     <Compile Include="RESULT\StatisticResultForm.Designer.cs">
       <DependentUpon>StatisticResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowFullListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowFullListForm.Designer.cs">
+      <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="STUDENT\EditRemoveStudentForm.cs">
       <SubType>Form</SubType>
@@ -277,13 +280,16 @@
     <EmbeddedResource Include="ACCOUNT\AccountListForm.resx">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddContactForm.resx">
+    <EmbeddedResource Include="HR\AddContactForm.resx">
       <DependentUpon>AddContactForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSE\CourseListForm.resx">
       <DependentUpon>CourseListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUserDataForm.resx">
+    <EmbeddedResource Include="HR\EditContactForm.resx">
+      <DependentUpon>EditContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\EditUserDataForm.resx">
       <DependentUpon>EditUserDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\MainFormHR.resx">
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RESULT\StatisticResultForm.resx">
       <DependentUpon>StatisticResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowFullListForm.resx">
+      <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STUDENT\EditRemoveStudentForm.resx">
       <DependentUpon>EditRemoveStudentForm.cs</DependentUpon>

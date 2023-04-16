@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _21110849_DangPhuQuy_QLSV.HR;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,7 +68,8 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            EditContactForm editContactForm = new EditContactForm();
+            editContactForm.Show(this);
         }
     }
 }
