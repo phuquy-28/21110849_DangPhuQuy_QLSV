@@ -351,5 +351,12 @@ namespace _21110849_DangPhuQuy_QLSV
                 e.Handled = true;
             }
         }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            AddCourseStudentForm addCourseStudentForm = new AddCourseStudentForm();
+            addCourseStudentForm.tbStdId.Text = idTb.Text;
+            addCourseStudentForm.Show(this);
+        }
     }
 }

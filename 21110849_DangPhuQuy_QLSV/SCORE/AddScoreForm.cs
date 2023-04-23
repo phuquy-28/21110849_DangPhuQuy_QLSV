@@ -32,6 +32,11 @@ namespace _21110849_DangPhuQuy_QLSV
             //dua no voi student
             SqlCommand cmd = new SqlCommand("select id, fname, lname from std");
             dgvListScore.DataSource = student.getStudents(cmd);
+
+            //đổi tên cột
+            dgvListScore.Columns["id"].HeaderText = "Id";
+            dgvListScore.Columns["fname"].HeaderText = "First name";
+            dgvListScore.Columns["lname"].HeaderText = "Last name";
         }
 
         private void dgvListScore_CellClick(object sender, DataGridViewCellEventArgs e)

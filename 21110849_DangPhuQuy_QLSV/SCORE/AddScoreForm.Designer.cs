@@ -33,11 +33,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbScore = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbSelectedCourse = new System.Windows.Forms.ComboBox();
             this.dgvListScore = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListScore)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,16 +90,6 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Score:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 20);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Selected Course:";
-            // 
             // tbId
             // 
             this.tbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,6 +128,16 @@
             this.dgvListScore.TabIndex = 21;
             this.dgvListScore.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListScore_CellClick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Selected Course:";
+            // 
             // AddScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,10 +169,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbScore;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbSelectedCourse;
         private System.Windows.Forms.DataGridView dgvListScore;
+        private System.Windows.Forms.Label label2;
     }
 }

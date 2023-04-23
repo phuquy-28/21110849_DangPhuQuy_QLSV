@@ -43,19 +43,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddGrpName = new System.Windows.Forms.Button();
-            this.tbGrpAdd = new System.Windows.Forms.TextBox();
+            this.tbGrpName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbGrpEdit = new System.Windows.Forms.TextBox();
+            this.tbNewNameGrp = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.cbGrpEdit = new System.Windows.Forms.ComboBox();
-            this.btnGrpEdit = new System.Windows.Forms.Button();
+            this.cbSelectdGrp = new System.Windows.Forms.ComboBox();
+            this.btnEditGrp = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cbGrpRemove = new System.Windows.Forms.ComboBox();
+            this.cbSelectedGrpRemove = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnGrpRemove = new System.Windows.Forms.Button();
+            this.btnRemoveGrp = new System.Windows.Forms.Button();
             this.picbxAvatar = new System.Windows.Forms.PictureBox();
+            this.tbGrpId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -150,6 +152,7 @@
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnSelect
             // 
@@ -200,38 +203,41 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbGrpId);
             this.groupBox2.Controls.Add(this.btnAddGrpName);
-            this.groupBox2.Controls.Add(this.tbGrpAdd);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.tbGrpName);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(416, 115);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(355, 92);
+            this.groupBox2.Size = new System.Drawing.Size(355, 105);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             // 
             // btnAddGrpName
             // 
             this.btnAddGrpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddGrpName.Location = new System.Drawing.Point(10, 55);
+            this.btnAddGrpName.Location = new System.Drawing.Point(10, 71);
             this.btnAddGrpName.Name = "btnAddGrpName";
             this.btnAddGrpName.Size = new System.Drawing.Size(324, 25);
             this.btnAddGrpName.TabIndex = 6;
             this.btnAddGrpName.Text = "Add";
             this.btnAddGrpName.UseVisualStyleBackColor = true;
+            this.btnAddGrpName.Click += new System.EventHandler(this.btnAddGrpName_Click);
             // 
-            // tbGrpAdd
+            // tbGrpName
             // 
-            this.tbGrpAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGrpAdd.Location = new System.Drawing.Point(142, 17);
-            this.tbGrpAdd.Name = "tbGrpAdd";
-            this.tbGrpAdd.Size = new System.Drawing.Size(192, 22);
-            this.tbGrpAdd.TabIndex = 1;
+            this.tbGrpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGrpName.Location = new System.Drawing.Point(138, 43);
+            this.tbGrpName.Name = "tbGrpName";
+            this.tbGrpName.Size = new System.Drawing.Size(192, 22);
+            this.tbGrpName.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 20);
+            this.label6.Location = new System.Drawing.Point(3, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 16);
             this.label6.TabIndex = 0;
@@ -239,24 +245,24 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.tbGrpEdit);
+            this.groupBox3.Controls.Add(this.tbNewNameGrp);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.cbGrpEdit);
-            this.groupBox3.Controls.Add(this.btnGrpEdit);
+            this.groupBox3.Controls.Add(this.cbSelectdGrp);
+            this.groupBox3.Controls.Add(this.btnEditGrp);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(416, 219);
+            this.groupBox3.Location = new System.Drawing.Point(416, 237);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(355, 109);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
-            // tbGrpEdit
+            // tbNewNameGrp
             // 
-            this.tbGrpEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGrpEdit.Location = new System.Drawing.Point(142, 47);
-            this.tbGrpEdit.Name = "tbGrpEdit";
-            this.tbGrpEdit.Size = new System.Drawing.Size(192, 22);
-            this.tbGrpEdit.TabIndex = 9;
+            this.tbNewNameGrp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewNameGrp.Location = new System.Drawing.Point(142, 47);
+            this.tbNewNameGrp.Name = "tbNewNameGrp";
+            this.tbNewNameGrp.Size = new System.Drawing.Size(192, 22);
+            this.tbNewNameGrp.TabIndex = 9;
             // 
             // label9
             // 
@@ -268,23 +274,24 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Enter New Name:";
             // 
-            // cbGrpEdit
+            // cbSelectdGrp
             // 
-            this.cbGrpEdit.FormattingEnabled = true;
-            this.cbGrpEdit.Location = new System.Drawing.Point(142, 19);
-            this.cbGrpEdit.Name = "cbGrpEdit";
-            this.cbGrpEdit.Size = new System.Drawing.Size(192, 21);
-            this.cbGrpEdit.TabIndex = 7;
+            this.cbSelectdGrp.FormattingEnabled = true;
+            this.cbSelectdGrp.Location = new System.Drawing.Point(142, 19);
+            this.cbSelectdGrp.Name = "cbSelectdGrp";
+            this.cbSelectdGrp.Size = new System.Drawing.Size(192, 21);
+            this.cbSelectdGrp.TabIndex = 7;
             // 
-            // btnGrpEdit
+            // btnEditGrp
             // 
-            this.btnGrpEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrpEdit.Location = new System.Drawing.Point(10, 75);
-            this.btnGrpEdit.Name = "btnGrpEdit";
-            this.btnGrpEdit.Size = new System.Drawing.Size(324, 25);
-            this.btnGrpEdit.TabIndex = 6;
-            this.btnGrpEdit.Text = "Edit";
-            this.btnGrpEdit.UseVisualStyleBackColor = true;
+            this.btnEditGrp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditGrp.Location = new System.Drawing.Point(10, 75);
+            this.btnEditGrp.Name = "btnEditGrp";
+            this.btnEditGrp.Size = new System.Drawing.Size(324, 25);
+            this.btnEditGrp.TabIndex = 6;
+            this.btnEditGrp.Text = "Edit";
+            this.btnEditGrp.UseVisualStyleBackColor = true;
+            this.btnEditGrp.Click += new System.EventHandler(this.btnEditGrp_Click);
             // 
             // label7
             // 
@@ -298,23 +305,23 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cbGrpRemove);
+            this.groupBox4.Controls.Add(this.cbSelectedGrpRemove);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.btnGrpRemove);
-            this.groupBox4.Location = new System.Drawing.Point(416, 346);
+            this.groupBox4.Controls.Add(this.btnRemoveGrp);
+            this.groupBox4.Location = new System.Drawing.Point(416, 364);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(355, 80);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // cbGrpRemove
+            // cbSelectedGrpRemove
             // 
-            this.cbGrpRemove.FormattingEnabled = true;
-            this.cbGrpRemove.Location = new System.Drawing.Point(142, 15);
-            this.cbGrpRemove.Name = "cbGrpRemove";
-            this.cbGrpRemove.Size = new System.Drawing.Size(192, 21);
-            this.cbGrpRemove.TabIndex = 9;
+            this.cbSelectedGrpRemove.FormattingEnabled = true;
+            this.cbSelectedGrpRemove.Location = new System.Drawing.Point(142, 15);
+            this.cbSelectedGrpRemove.Name = "cbSelectedGrpRemove";
+            this.cbSelectedGrpRemove.Size = new System.Drawing.Size(192, 21);
+            this.cbSelectedGrpRemove.TabIndex = 9;
             // 
             // label8
             // 
@@ -326,15 +333,16 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Select Group:";
             // 
-            // btnGrpRemove
+            // btnRemoveGrp
             // 
-            this.btnGrpRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrpRemove.Location = new System.Drawing.Point(10, 42);
-            this.btnGrpRemove.Name = "btnGrpRemove";
-            this.btnGrpRemove.Size = new System.Drawing.Size(324, 25);
-            this.btnGrpRemove.TabIndex = 6;
-            this.btnGrpRemove.Text = "Remove";
-            this.btnGrpRemove.UseVisualStyleBackColor = true;
+            this.btnRemoveGrp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveGrp.Location = new System.Drawing.Point(10, 42);
+            this.btnRemoveGrp.Name = "btnRemoveGrp";
+            this.btnRemoveGrp.Size = new System.Drawing.Size(324, 25);
+            this.btnRemoveGrp.TabIndex = 6;
+            this.btnRemoveGrp.Text = "Remove";
+            this.btnRemoveGrp.UseVisualStyleBackColor = true;
+            this.btnRemoveGrp.Click += new System.EventHandler(this.btnRemoveGrp_Click);
             // 
             // picbxAvatar
             // 
@@ -346,11 +354,29 @@
             this.picbxAvatar.TabIndex = 0;
             this.picbxAvatar.TabStop = false;
             // 
+            // tbGrpId
+            // 
+            this.tbGrpId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGrpId.Location = new System.Drawing.Point(138, 15);
+            this.tbGrpId.Name = "tbGrpId";
+            this.tbGrpId.Size = new System.Drawing.Size(192, 22);
+            this.tbGrpId.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Enter Group ID:";
+            // 
             // MainFormHR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 471);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -399,17 +425,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAddGrpName;
-        private System.Windows.Forms.TextBox tbGrpAdd;
+        private System.Windows.Forms.TextBox tbGrpName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox tbGrpEdit;
+        private System.Windows.Forms.TextBox tbNewNameGrp;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbGrpEdit;
-        private System.Windows.Forms.Button btnGrpEdit;
+        private System.Windows.Forms.ComboBox cbSelectdGrp;
+        private System.Windows.Forms.Button btnEditGrp;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnGrpRemove;
-        private System.Windows.Forms.ComboBox cbGrpRemove;
+        private System.Windows.Forms.Button btnRemoveGrp;
+        private System.Windows.Forms.ComboBox cbSelectedGrpRemove;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbGrpId;
+        private System.Windows.Forms.Label label1;
     }
 }

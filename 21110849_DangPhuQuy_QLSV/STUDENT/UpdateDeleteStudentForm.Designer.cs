@@ -64,6 +64,7 @@
             this.findIdBtn = new System.Windows.Forms.Button();
             this.findFNameBtn = new System.Windows.Forms.Button();
             this.findPhoneBtn = new System.Windows.Forms.Button();
+            this.btnAddCourse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picturePb)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +92,7 @@
             // 
             this.editBtn.BackColor = System.Drawing.Color.SteelBlue;
             this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.Location = new System.Drawing.Point(249, 392);
+            this.editBtn.Location = new System.Drawing.Point(168, 392);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(111, 46);
             this.editBtn.TabIndex = 62;
@@ -103,7 +104,7 @@
             // 
             this.removeBtn.BackColor = System.Drawing.Color.Crimson;
             this.removeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeBtn.Location = new System.Drawing.Point(428, 392);
+            this.removeBtn.Location = new System.Drawing.Point(347, 392);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(110, 46);
             this.removeBtn.TabIndex = 61;
@@ -487,11 +488,24 @@
             this.findPhoneBtn.UseVisualStyleBackColor = false;
             this.findPhoneBtn.Click += new System.EventHandler(this.findPhoneBtn_Click);
             // 
+            // btnAddCourse
+            // 
+            this.btnAddCourse.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAddCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCourse.Location = new System.Drawing.Point(526, 392);
+            this.btnAddCourse.Name = "btnAddCourse";
+            this.btnAddCourse.Size = new System.Drawing.Size(133, 46);
+            this.btnAddCourse.TabIndex = 68;
+            this.btnAddCourse.Text = "Add Course";
+            this.btnAddCourse.UseVisualStyleBackColor = false;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
+            // 
             // UpdateDeleteStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.findPhoneBtn);
             this.Controls.Add(this.findFNameBtn);
             this.Controls.Add(this.findIdBtn);
@@ -574,5 +588,6 @@
         internal System.Windows.Forms.Button findIdBtn;
         internal System.Windows.Forms.Button findFNameBtn;
         internal System.Windows.Forms.Button findPhoneBtn;
+        private System.Windows.Forms.Button btnAddCourse;
     }
 }

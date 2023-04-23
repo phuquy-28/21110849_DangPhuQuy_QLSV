@@ -130,10 +130,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::_21110849_DangPhuQuy_QLSV.Properties.Resources.course;
+            this.pictureBox1.Image = global::_21110849_DangPhuQuy_QLSV.Properties.Resources.fhq_logo;
             this.pictureBox1.Location = new System.Drawing.Point(387, 40);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(116, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;

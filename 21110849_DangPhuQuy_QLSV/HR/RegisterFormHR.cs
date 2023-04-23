@@ -23,7 +23,6 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void RegisterFormHR_Load(object sender, EventArgs e)
         {
-            tbId.Enabled = false;
             picbxPic.Image = null;
         }
 
@@ -46,6 +45,7 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             USER user = new USER();
 
+            int id = Convert.ToInt32(tbId.Text);
             string fname = tbFname.Text.Trim();
             string lname = tbLastname.Text.Trim();
             string uname = tbUsername.Text.Trim();
@@ -57,7 +57,7 @@ namespace _21110849_DangPhuQuy_QLSV
                 if (!user.usernameExist(uname, "register"))
                 {
                     picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                    if (user.insertUser(fname, lname, uname, pass, pic))
+                    if (user.insertUser(id, fname, lname, uname, pass, pic))
                     {
                         MessageBox.Show("New HR Added", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

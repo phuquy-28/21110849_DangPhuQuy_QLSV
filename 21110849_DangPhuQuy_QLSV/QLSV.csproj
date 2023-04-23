@@ -80,6 +80,13 @@
     <Compile Include="ACCOUNT\AccountListForm.Designer.cs">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCourseStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCourseStudentForm.Designer.cs">
+      <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GROUP.cs" />
     <Compile Include="HR\AddContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,11 +94,11 @@
       <DependentUpon>AddContactForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\CONTACT.cs" />
-    <Compile Include="COURSE\CourseListForm.cs">
+    <Compile Include="STUDENT\CourseStudentListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="COURSE\CourseListForm.Designer.cs">
-      <DependentUpon>CourseListForm.cs</DependentUpon>
+    <Compile Include="STUDENT\CourseStudentListForm.Designer.cs">
+      <DependentUpon>CourseStudentListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\EditContactForm.cs">
       <SubType>Form</SubType>
@@ -141,12 +148,13 @@
     <Compile Include="RESULT\StatisticResultForm.Designer.cs">
       <DependentUpon>StatisticResultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowFullListForm.cs">
+    <Compile Include="HR\ShowFullListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowFullListForm.Designer.cs">
+    <Compile Include="HR\ShowFullListForm.Designer.cs">
       <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DGVPrinter.cs" />
     <Compile Include="STUDENT\EditRemoveStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,11 +173,11 @@
     <Compile Include="SCORE\ManageScoreForm.Designer.cs">
       <DependentUpon>ManageScoreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCORE\AverageScore.cs">
+    <Compile Include="SCORE\AverageScoreByCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCORE\AverageScore.Designer.cs">
-      <DependentUpon>AverageScore.cs</DependentUpon>
+    <Compile Include="SCORE\AverageScoreByCourse.Designer.cs">
+      <DependentUpon>AverageScoreByCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="SCORE\AddScoreForm.cs">
       <SubType>Form</SubType>
@@ -280,11 +288,14 @@
     <EmbeddedResource Include="ACCOUNT\AccountListForm.resx">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddCourseStudentForm.resx">
+      <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HR\AddContactForm.resx">
       <DependentUpon>AddContactForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="COURSE\CourseListForm.resx">
-      <DependentUpon>CourseListForm.cs</DependentUpon>
+    <EmbeddedResource Include="STUDENT\CourseStudentListForm.resx">
+      <DependentUpon>CourseStudentListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\EditContactForm.resx">
       <DependentUpon>EditContactForm.cs</DependentUpon>
@@ -307,7 +318,7 @@
     <EmbeddedResource Include="RESULT\StatisticResultForm.resx">
       <DependentUpon>StatisticResultForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowFullListForm.resx">
+    <EmbeddedResource Include="HR\ShowFullListForm.resx">
       <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STUDENT\EditRemoveStudentForm.resx">
@@ -319,8 +330,8 @@
     <EmbeddedResource Include="SCORE\ManageScoreForm.resx">
       <DependentUpon>ManageScoreForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SCORE\AverageScore.resx">
-      <DependentUpon>AverageScore.cs</DependentUpon>
+    <EmbeddedResource Include="SCORE\AverageScoreByCourse.resx">
+      <DependentUpon>AverageScoreByCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SCORE\AddScoreForm.resx">
       <DependentUpon>AddScoreForm.cs</DependentUpon>
@@ -421,6 +432,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\course.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fhq logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
@@ -41,18 +40,9 @@
             this.rbtnUser = new System.Windows.Forms.RadioButton();
             this.rbtnAdmin = new System.Windows.Forms.RadioButton();
             this.rbtnHr = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::_21110849_DangPhuQuy_QLSV.Properties.Resources.user1;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 116);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -161,15 +151,16 @@
             this.rbtnUser.Checked = true;
             this.rbtnUser.Location = new System.Drawing.Point(135, 295);
             this.rbtnUser.Name = "rbtnUser";
-            this.rbtnUser.Size = new System.Drawing.Size(47, 17);
+            this.rbtnUser.Size = new System.Drawing.Size(62, 17);
             this.rbtnUser.TabIndex = 0;
-            this.rbtnUser.Text = "User";
+            this.rbtnUser.TabStop = true;
+            this.rbtnUser.Text = "Student";
             this.rbtnUser.UseVisualStyleBackColor = true;
             // 
             // rbtnAdmin
             // 
             this.rbtnAdmin.AutoSize = true;
-            this.rbtnAdmin.Location = new System.Drawing.Point(242, 295);
+            this.rbtnAdmin.Location = new System.Drawing.Point(252, 295);
             this.rbtnAdmin.Name = "rbtnAdmin";
             this.rbtnAdmin.Size = new System.Drawing.Size(54, 17);
             this.rbtnAdmin.TabIndex = 1;
@@ -179,12 +170,22 @@
             // rbtnHr
             // 
             this.rbtnHr.AutoSize = true;
-            this.rbtnHr.Location = new System.Drawing.Point(189, 295);
+            this.rbtnHr.Location = new System.Drawing.Point(199, 295);
             this.rbtnHr.Name = "rbtnHr";
             this.rbtnHr.Size = new System.Drawing.Size(41, 17);
             this.rbtnHr.TabIndex = 10;
             this.rbtnHr.Text = "HR";
             this.rbtnHr.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_21110849_DangPhuQuy_QLSV.Properties.Resources.fhq_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(112, 116);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Login_Form
             // 

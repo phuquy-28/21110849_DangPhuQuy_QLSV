@@ -25,9 +25,10 @@ namespace _21110849_DangPhuQuy_QLSV
             return table;
         }
 
-        public bool insertUser(string fname, string lname, string userName, string passWord, MemoryStream picture)
+        public bool insertUser(int id, string fname, string lname, string userName, string passWord, MemoryStream picture)
         {
-            SqlCommand cmd = new SqlCommand("insert into hr (f_name, l_name, uname, pwd, fig) values (@fn, @ln, @un, @pass, @pic)", db.getConnection);
+            SqlCommand cmd = new SqlCommand("insert into hr (id, f_name, l_name, uname, pwd, fig) values (@id, @fn, @ln, @un, @pass, @pic)", db.getConnection);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             cmd.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
             cmd.Parameters.Add("@un", SqlDbType.VarChar).Value = userName;

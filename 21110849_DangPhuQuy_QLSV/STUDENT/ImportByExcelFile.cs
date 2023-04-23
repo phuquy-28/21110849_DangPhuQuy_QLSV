@@ -38,20 +38,19 @@ namespace _21110849_DangPhuQuy_QLSV
                     s.FName = dt.Rows[i]["fname"].ToString();
                     s.LName = dt.Rows[i]["lname"].ToString();
                     s.Birthday = (DateTime)dt.Rows[i]["bdate"];
-                    //string dateString = dt.Rows[i]["bdate"].ToString().Trim(); //loại bỏ ký tự xuống dòng
-                    //DateTime date;
-                    //if (DateTime.TryParseExact(dateString, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
-                    //{
-                    //    s.Birthday = date;
-                    //}
-
                     s.Gender = dt.Rows[i]["gender"].ToString();
                     s.Phone = dt.Rows[i]["phone"].ToString();
                     s.Address = dt.Rows[i]["address"].ToString();
                     //s.Picture = null;//(MemoryStream)dt.Rows[i]["picture"];
-                    string base64String = dt.Rows[i]["picture"].ToString();
-                    byte[] bytes = Convert.FromBase64String(base64String);
-                    MemoryStream ms = new MemoryStream(bytes);
+
+                    // Đọc hình ảnh mặc định từ tệp Resource
+                    Bitmap defaultImage = Properties.Resources.user1;
+
+                    // Chuyển đổi hình ảnh sang kiểu MemoryStream
+                    MemoryStream ms = new MemoryStream();
+                    defaultImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    // Sử dụng MemoryStream
                     s.Picture = ms;
 
                     s.Email = dt.Rows[i]["email"].ToString();

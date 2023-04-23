@@ -216,7 +216,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void lisbCourse_DoubleClick(object sender, EventArgs e)
         {
-            CourseListForm courseListFrm = new CourseListForm();
+            CourseStudentListForm courseListFrm = new CourseStudentListForm();
             
 
             int index = lisbCourse.SelectedIndex;

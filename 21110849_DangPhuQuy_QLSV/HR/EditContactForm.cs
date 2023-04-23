@@ -23,10 +23,10 @@ namespace _21110849_DangPhuQuy_QLSV.HR
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            int userid = Convert.ToInt32(tbContactId.Text);
+            int id = Convert.ToInt32(tbContactId.Text);
 
             DataTable table = new DataTable();
-            table = contact.getContactById(userid);
+            table = contact.getContactById(id);
             if (table.Rows.Count > 0)
             {
                 tbFname.Text = table.Rows[0]["fname"].ToString();
@@ -78,6 +78,7 @@ namespace _21110849_DangPhuQuy_QLSV.HR
                 if (contact.updateContact(id, fname, lname, grp, phone, email, adrs, pic))
                 {
                     MessageBox.Show("Editing Successfully", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvContactList.DataSource = contact.selectContactList(new SqlCommand("select * from mycontact"));
                 }
                 else
                 {
@@ -127,6 +128,8 @@ namespace _21110849_DangPhuQuy_QLSV.HR
 
         private void EditContactForm_Load(object sender, EventArgs e)
         {
+            //tbContactId.Enabled = false;
+
             SqlCommand command = new SqlCommand("select * from mycontact");
             //dgvContactList.DataSource = contact.selectContactList(command);
 
@@ -134,27 +137,27 @@ namespace _21110849_DangPhuQuy_QLSV.HR
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dgvContactList.RowTemplate.Height = 80;
             dgvContactList.DataSource = contact.selectContactList(command);
-            picCol = (DataGridViewImageColumn)dgvContactList.Columns[8];
+            picCol = (DataGridViewImageColumn)dgvContactList.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dgvContactList.AllowUserToAddRows = false;
 
-            dgvContactList.Columns[0].HeaderText = "ID";
-            dgvContactList.Columns[1].HeaderText = "Contact ID";
-            dgvContactList.Columns[2].HeaderText = "Firstname";
-            dgvContactList.Columns[3].HeaderText = "Lastname";
-            dgvContactList.Columns[4].HeaderText = "Group ID";
-            dgvContactList.Columns[5].HeaderText = "Phone number";
-            dgvContactList.Columns[6].HeaderText = "Email";
-            dgvContactList.Columns[7].HeaderText = "Address";
-            dgvContactList.Columns[8].HeaderText = "Picture";
-
+            dgvContactList.Columns[0].HeaderText = "Contact ID";
+            dgvContactList.Columns[1].HeaderText = "Firstname";
+            dgvContactList.Columns[2].HeaderText = "Lastname";
+            dgvContactList.Columns[3].HeaderText = "Group ID";
+            dgvContactList.Columns[4].HeaderText = "Phone number";
+            dgvContactList.Columns[5].HeaderText = "Email";
+            dgvContactList.Columns[6].HeaderText = "Address";
+            dgvContactList.Columns[7].HeaderText = "Picture";
+            dgvContactList.Columns[8].HeaderText = "UserID";
+        
         }
 
         private void dgvContactList_DoubleClick(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgvContactList.CurrentRow;
 
-            tbContactId.Text = selectedRow.Cells["userid"].Value.ToString();
+            tbContactId.Text = selectedRow.Cells["id"].Value.ToString();
         }
     }
 }

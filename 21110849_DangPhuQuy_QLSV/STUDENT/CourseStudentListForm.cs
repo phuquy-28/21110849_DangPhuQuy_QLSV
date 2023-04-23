@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +11,30 @@ using System.Windows.Forms;
 
 namespace _21110849_DangPhuQuy_QLSV
 {
-    public partial class PrintScoreForm : Form
+    public partial class CourseStudentListForm : Form
     {
-        public PrintScoreForm()
+        public CourseStudentListForm()
         {
             InitializeComponent();
         }
-        COURSE course = new COURSE();
         SCORE score = new SCORE();
+
+        private void dgvCourseStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void CourseListForm_Load(object sender, EventArgs e)
+        {
+            string temp = tbCourseName.Text.ToString().Trim();
+            dgvCourseStudent.DataSource = score.getCourseStdList(temp);
+
+            dgvCourseStudent.Columns[1].HeaderText = "ID";
+            dgvCourseStudent.Columns[2].HeaderText = "FIRST NAME";
+            dgvCourseStudent.Columns[3].HeaderText = "LAST NAME";
+            dgvCourseStudent.Columns[4].HeaderText = "BIRTHDAY";
+
+        }
 
         public static Bitmap ResizeImage(Bitmap imgToResize, Size size)
         {
@@ -32,7 +47,7 @@ namespace _21110849_DangPhuQuy_QLSV
             return b;
         }
 
-        private void btnPrint_Click_1(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
             DGVPrinter printer = new DGVPrinter();
 
@@ -47,7 +62,7 @@ namespace _21110849_DangPhuQuy_QLSV
             //Subtitle
             //printer.SubTitle = String.Format("Date: {0}", DateTime.Now.Date);
             printer.SubTitle = "DANH SÁCH SINH VIÊN NĂM HỌC 2022 - 2023" +
-                $"\nMôn: {cbSelectedCourse.Text}" +
+                $"\nMôn: {tbCourseName.Text}" +
                 $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";
             printer.SubTitleSpacing = 20;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
@@ -70,7 +85,7 @@ namespace _21110849_DangPhuQuy_QLSV
             printer.FooterAlignment = StringAlignment.Far;
 
             //Landscape
-            printer.printDocument.DefaultPageSettings.Landscape = true;
+            printer.printDocument.DefaultPageSettings.Landscape = false;
 
             //set the rowheight equal to the cellheight in dgv
             printer.RowHeight = DGVPrinter.RowHeightSetting.CellHeight;
@@ -80,7 +95,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
             ii1.ImageAlignment = DGVPrinter.Alignment.NotSet;
             ii1.ImageLocation = DGVPrinter.Location.Absolute;
-            ii1.ImageX = 120;
+            ii1.ImageX = 60;
             ii1.ImageY = 40;
 
             Bitmap original = new Bitmap(Properties.Resources.fhq_logo);
@@ -90,30 +105,7 @@ namespace _21110849_DangPhuQuy_QLSV
             printer.ImbeddedImageList.Add(ii1);
 
 
-            printer.PrintPreviewDataGridView(dgvStudentScore);
-        }
-
-        private void PrintScoreForm_Load(object sender, EventArgs e)
-        {
-            //lay thong tin all course
-            cbSelectedCourse.DataSource = course.getAllCourse();
-            cbSelectedCourse.DisplayMember = "label";
-            cbSelectedCourse.ValueMember = "id";
-            cbSelectedCourse.SelectedIndex = 0;
-
-            dgvStudentScore.DataSource = score.getCourseScore(cbSelectedCourse.Text);
-
-            //đổi tên
-            dgvStudentScore.Columns["id"].HeaderText = "Id";
-            dgvStudentScore.Columns["fname"].HeaderText = "First name";
-            dgvStudentScore.Columns["lname"].HeaderText = "Last name";
-            dgvStudentScore.Columns["bdate"].HeaderText = "Birthday";
-            dgvStudentScore.Columns["student_score"].HeaderText = "Student score";
-        }
-
-        private void cbSelectedCourse_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvStudentScore.DataSource = score.getCourseScore(cbSelectedCourse.Text);
+            printer.PrintPreviewDataGridView(dgvCourseStudent);
         }
     }
 }

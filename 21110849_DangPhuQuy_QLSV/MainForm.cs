@@ -90,7 +90,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void averageScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AverageScore avgScoreFrm = new AverageScore();
+            AverageScoreByCourse avgScoreFrm = new AverageScoreByCourse();
             avgScoreFrm.Show(this);
         }
 

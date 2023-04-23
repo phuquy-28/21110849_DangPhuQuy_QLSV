@@ -61,7 +61,7 @@ namespace _21110849_DangPhuQuy_QLSV
             if (verify())
             {
                 picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                if (contact.insertContact(id, fname, lname, grp, phone, email, adrs, pic))
+                if (contact.insertContact(id, fname, lname, grp, phone, email, adrs, pic, Globals.GlobalUserId))
                 {
                     MessageBox.Show("Adding Successfully", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tbContactId.Text = "";

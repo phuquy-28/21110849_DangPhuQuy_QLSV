@@ -1,6 +1,6 @@
 ﻿namespace _21110849_DangPhuQuy_QLSV
 {
-    partial class CourseListForm
+    partial class CourseStudentListForm
     {
         /// <summary>
         /// Required designer variable.

@@ -13,11 +13,11 @@ namespace _21110849_DangPhuQuy_QLSV
     {
         MY_DB mydb = new MY_DB();
 
-        public bool insertContact(int userid, string fname, string lname, int groupid, string phone, string email, string address, MemoryStream picture)
+        public bool insertContact(int id, string fname, string lname, int groupid, string phone, string email, string address, MemoryStream picture, int userid)
         {
-            SqlCommand cmd = new SqlCommand("insert into mycontact (userid, fname, lname, group_id, phone, email, address, pic) values (@id, @fn, @ln, @grp, @phone, @mail, @adrs, @pic)", mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("insert into mycontact (id, fname, lname, group_id, phone, email, address, pic, userid) values (@id, @fn, @ln, @grp, @phone, @mail, @adrs, @pic, @uid)", mydb.getConnection);
 
-            cmd.Parameters.Add("@id", SqlDbType.Int).Value = userid;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             cmd.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
             cmd.Parameters.Add("@grp", SqlDbType.Int).Value = groupid;
@@ -25,6 +25,7 @@ namespace _21110849_DangPhuQuy_QLSV
             cmd.Parameters.Add("@mail", SqlDbType.VarChar).Value = email;
             cmd.Parameters.Add("@adrs", SqlDbType.VarChar).Value = address;
             cmd.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
+            cmd.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
 
             mydb.openConnection();
 
@@ -40,11 +41,11 @@ namespace _21110849_DangPhuQuy_QLSV
             }
         }
 
-        public bool updateContact(int userid, string fname, string lname, int groupid, string phone, string email, string address, MemoryStream picture)
+        public bool updateContact(int id, string fname, string lname, int groupid, string phone, string email, string address, MemoryStream picture)
         {
-            SqlCommand cmd = new SqlCommand("update mycontact set fname = @fn, lname = @ln, group_id = @grp, phone = @phn, email = @mail, address = @add, pic = @pic where userid = @uid", mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("update mycontact set fname = @fn, lname = @ln, group_id = @grp, phone = @phn, email = @mail, address = @add, pic = @pic where id = @uid", mydb.getConnection);
 
-            cmd.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
+            cmd.Parameters.Add("@uid", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             cmd.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
             cmd.Parameters.Add("@grp", SqlDbType.Int).Value = groupid;
@@ -95,10 +96,10 @@ namespace _21110849_DangPhuQuy_QLSV
             return table;
         }
 
-        public DataTable getContactById(int contactid)
+        public DataTable getContactById(int id)
         {
-            SqlCommand command = new SqlCommand("select fname, lname, group_id, phone, email, address, pic, userid from mycontact where userid = @id ", mydb.getConnection);
-            command.Parameters.Add("@id", SqlDbType.Int).Value = contactid;
+            SqlCommand command = new SqlCommand("select fname, lname, group_id, phone, email, address, pic from mycontact where id = @id ", mydb.getConnection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

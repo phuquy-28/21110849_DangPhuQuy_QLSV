@@ -59,7 +59,7 @@ namespace _21110849_DangPhuQuy_QLSV
                     {
                         command.Parameters.AddWithValue("User", usernameTB.Text);
                         command.Parameters.AddWithValue("Pass", passwordTB.Text);
-                        command.Parameters.AddWithValue("Rol", "user");
+                        command.Parameters.AddWithValue("Rol", "student");
                     }
 
                     // Mở kết nối

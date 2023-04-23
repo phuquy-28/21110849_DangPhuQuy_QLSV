@@ -21,6 +21,8 @@ namespace _21110849_DangPhuQuy_QLSV
         }
 
         MY_DB mydb = new MY_DB();
+        GROUP group = new GROUP();
+        CONTACT contact = new CONTACT();
 
         public void getImageAndUsername()
         {
@@ -47,6 +49,12 @@ namespace _21110849_DangPhuQuy_QLSV
         private void MainFormHR_Load(object sender, EventArgs e)
         {
             getImageAndUsername();
+            cbSelectdGrp.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
+            cbSelectedGrpRemove.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
+            cbSelectdGrp.DisplayMember = "name";
+            cbSelectedGrpRemove.DisplayMember = "name";
+            cbSelectdGrp.Text = "";
+            cbSelectedGrpRemove.Text = "";
         }
 
         private void labEditInfo_Click(object sender, EventArgs e)
@@ -70,6 +78,95 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             EditContactForm editContactForm = new EditContactForm();
             editContactForm.Show(this);
+        }
+
+        private void btnAddGrpName_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(tbGrpId.Text);
+            string name = tbGrpName.Text;
+            int userid = Globals.GlobalUserId;
+            try
+            {
+                if (group.insertGroup(id, name, userid))
+                {
+                    MessageBox.Show("Adding Successfully", "Add Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    tbGrpId.Text = "";
+                    tbGrpName.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Adding Fail", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(tbContactId.Text);
+            try
+            {
+                if (contact.deleteContact(id))
+                {
+                    MessageBox.Show("Deleting Successfully", "Delete Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbContactId.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Deleting Fail", "Delete Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+
+        }
+
+        private void btnEditGrp_Click(object sender, EventArgs e)
+        {
+            DataRowView selected = cbSelectdGrp.SelectedItem as DataRowView;
+            int id = Convert.ToInt32(selected["id"]);
+            string name = tbNewNameGrp.Text;
+            //MessageBox.Show(id.ToString() + "  " + name);
+
+            if (group.updateGroup(id, name))
+            {
+                MessageBox.Show("Editing Successfully", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbSelectdGrp.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
+                cbSelectdGrp.DisplayMember = "name";
+                cbSelectdGrp.Text = "";
+                tbNewNameGrp.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Editing Fail", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemoveGrp_Click(object sender, EventArgs e)
+        {
+            DataRowView selected = cbSelectdGrp.SelectedItem as DataRowView;
+            int id = Convert.ToInt32(selected["id"]);
+
+            if (group.deleteGroup(id))
+            {
+                MessageBox.Show("Deleting Successfully", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbSelectdGrp.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
+                cbSelectdGrp.DisplayMember = "name";
+                cbSelectdGrp.Text = "";
+                tbNewNameGrp.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Deleting Fail", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

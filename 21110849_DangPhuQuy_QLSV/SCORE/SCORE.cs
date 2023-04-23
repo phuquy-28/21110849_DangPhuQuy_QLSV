@@ -118,7 +118,7 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = mydb.getConnection;
-            cmd.CommandText = "SELECT std.Id, std.fname, std.lname, score.course_id, course.label, score.student_score " +
+            cmd.CommandText = "SELECT std.Id, std.fname, std.lname, std.bdate, score.student_score " +
                 "FROM std JOIN score ON std.Id = score.student_id " +
                 "JOIN course ON score.course_id = course.id " +
                 "WHERE label = @courseName";
@@ -157,6 +157,22 @@ namespace _21110849_DangPhuQuy_QLSV
                 "JOIN dbo.score ON std.Id = score.student_id " +
                 "JOIN dbo.course ON course.id = score.course_id " +
                 "GROUP BY std.Id, fname, lname";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getCourseStdList(string cname)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = mydb.getConnection;
+            cmd.CommandText = "SELECT ROW_NUMBER() OVER (ORDER BY std.Id) AS STT, std.Id, fname, lname, bdate " +
+                "FROM std JOIN dbo.score ON std.Id = student_id " +
+                "JOIN dbo.course ON course.id = score.course_id " +
+                "WHERE course.label = @cname ";
+            cmd.Parameters.Add("@cname", SqlDbType.NVarChar).Value = cname;
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();

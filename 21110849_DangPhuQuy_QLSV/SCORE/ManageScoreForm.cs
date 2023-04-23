@@ -39,6 +39,11 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             SqlCommand cmd = new SqlCommand("select id, fname, lname from std");
             dgvStdAndScore.DataSource = student.getStudents(cmd);
+
+            //Đổi tên
+            dgvStdAndScore.Columns["id"].HeaderText = "Id";
+            dgvStdAndScore.Columns["fname"].HeaderText = "First name";
+            dgvStdAndScore.Columns["lname"].HeaderText = "Last name";
         }
 
         private void dgvStdAndScore_Click(object sender, EventArgs e)
@@ -56,11 +61,20 @@ namespace _21110849_DangPhuQuy_QLSV
         private void btnShowScore_Click(object sender, EventArgs e)
         {
             dgvStdAndScore.DataSource = score.getStudentScore();
+
+            //đổi tên cột
+            dgvStdAndScore.Columns["id"].HeaderText = "Id";
+            dgvStdAndScore.Columns["fname"].HeaderText = "First name";
+            dgvStdAndScore.Columns["lname"].HeaderText = "Last name";
+            dgvStdAndScore.Columns["course_id"].HeaderText = "Course ID";
+            dgvStdAndScore.Columns["label"].HeaderText = "Course name";
+            dgvStdAndScore.Columns["student_score"].HeaderText = "Student score";
+
         }
 
         private void btnAvgScore_Click(object sender, EventArgs e)
         {
-            AverageScore avgScoreFrm = new AverageScore();
+            AverageScoreByCourse avgScoreFrm = new AverageScoreByCourse();
             avgScoreFrm.Show(this);
         }
 
