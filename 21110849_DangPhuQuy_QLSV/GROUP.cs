@@ -79,5 +79,56 @@ namespace _21110849_DangPhuQuy_QLSV
             adapter.Fill(table);
             return table;
         }
+            
+        public DataTable getGroups(int userid)
+        {
+            SqlCommand command = new SqlCommand("Select * from mygroups where userid = @uid", mydb.getConnection);
+
+            command.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+
+            return table;
+        }
+        public bool groupExist(string name, string operation, int userid = 0, int groupid = 0)
+        {
+            string query = "";
+            SqlCommand command = new SqlCommand();
+            if (operation == "add")
+            {
+                query = "select * from mygroups where name = @name and userid = @uid";
+
+                command.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                command.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
+            }
+            else if (operation == "edit")
+            {
+                query = "select * from mygroups where name = @name and userid = @uid and id <> @gid";
+
+                command.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+                command.Parameters.Add("@uid", SqlDbType.Int).Value = userid;
+                command.Parameters.Add("@gid", SqlDbType.Int).Value = groupid;
+            }
+
+            command.Connection = mydb.getConnection;
+            command.CommandText = query;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

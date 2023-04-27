@@ -272,6 +272,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddContactForm";
             this.Text = "AddContactForm";
+            this.Load += new System.EventHandler(this.AddContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

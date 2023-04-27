@@ -28,62 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvAvgCourseScore = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAvgCourseScore)).BeginInit();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.chartByCourse = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartByResult = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chartByCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartByResult)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // chartByCourse
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Statistic by course";
+            chartArea1.Name = "ChartArea1";
+            this.chartByCourse.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartByCourse.Legends.Add(legend1);
+            this.chartByCourse.Location = new System.Drawing.Point(12, 12);
+            this.chartByCourse.Name = "chartByCourse";
+            this.chartByCourse.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Enabled = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Average Score";
+            this.chartByCourse.Series.Add(series1);
+            this.chartByCourse.Size = new System.Drawing.Size(484, 499);
+            this.chartByCourse.TabIndex = 2;
+            this.chartByCourse.Text = "chart1";
             // 
-            // dgvAvgCourseScore
+            // chartByResult
             // 
-            this.dgvAvgCourseScore.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAvgCourseScore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAvgCourseScore.Location = new System.Drawing.Point(17, 42);
-            this.dgvAvgCourseScore.Name = "dgvAvgCourseScore";
-            this.dgvAvgCourseScore.Size = new System.Drawing.Size(220, 205);
-            this.dgvAvgCourseScore.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(316, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 29);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Statistic by result";
+            chartArea2.Name = "ChartArea1";
+            this.chartByResult.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartByResult.Legends.Add(legend2);
+            this.chartByResult.Location = new System.Drawing.Point(522, 12);
+            this.chartByResult.Name = "chartByResult";
+            this.chartByResult.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series2.ChartArea = "ChartArea1";
+            series2.Enabled = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Average Score";
+            this.chartByResult.Series.Add(series2);
+            this.chartByResult.Size = new System.Drawing.Size(469, 499);
+            this.chartByResult.TabIndex = 3;
+            this.chartByResult.Text = "chart1";
             // 
             // StatisticResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 279);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvAvgCourseScore);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1003, 522);
+            this.Controls.Add(this.chartByResult);
+            this.Controls.Add(this.chartByCourse);
             this.Name = "StatisticResultForm";
             this.Text = "StatisticResultForm";
             this.Load += new System.EventHandler(this.StatisticResultForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAvgCourseScore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartByCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartByResult)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvAvgCourseScore;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartByCourse;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartByResult;
     }
 }

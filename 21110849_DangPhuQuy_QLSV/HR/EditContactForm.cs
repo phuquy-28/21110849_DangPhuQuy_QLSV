@@ -158,6 +158,27 @@ namespace _21110849_DangPhuQuy_QLSV.HR
             DataGridViewRow selectedRow = dgvContactList.CurrentRow;
 
             tbContactId.Text = selectedRow.Cells["id"].Value.ToString();
+
+            int id = Convert.ToInt32(tbContactId.Text);
+
+            DataTable table = new DataTable();
+            table = contact.getContactById(id);
+            if (table.Rows.Count > 0)
+            {
+                tbFname.Text = table.Rows[0]["fname"].ToString();
+                tbLname.Text = table.Rows[0]["lname"].ToString();
+                cbGrp.Text = table.Rows[0]["group_id"].ToString();
+                tbPhone.Text = table.Rows[0]["phone"].ToString();
+                tbEmail.Text = table.Rows[0]["email"].ToString();
+                rtbAdrs.Text = table.Rows[0]["address"].ToString();
+                byte[] pic = (byte[])table.Rows[0]["pic"];
+                MemoryStream picture = new MemoryStream(pic);
+                picbxPic.Image = Image.FromStream(picture);
+            }
+            else
+            {
+                MessageBox.Show("Not found", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

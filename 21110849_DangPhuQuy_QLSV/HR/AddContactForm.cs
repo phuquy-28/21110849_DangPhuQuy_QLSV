@@ -20,6 +20,7 @@ namespace _21110849_DangPhuQuy_QLSV
             InitializeComponent();
         }
         CONTACT contact = new CONTACT();
+        GROUP group = new GROUP();
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -52,7 +53,7 @@ namespace _21110849_DangPhuQuy_QLSV
             int id = Convert.ToInt32(tbContactId.Text);
             string fname = tbFname.Text.Trim();
             string lname = tbLname.Text.Trim();
-            int grp = Convert.ToInt32(cbGrp.Text);
+            int grp = Convert.ToInt32(cbGrp.SelectedValue);
             string phone = tbPhone.Text.Trim();
             string email = tbEmail.Text.Trim();
             string adrs = rtbAdrs.Text.Trim();
@@ -106,6 +107,15 @@ namespace _21110849_DangPhuQuy_QLSV
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddContactForm_Load(object sender, EventArgs e)
+        {
+            cbGrp.DataSource = group.getGroups(Globals.GlobalUserId);
+            cbGrp.DisplayMember = "name";
+            cbGrp.ValueMember = "id";
+            cbGrp.SelectedIndex = -1;
+
         }
     }
 }

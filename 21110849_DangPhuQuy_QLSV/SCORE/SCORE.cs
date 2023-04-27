@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataTable = System.Data.DataTable;
 
 namespace _21110849_DangPhuQuy_QLSV
 {
@@ -56,7 +58,7 @@ namespace _21110849_DangPhuQuy_QLSV
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = mydb.getConnection;
 
-            cmd.CommandText = "select course.label, avg(score.student_score) as AverageScore " +
+            cmd.CommandText = "select course.label, ROUND(avg(score.student_score), 2) as AverageScore " +
                 "from course, score " +
                 "where course.id = score.course_id " +
                 "group by course.label ";
@@ -151,12 +153,19 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = mydb.getConnection;
-            cmd.CommandText = "SELECT std.Id, fname, lname, AVG(student_score)AS Average, " +
-                "CASE WHEN AVG(student_score) >= 5 THEN 'Pass' ELSE 'fail' END AS pass " +
-                "FROM dbo.std " +
+            cmd.CommandText = "SELECT PivotTable.Id AS Id, PivotTable.fname AS [First name], PivotTable.lname AS [Last name], [Nhap mon lap trinh], [Toan roi rac], [Ky thuat lap trinh], [Co so du lieu], [Mang may tinh can ban] AS [Mang may tinh], " +
+                "(ISNULL([Nhap mon lap trinh], 0) + ISNULL([Toan roi rac], 0) + ISNULL([Ky thuat lap trinh], 0) + ISNULL([Co so du lieu], 0) + ISNULL([Mang may tinh can ban], 0))/NULLIF(CAST((CASE WHEN [Nhap mon lap trinh] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Toan roi rac] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Ky thuat lap trinh] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Co so du lieu] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Mang may tinh can ban] IS NOT NULL THEN 1 ELSE 0 END) AS FLOAT), 0) AS [Average Score], " +
+                "      CASE WHEN (ISNULL([Nhap mon lap trinh], 0) + ISNULL([Toan roi rac], 0) + ISNULL([Ky thuat lap trinh], 0) + ISNULL([Co so du lieu], 0) + ISNULL([Mang may tinh can ban], 0))/NULLIF(CAST((CASE WHEN [Nhap mon lap trinh] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Toan roi rac] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Ky thuat lap trinh] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Co so du lieu] IS NOT NULL THEN 1 ELSE 0 END + CASE WHEN [Mang may tinh can ban] IS NOT NULL THEN 1 ELSE 0 END) AS FLOAT), 0) >= 5 THEN 'Pass' ELSE 'Fail' END AS [Result] " +
+                "FROM ( " +
+                " SELECT std.Id, fname, lname, label, student_score " +
+                " FROM dbo.std " +
                 "JOIN dbo.score ON std.Id = score.student_id " +
                 "JOIN dbo.course ON course.id = score.course_id " +
-                "GROUP BY std.Id, fname, lname";
+                ") AS SourceTable " +
+                "PIVOT ( " +
+                "  MAX(student_score) " +
+                "  FOR label IN ([Nhap mon lap trinh], [Toan roi rac], [Ky thuat lap trinh], [Co so du lieu], [Mang may tinh can ban]) " +
+                ") AS PivotTable";
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -178,6 +187,36 @@ namespace _21110849_DangPhuQuy_QLSV
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }
+
+        public int getNumPass()
+        {
+            DataTable dt = getResultStudent();
+            int passCount = 0;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["Result"].ToString().ToLower() == "pass")
+                {
+                    passCount++;
+                }
+            }
+            return passCount;
+        }
+
+        public int getNumFail()
+        {
+            DataTable dt = getResultStudent();
+            int failCount = 0;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["Result"].ToString().ToLower() == "fail")
+                {
+                    failCount++;
+                }
+            }
+            return failCount;
         }
     }
 }

@@ -42,7 +42,9 @@
             this.btnShowFull = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbGrpId = new System.Windows.Forms.TextBox();
             this.btnAddGrpName = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbGrpName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -56,8 +58,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnRemoveGrp = new System.Windows.Forms.Button();
             this.picbxAvatar = new System.Windows.Forms.PictureBox();
-            this.tbGrpId = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -162,6 +162,7 @@
             this.btnSelect.TabIndex = 2;
             this.btnSelect.Text = "SelectContact";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // tbContactId
             // 
@@ -190,6 +191,7 @@
             this.btnShowFull.TabIndex = 8;
             this.btnShowFull.Text = "Show Full List";
             this.btnShowFull.UseVisualStyleBackColor = true;
+            this.btnShowFull.Click += new System.EventHandler(this.btnShowFull_Click);
             // 
             // label5
             // 
@@ -214,6 +216,14 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             // 
+            // tbGrpId
+            // 
+            this.tbGrpId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGrpId.Location = new System.Drawing.Point(138, 15);
+            this.tbGrpId.Name = "tbGrpId";
+            this.tbGrpId.Size = new System.Drawing.Size(192, 22);
+            this.tbGrpId.TabIndex = 8;
+            // 
             // btnAddGrpName
             // 
             this.btnAddGrpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,6 +234,16 @@
             this.btnAddGrpName.Text = "Add";
             this.btnAddGrpName.UseVisualStyleBackColor = true;
             this.btnAddGrpName.Click += new System.EventHandler(this.btnAddGrpName_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Enter Group ID:";
             // 
             // tbGrpName
             // 
@@ -313,7 +333,6 @@
             this.groupBox4.Size = new System.Drawing.Size(355, 80);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // cbSelectedGrpRemove
             // 
@@ -353,24 +372,6 @@
             this.picbxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picbxAvatar.TabIndex = 0;
             this.picbxAvatar.TabStop = false;
-            // 
-            // tbGrpId
-            // 
-            this.tbGrpId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGrpId.Location = new System.Drawing.Point(138, 15);
-            this.tbGrpId.Name = "tbGrpId";
-            this.tbGrpId.Size = new System.Drawing.Size(192, 22);
-            this.tbGrpId.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Enter Group ID:";
             // 
             // MainFormHR
             // 
@@ -419,7 +420,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.TextBox tbContactId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnShowFull;
         private System.Windows.Forms.Label label5;
@@ -439,5 +439,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbGrpId;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox tbContactId;
     }
 }

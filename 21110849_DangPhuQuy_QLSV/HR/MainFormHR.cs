@@ -41,16 +41,17 @@ namespace _21110849_DangPhuQuy_QLSV
             }
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void MainFormHR_Load(object sender, EventArgs e)
         {
             getImageAndUsername();
-            cbSelectdGrp.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
-            cbSelectedGrpRemove.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
+            loadComboBoxGrp();
+            
+        }
+
+        private void loadComboBoxGrp()
+        {
+            cbSelectdGrp.DataSource = group.getGroups(Globals.GlobalUserId);
+            cbSelectedGrpRemove.DataSource = group.getGroups(Globals.GlobalUserId);
             cbSelectdGrp.DisplayMember = "name";
             cbSelectedGrpRemove.DisplayMember = "name";
             cbSelectdGrp.Text = "";
@@ -87,17 +88,25 @@ namespace _21110849_DangPhuQuy_QLSV
             int userid = Globals.GlobalUserId;
             try
             {
-                if (group.insertGroup(id, name, userid))
+                if (!group.groupExist(name, "add", userid, id))
                 {
-                    MessageBox.Show("Adding Successfully", "Add Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    tbGrpId.Text = "";
-                    tbGrpName.Text = "";
+                    if (group.insertGroup(id, name, userid))
+                    {
+                        MessageBox.Show("Adding Successfully", "Add Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadComboBoxGrp();
+                        tbGrpId.Text = "";
+                        tbGrpName.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Adding Fail", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Adding Fail", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Group name has already exist", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
             catch (Exception ex)
             {
@@ -108,9 +117,9 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(tbContactId.Text);
             try
             {
+                int id = Convert.ToInt32(tbContactId.Text);
                 if (contact.deleteContact(id))
                 {
                     MessageBox.Show("Deleting Successfully", "Delete Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -135,19 +144,25 @@ namespace _21110849_DangPhuQuy_QLSV
             int id = Convert.ToInt32(selected["id"]);
             string name = tbNewNameGrp.Text;
             //MessageBox.Show(id.ToString() + "  " + name);
-
-            if (group.updateGroup(id, name))
+            if (!group.groupExist(name, "edit", Globals.GlobalUserId, id))
             {
-                MessageBox.Show("Editing Successfully", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cbSelectdGrp.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
-                cbSelectdGrp.DisplayMember = "name";
-                cbSelectdGrp.Text = "";
-                tbNewNameGrp.Text = "";
+                if (group.updateGroup(id, name))
+                {
+                    MessageBox.Show("Editing Successfully", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadComboBoxGrp();
+                    cbSelectdGrp.Text = "";
+                    tbNewNameGrp.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Editing Fail", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Editing Fail", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Group name has already exist", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void btnRemoveGrp_Click(object sender, EventArgs e)
@@ -158,8 +173,7 @@ namespace _21110849_DangPhuQuy_QLSV
             if (group.deleteGroup(id))
             {
                 MessageBox.Show("Deleting Successfully", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cbSelectdGrp.DataSource = group.selectGroupList(new SqlCommand("Select * from mygroups"));
-                cbSelectdGrp.DisplayMember = "name";
+                loadComboBoxGrp();
                 cbSelectdGrp.Text = "";
                 tbNewNameGrp.Text = "";
             }
@@ -167,6 +181,27 @@ namespace _21110849_DangPhuQuy_QLSV
             {
                 MessageBox.Show("Deleting Fail", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            SelectedContact selectContactfrm = new SelectedContact();
+            selectContactfrm.ShowDialog();
+            int contactId = Convert.ToInt32(selectContactfrm.dgvSelectedContact.CurrentRow.Cells["id"].Value.ToString());
+            tbContactId.Text = contactId.ToString();
+            
+
+            //tbContactId.Text = selectContactfrm.getContactId();
+            ////MessageBox.Show(selectContactfrm.getContactId());
+            //selectContactfrm.Show(this);
+
+
+        }
+
+        private void btnShowFull_Click(object sender, EventArgs e)
+        {
+            ShowFullListForm showFullListFrm = new ShowFullListForm();
+            showFullListFrm.Show(this);
         }
     }
 }
