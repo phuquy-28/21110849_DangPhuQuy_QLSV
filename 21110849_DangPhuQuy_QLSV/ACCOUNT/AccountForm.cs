@@ -30,11 +30,11 @@ namespace _21110849_DangPhuQuy_QLSV
             table.Clear();
             adapter.Fill(table);
 
-            dgvNewAccout.DataSource = table;
+            dgvStudent.DataSource = table;
 
-            dgvNewAccout.Columns[0].HeaderText = "Username";
-            dgvNewAccout.Columns[1].HeaderText = "Password";
-            dgvNewAccout.Columns[2].HeaderText = "Role";
+            dgvStudent.Columns[0].HeaderText = "Username";
+            dgvStudent.Columns[1].HeaderText = "Password";
+            dgvStudent.Columns[2].HeaderText = "Role";
 
             mydb.closeConnection();
         }
@@ -46,14 +46,14 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (dgvNewAccout.SelectedRows.Count <= 0)
+            if (dgvStudent.SelectedRows.Count <= 0)
                 return;
             try
             {
                 // Mở kết nối
                 mydb.openConnection();
 
-                DataGridViewRow selectedRow = dgvNewAccout.SelectedRows[0];
+                DataGridViewRow selectedRow = dgvStudent.SelectedRows[0];
                 SqlCommand command = new SqlCommand("INSERT INTO log_in (username, password, role) VALUES (@User, @Pass, @Rol) ", mydb.getConnection);
                 {
                     command.Parameters.AddWithValue("User", selectedRow.Cells[0].Value.ToString());
@@ -103,14 +103,14 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (dgvNewAccout.SelectedRows.Count <= 0)
+            if (dgvStudent.SelectedRows.Count <= 0)
                 return;
             try
             {
                 // Mở kết nối
                 mydb.openConnection();
 
-                DataGridViewRow selectedRow = dgvNewAccout.SelectedRows[0];
+                DataGridViewRow selectedRow = dgvStudent.SelectedRows[0];
 
                 SqlCommand command = new SqlCommand("DELETE FROM PendingAccount WHERE username = @User", mydb.getConnection);
                 command.Parameters.AddWithValue("@User", selectedRow.Cells[0].Value.ToString());
@@ -138,15 +138,15 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void btnAccAll_Click(object sender, EventArgs e)
         {
-            if (dgvNewAccout.Rows.Count <= 0)
+            if (dgvStudent.Rows.Count <= 0)
                 return;
             // Mở kết nối
             mydb.openConnection();
             int rowsAffectedIn = 0;
             int rowsAffectedDel = 0;
-            for (int i = 0; i < dgvNewAccout.Rows.Count; i++)
+            for (int i = 0; i < dgvStudent.Rows.Count; i++)
             {
-                DataGridViewRow selectedRow = dgvNewAccout.Rows[i];
+                DataGridViewRow selectedRow = dgvStudent.Rows[i];
                 if (selectedRow.Cells[0].Value != null)
                 {
                     try

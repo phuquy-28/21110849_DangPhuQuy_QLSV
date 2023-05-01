@@ -19,7 +19,9 @@ namespace _21110849_DangPhuQuy_QLSV.HR
         {
             InitializeComponent();
         }
+        MY_DB mydb = new MY_DB();
         CONTACT contact = new CONTACT();
+        GROUP group = new GROUP();
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
@@ -63,10 +65,13 @@ namespace _21110849_DangPhuQuy_QLSV.HR
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            SqlCommand command = new SqlCommand("select * from mycontact where userid = @uid");
+            command.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
+
             int id = Convert.ToInt32(tbContactId.Text);
             string fname = tbFname.Text.Trim();
             string lname = tbLname.Text.Trim();
-            int grp = Convert.ToInt32(cbGrp.Text);
+            int grp = Convert.ToInt32(cbGrp.SelectedValue);
             string phone = tbPhone.Text.Trim();
             string email = tbEmail.Text.Trim();
             string adrs = rtbAdrs.Text.Trim();
@@ -78,7 +83,7 @@ namespace _21110849_DangPhuQuy_QLSV.HR
                 if (contact.updateContact(id, fname, lname, grp, phone, email, adrs, pic))
                 {
                     MessageBox.Show("Editing Successfully", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvContactList.DataSource = contact.selectContactList(new SqlCommand("select * from mycontact"));
+                    dgvContactList.DataSource = contact.selectContactList(command);
                 }
                 else
                 {
@@ -151,7 +156,14 @@ namespace _21110849_DangPhuQuy_QLSV.HR
             dgvContactList.Columns[6].HeaderText = "Address";
             dgvContactList.Columns[7].HeaderText = "Picture";
             dgvContactList.Columns[8].HeaderText = "UserID";
-        
+
+            SqlCommand command1 = new SqlCommand("select * from mygroups where userid = @uid", mydb.getConnection);
+            command1.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
+            cbGrp.DataSource = group.selectGroupList(command1);
+            cbGrp.DisplayMember = "name";
+            cbGrp.ValueMember = "id";
+            cbGrp.SelectedIndex = -1;
+
         }
 
         private void dgvContactList_DoubleClick(object sender, EventArgs e)

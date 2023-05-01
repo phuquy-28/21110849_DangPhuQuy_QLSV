@@ -64,11 +64,10 @@ namespace _21110849_DangPhuQuy_QLSV
 
         }
 
-        public bool courseContactExist(int course_id, int contact_id)
+        public bool courseContactExist(int course_id)
         {
-            SqlCommand command = new SqlCommand("select * from course_contact where course_id = @cid and contact_id = @ctid", mydb.getConnection);
+            SqlCommand command = new SqlCommand("select * from course_contact where course_id = @cid", mydb.getConnection);
             command.Parameters.Add("cid", SqlDbType.Int).Value = course_id;
-            command.Parameters.Add("ctid", SqlDbType.Int).Value = contact_id;
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
@@ -87,7 +86,7 @@ namespace _21110849_DangPhuQuy_QLSV
             int flag = 1;
             foreach (var i in courseList)
             {
-                if (!courseContactExist((Int32)i, Convert.ToInt32(tbContactId.Text)))
+                if (!courseContactExist((Int32)i))
                 {
                     SqlCommand command = new SqlCommand();
                     command.Connection = mydb.getConnection;
@@ -112,7 +111,7 @@ namespace _21110849_DangPhuQuy_QLSV
             }
             else
             {
-                MessageBox.Show("Some courses has been added", "Add Course Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Some courses have been assinged to other contact", "Add Course Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -22,7 +22,8 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void SelectedContact_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select * from mycontact");
+            SqlCommand command = new SqlCommand("select * from mycontact where userid = @uid");
+            command.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
             dgvSelectedContact.DataSource = contact.selectContactList(command);
 
             dgvSelectedContact.Columns["id"].HeaderText = "Id";
