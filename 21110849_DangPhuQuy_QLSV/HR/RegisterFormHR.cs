@@ -40,54 +40,59 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             this.Close();
         }
+        public bool verif()
+        {
+            if (tbFname.Text.Trim() == ""
+                || tbLastname.Text.Trim() == ""
+                || tbUsername.Text.Trim() == ""
+                || tbPass.Text.Trim() == ""
+                || picbxPic.Image == null)
+            {
+                return false;
+            }
+            return true;
+        }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             USER user = new USER();
-
-            int id = Convert.ToInt32(tbId.Text);
-            string fname = tbFname.Text.Trim();
-            string lname = tbLastname.Text.Trim();
-            string uname = tbUsername.Text.Trim();
-            string pass = tbPass.Text.Trim();
-            MemoryStream pic = new MemoryStream();
-
-            if (verif())
+            try
             {
-                if (!user.usernameExist(uname, "register"))
+                int id = Convert.ToInt32(tbId.Text);
+                string fname = tbFname.Text.Trim();
+                string lname = tbLastname.Text.Trim();
+                string uname = tbUsername.Text.Trim();
+                string pass = tbPass.Text.Trim();
+                MemoryStream pic = new MemoryStream();
+
+                if (verif())
                 {
-                    picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                    if (user.insertUser(id, fname, lname, uname, pass, pic))
+                    if (!user.usernameExist(uname, "register") && !user.UserIdExist(id))
                     {
-                        MessageBox.Show("New HR Added", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
+                        if (user.insertUser(id, fname, lname, uname, pass, pic))
+                        {
+                            MessageBox.Show("New HR Added", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Adding fail", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Username or Id has already exist", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("Username has already exist", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Empty Fields", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Empty Fields", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-            bool verif()
-            {
-                if (tbFname.Text.Trim() == ""
-                    || tbLastname.Text.Trim() == ""
-                    || tbUsername.Text.Trim() == ""
-                    || tbPass.Text.Trim() == ""
-                    || picbxPic.Image == null)
-                {
-                    return false;
-                }
-                return true;
+                MessageBox.Show(ex.Message, "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

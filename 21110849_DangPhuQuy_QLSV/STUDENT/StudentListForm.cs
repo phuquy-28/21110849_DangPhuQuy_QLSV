@@ -307,7 +307,6 @@ namespace _21110849_DangPhuQuy_QLSV
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-
                 Export_Data_To_Word(stdListDGV, sfd.FileName);
                 MessageBox.Show("Data exported successfully.", "Export to Word", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -144,43 +144,59 @@ namespace _21110849_DangPhuQuy_QLSV
             int id = Convert.ToInt32(selected["id"]);
             string name = tbNewNameGrp.Text;
             //MessageBox.Show(id.ToString() + "  " + name);
-            if (!group.groupExist(name, "edit", Globals.GlobalUserId, id))
+            try
             {
-                if (group.updateGroup(id, name))
+                if (!group.groupExist(name, "edit", Globals.GlobalUserId, id))
                 {
-                    MessageBox.Show("Editing Successfully", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadComboBoxGrp();
-                    cbSelectdGrp.Text = "";
-                    tbNewNameGrp.Text = "";
+                    if (group.updateGroup(id, name))
+                    {
+                        MessageBox.Show("Editing Successfully", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadComboBoxGrp();
+                        cbSelectdGrp.Text = "";
+                        tbNewNameGrp.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Editing Fail", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Editing Fail", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Group name has already exist", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Group name has already exist", "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Editing Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            
+
+
         }
 
         private void btnRemoveGrp_Click(object sender, EventArgs e)
         {
             DataRowView selected = cbSelectdGrp.SelectedItem as DataRowView;
             int id = Convert.ToInt32(selected["id"]);
+            try
+            {
+                if (group.deleteGroup(id))
+                {
+                    MessageBox.Show("Deleting Successfully", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadComboBoxGrp();
+                    cbSelectdGrp.Text = "";
+                    tbNewNameGrp.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Deleting Fail", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            if (group.deleteGroup(id))
-            {
-                MessageBox.Show("Deleting Successfully", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadComboBoxGrp();
-                cbSelectdGrp.Text = "";
-                tbNewNameGrp.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Deleting Fail", "Deleting Group", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

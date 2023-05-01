@@ -43,9 +43,9 @@ namespace _21110849_DangPhuQuy_QLSV
 
         public bool updateContact(int id, string fname, string lname, int groupid, string phone, string email, string address, MemoryStream picture)
         {
-            SqlCommand cmd = new SqlCommand("update mycontact set fname = @fn, lname = @ln, group_id = @grp, phone = @phn, email = @mail, address = @add, pic = @pic where id = @uid", mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("update mycontact set fname = @fn, lname = @ln, group_id = @grp, phone = @phn, email = @mail, address = @add, pic = @pic where id = @id", mydb.getConnection);
 
-            cmd.Parameters.Add("@uid", SqlDbType.Int).Value = id;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@fn", SqlDbType.VarChar).Value = fname;
             cmd.Parameters.Add("@ln", SqlDbType.VarChar).Value = lname;
             cmd.Parameters.Add("@grp", SqlDbType.Int).Value = groupid;
@@ -104,6 +104,28 @@ namespace _21110849_DangPhuQuy_QLSV
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }
+
+        public bool contactExist(int ctid, int userid)
+        {
+            SqlCommand command = new SqlCommand("select * from mycontact where id = @ctid and userid = @userid", mydb.getConnection);
+            command.Parameters.Add("ctid", SqlDbType.Int).Value = ctid;
+            command.Parameters.Add("userid", SqlDbType.Int).Value = Globals.GlobalUserId;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -130,7 +130,8 @@ namespace _21110849_DangPhuQuy_QLSV.HR
         {
             //tbContactId.Enabled = false;
 
-            SqlCommand command = new SqlCommand("select * from mycontact");
+            SqlCommand command = new SqlCommand("select * from mycontact where userid = @uid");
+            command.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
             //dgvContactList.DataSource = contact.selectContactList(command);
 
             //Xu ly hinh anh

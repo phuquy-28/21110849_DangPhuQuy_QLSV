@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace _21110849_DangPhuQuy_QLSV
 {
@@ -63,22 +64,46 @@ namespace _21110849_DangPhuQuy_QLSV
 
         }
 
+        public bool courseContactExist(int course_id, int contact_id)
+        {
+            SqlCommand command = new SqlCommand("select * from course_contact where course_id = @cid and contact_id = @ctid", mydb.getConnection);
+            command.Parameters.Add("cid", SqlDbType.Int).Value = course_id;
+            command.Parameters.Add("ctid", SqlDbType.Int).Value = contact_id;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+                return true;   
+            else
+                return false;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             int flag = 1;
-
-
             foreach (var i in courseList)
             {
-                SqlCommand command = new SqlCommand();
-                command.Connection = mydb.getConnection;
-                command.CommandText = "insert into course_contact (course_id, contact_id) values (@cid, @ctid)";
-                command.Parameters.Add("ctid", SqlDbType.Int).Value = Convert.ToInt32(tbContactId.Text);
-                command.Parameters.Add("cid", SqlDbType.Int).Value = (Int32)i;
-                mydb.openConnection();
-                if (command.ExecuteNonQuery() == 0)
+                if (!courseContactExist((Int32)i, Convert.ToInt32(tbContactId.Text)))
+                {
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = mydb.getConnection;
+                    command.CommandText = "insert into course_contact (course_id, contact_id) values (@cid, @ctid)";
+                    command.Parameters.Add("ctid", SqlDbType.Int).Value = Convert.ToInt32(tbContactId.Text);
+                    command.Parameters.Add("cid", SqlDbType.Int).Value = (Int32)i;
+                    mydb.openConnection();
+                    if (command.ExecuteNonQuery() == 0)
+                        flag = 0;
+                    mydb.closeConnection();
+                }
+                else
+                {
                     flag = 0;
-                mydb.closeConnection();
+                }
+                
             }
 
             if (flag == 1)
@@ -87,7 +112,7 @@ namespace _21110849_DangPhuQuy_QLSV
             }
             else
             {
-                MessageBox.Show("Adding fail", "Add Course Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Some courses has been added", "Add Course Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

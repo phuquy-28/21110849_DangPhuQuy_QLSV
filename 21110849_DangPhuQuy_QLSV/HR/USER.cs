@@ -103,5 +103,14 @@ namespace _21110849_DangPhuQuy_QLSV
                 return false;
             }
         }
+
+        public bool UserIdExist(int userid)
+        {
+            DataTable table = new DataTable();
+            table = getUserById(userid);
+            if (table.Rows.Count > 0)
+                return true;
+            return false;
+        }
     }
 }

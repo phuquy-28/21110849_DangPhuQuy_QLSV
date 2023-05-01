@@ -72,7 +72,7 @@ namespace _21110849_DangPhuQuy_QLSV
             try
             {
                 int groupId = (Int32)lisboxGroup.SelectedValue;
-                SqlCommand command = new SqlCommand("Select fname as [First name], lname as [Last name], mygroups.name as 'Group', phone, email, address, pic " +
+                SqlCommand command = new SqlCommand("Select mycontact.id as [Id], fname as [First name], lname as [Last name], mygroups.name as 'Group', phone, email, address, pic " +
                 "From mycontact join mygroups on mycontact.group_id = mygroups.id " +
                 "Where mycontact.userid = @userid and mycontact.group_id = @groupid ");
                 command.Parameters.Add("@userid", SqlDbType.Int).Value = Globals.GlobalUserId;

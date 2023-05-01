@@ -62,22 +62,30 @@ namespace _21110849_DangPhuQuy_QLSV
             if (verify())
             {
                 picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                if (contact.insertContact(id, fname, lname, grp, phone, email, adrs, pic, Globals.GlobalUserId))
+                if (!contact.contactExist(id, Globals.GlobalUserId))
                 {
-                    MessageBox.Show("Adding Successfully", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    tbContactId.Text = "";
-                    tbFname.Text = "";
-                    tbLname.Text = "";
-                    cbGrp.SelectedIndex = -1;
-                    tbPhone.Text = "";
-                    tbEmail.Text = "";
-                    rtbAdrs.Text = "";
-                    picbxPic.Image = null;
+                    if (contact.insertContact(id, fname, lname, grp, phone, email, adrs, pic, Globals.GlobalUserId))
+                    {
+                        MessageBox.Show("Adding Successfully", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tbContactId.Text = "";
+                        tbFname.Text = "";
+                        tbLname.Text = "";
+                        cbGrp.SelectedIndex = -1;
+                        tbPhone.Text = "";
+                        tbEmail.Text = "";
+                        rtbAdrs.Text = "";
+                        picbxPic.Image = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Adding Fail", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Adding Fail", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Contact ID has already exist", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
             else
             {
@@ -115,7 +123,6 @@ namespace _21110849_DangPhuQuy_QLSV
             cbGrp.DisplayMember = "name";
             cbGrp.ValueMember = "id";
             cbGrp.SelectedIndex = -1;
-
         }
     }
 }

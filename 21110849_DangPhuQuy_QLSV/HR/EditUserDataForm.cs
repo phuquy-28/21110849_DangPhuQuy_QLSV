@@ -65,29 +65,46 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int userId = Globals.GlobalUserId;
-            string fname = tbFname.Text.Trim();
-            string lname = tbLname.Text.Trim();
-            string uname = tbUname.Text.Trim();
-            string pass = tbPass.Text.Trim();
-            MemoryStream pic = new MemoryStream();
-
-            if (verif())
+            try
             {
-                picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                if(user.updaterUser(userId, fname, lname, uname, pass, pic))
+                int userId = Globals.GlobalUserId;
+                string fname = tbFname.Text.Trim();
+                string lname = tbLname.Text.Trim();
+                string uname = tbUname.Text.Trim();
+                string pass = tbPass.Text.Trim();
+                MemoryStream pic = new MemoryStream();
+
+                if (verif())
                 {
-                    MessageBox.Show("Updating Successfully", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
+
+                    if (!user.usernameExist(uname, "edit", userId))
+                    {
+                        if (user.updaterUser(userId, fname, lname, uname, pass, pic))
+                        {
+                            MessageBox.Show("Updating Successfully", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Updating Fail", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username has already exist", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Updating Fail", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Empty Fields", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Empty Fields", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }
