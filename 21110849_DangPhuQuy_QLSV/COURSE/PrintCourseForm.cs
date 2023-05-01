@@ -21,11 +21,13 @@ namespace _21110849_DangPhuQuy_QLSV
         public PrintCourseForm()
         {
             InitializeComponent();
+            cbSem.SelectedIndex = 0;
         }
         MY_DB mydb = new MY_DB();
         private void PrintCourseForm_Load(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("select * from course", mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("select * from course where semester = @sem", mydb.getConnection);
+            cmd.Parameters.Add("sem", SqlDbType.Int).Value = Convert.ToInt32(cbSem.Text);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -36,6 +38,7 @@ namespace _21110849_DangPhuQuy_QLSV
             dgvListCourse.Columns[1].HeaderText = "Label";
             dgvListCourse.Columns[2].HeaderText = "Period";
             dgvListCourse.Columns[3].HeaderText = "Description";
+            dgvListCourse.Columns[4].Visible = false;
         }
 
         public void Export_Data_To_Word(DataGridView DGV, string filename)
@@ -245,6 +248,11 @@ namespace _21110849_DangPhuQuy_QLSV
 
 
             printer.PrintPreviewDataGridView(dgvListCourse);
+        }
+
+        private void cbSem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PrintCourseForm_Load(null, null);
         }
     }
 }

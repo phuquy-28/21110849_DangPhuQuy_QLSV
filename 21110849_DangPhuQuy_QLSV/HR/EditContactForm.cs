@@ -180,5 +180,12 @@ namespace _21110849_DangPhuQuy_QLSV.HR
                 MessageBox.Show("Not found", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            AddCourseContactForm addCourseContactFrm = new AddCourseContactForm();
+            addCourseContactFrm.tbContactId.Text = dgvContactList.CurrentRow.Cells["id"].Value.ToString();
+            addCourseContactFrm.Show(this);
+        }
     }
 }

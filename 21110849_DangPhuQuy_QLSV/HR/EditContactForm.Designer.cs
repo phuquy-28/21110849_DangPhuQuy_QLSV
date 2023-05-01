@@ -50,6 +50,7 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.picbxPic = new System.Windows.Forms.PictureBox();
             this.dgvContactList = new System.Windows.Forms.DataGridView();
+            this.btnAddCourse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).BeginInit();
             this.SuspendLayout();
@@ -240,13 +241,14 @@
             // 
             // btnSelect
             // 
+            this.btnSelect.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.Location = new System.Drawing.Point(227, 59);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(84, 26);
             this.btnSelect.TabIndex = 42;
-            this.btnSelect.Text = "Select ID";
-            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Text = "Find";
+            this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // picbxPic
@@ -268,11 +270,24 @@
             this.dgvContactList.TabIndex = 43;
             this.dgvContactList.DoubleClick += new System.EventHandler(this.dgvContactList_DoubleClick);
             // 
+            // btnAddCourse
+            // 
+            this.btnAddCourse.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAddCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCourse.Location = new System.Drawing.Point(354, 478);
+            this.btnAddCourse.Name = "btnAddCourse";
+            this.btnAddCourse.Size = new System.Drawing.Size(110, 39);
+            this.btnAddCourse.TabIndex = 44;
+            this.btnAddCourse.Text = "Add Course";
+            this.btnAddCourse.UseVisualStyleBackColor = false;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
+            // 
             // EditContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 529);
+            this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.dgvContactList);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnCancel);
@@ -329,5 +344,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.DataGridView dgvContactList;
+        private System.Windows.Forms.Button btnAddCourse;
     }
 }

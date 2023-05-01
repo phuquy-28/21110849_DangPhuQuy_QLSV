@@ -37,14 +37,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbSelectedCourse = new System.Windows.Forms.ComboBox();
             this.numericUpDownPeriod = new System.Windows.Forms.NumericUpDown();
+            this.cbSem = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPeriod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(154, 260);
+            this.btnEdit.Location = new System.Drawing.Point(154, 298);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(214, 36);
             this.btnEdit.TabIndex = 20;
@@ -55,7 +59,7 @@
             // rtbDes
             // 
             this.rtbDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDes.Location = new System.Drawing.Point(154, 149);
+            this.rtbDes.Location = new System.Drawing.Point(154, 187);
             this.rtbDes.Name = "rtbDes";
             this.rtbDes.Size = new System.Drawing.Size(214, 96);
             this.rtbDes.TabIndex = 19;
@@ -65,7 +69,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(38, 149);
+            this.label5.Location = new System.Drawing.Point(38, 187);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 18;
@@ -128,11 +132,47 @@
             this.numericUpDownPeriod.TabIndex = 23;
             this.numericUpDownPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.isDigit_KeyPress);
             // 
+            // cbSem
+            // 
+            this.cbSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSem.FormattingEnabled = true;
+            this.cbSem.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSem.Location = new System.Drawing.Point(154, 147);
+            this.cbSem.Name = "cbSem";
+            this.cbSem.Size = new System.Drawing.Size(214, 24);
+            this.cbSem.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(49, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 20);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Semester:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_21110849_DangPhuQuy_QLSV.Properties.Resources.fhq_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(392, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(106, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
             // EditCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 319);
+            this.ClientSize = new System.Drawing.Size(522, 351);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.cbSem);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDownPeriod);
             this.Controls.Add(this.cbSelectedCourse);
             this.Controls.Add(this.btnEdit);
@@ -146,6 +186,7 @@
             this.Text = "EditCourseForm";
             this.Load += new System.EventHandler(this.EditCourseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPeriod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +202,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbSelectedCourse;
         private System.Windows.Forms.NumericUpDown numericUpDownPeriod;
+        private System.Windows.Forms.ComboBox cbSem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

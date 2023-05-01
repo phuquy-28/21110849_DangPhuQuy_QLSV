@@ -98,6 +98,8 @@ namespace _21110849_DangPhuQuy_QLSV
                 {
                     femaleRBtn.Checked = true;
                 }
+                else
+                    maleRBtn.Checked = true;
 
                 phoneTB.Text = stdListDgv.CurrentRow.Cells[5].Value.ToString();
                 addressTB.Text = stdListDgv.CurrentRow.Cells[6].Value.ToString();

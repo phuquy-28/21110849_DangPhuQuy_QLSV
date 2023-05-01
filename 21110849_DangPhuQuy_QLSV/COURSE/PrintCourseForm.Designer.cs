@@ -31,6 +31,8 @@
             this.dgvListCourse = new System.Windows.Forms.DataGridView();
             this.btnToFile = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbSem = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,11 +68,36 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(577, 408);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 18);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Semester:";
+            // 
+            // cbSem
+            // 
+            this.cbSem.FormattingEnabled = true;
+            this.cbSem.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSem.Location = new System.Drawing.Point(667, 408);
+            this.cbSem.Name = "cbSem";
+            this.cbSem.Size = new System.Drawing.Size(121, 21);
+            this.cbSem.TabIndex = 4;
+            this.cbSem.SelectedIndexChanged += new System.EventHandler(this.cbSem_SelectedIndexChanged);
+            // 
             // PrintCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbSem);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnToFile);
             this.Controls.Add(this.dgvListCourse);
@@ -79,6 +106,7 @@
             this.Load += new System.EventHandler(this.PrintCourseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCourse)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,5 +119,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn labelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn periodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbSem;
     }
 }

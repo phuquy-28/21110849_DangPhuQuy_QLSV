@@ -45,6 +45,8 @@
             this.btnPre = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.numPeriod = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbSem = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numPeriod)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(46, 319);
+            this.btnAdd.Location = new System.Drawing.Point(46, 358);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(86, 36);
             this.btnAdd.TabIndex = 20;
@@ -63,7 +65,7 @@
             // rtbDes
             // 
             this.rtbDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDes.Location = new System.Drawing.Point(166, 155);
+            this.rtbDes.Location = new System.Drawing.Point(166, 194);
             this.rtbDes.Name = "rtbDes";
             this.rtbDes.Size = new System.Drawing.Size(214, 96);
             this.rtbDes.TabIndex = 19;
@@ -73,7 +75,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(50, 155);
+            this.label5.Location = new System.Drawing.Point(50, 194);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 20);
             this.label5.TabIndex = 18;
@@ -153,7 +155,7 @@
             // 
             this.btnEdit.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(158, 319);
+            this.btnEdit.Location = new System.Drawing.Point(158, 358);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(86, 36);
             this.btnEdit.TabIndex = 23;
@@ -165,7 +167,7 @@
             // 
             this.btnRemove.BackColor = System.Drawing.Color.Crimson;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(270, 319);
+            this.btnRemove.Location = new System.Drawing.Point(270, 358);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(97, 36);
             this.btnRemove.TabIndex = 24;
@@ -176,7 +178,7 @@
             // btnFirst
             // 
             this.btnFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFirst.Location = new System.Drawing.Point(18, 269);
+            this.btnFirst.Location = new System.Drawing.Point(18, 308);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(86, 32);
             this.btnFirst.TabIndex = 25;
@@ -187,7 +189,7 @@
             // btnLast
             // 
             this.btnLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLast.Location = new System.Drawing.Point(110, 269);
+            this.btnLast.Location = new System.Drawing.Point(110, 308);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(86, 32);
             this.btnLast.TabIndex = 26;
@@ -198,7 +200,7 @@
             // btnPre
             // 
             this.btnPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPre.Location = new System.Drawing.Point(202, 269);
+            this.btnPre.Location = new System.Drawing.Point(202, 308);
             this.btnPre.Name = "btnPre";
             this.btnPre.Size = new System.Drawing.Size(86, 32);
             this.btnPre.TabIndex = 27;
@@ -209,7 +211,7 @@
             // btnNext
             // 
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(294, 269);
+            this.btnNext.Location = new System.Drawing.Point(294, 308);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(86, 32);
             this.btnNext.TabIndex = 28;
@@ -226,11 +228,35 @@
             this.numPeriod.TabIndex = 29;
             this.numPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.isDigit_KeyPress);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(58, 158);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 20);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Semester:";
+            // 
+            // cbSem
+            // 
+            this.cbSem.FormattingEnabled = true;
+            this.cbSem.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSem.Location = new System.Drawing.Point(168, 156);
+            this.cbSem.Name = "cbSem";
+            this.cbSem.Size = new System.Drawing.Size(121, 21);
+            this.cbSem.TabIndex = 31;
+            // 
             // ManageCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbSem);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.numPeriod);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPre);
@@ -275,5 +301,7 @@
         private System.Windows.Forms.Button btnPre;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.NumericUpDown numPeriod;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbSem;
     }
 }

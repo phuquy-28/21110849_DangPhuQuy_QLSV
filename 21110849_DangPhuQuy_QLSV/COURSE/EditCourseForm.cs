@@ -58,13 +58,14 @@ namespace _21110849_DangPhuQuy_QLSV
             int hrs = Convert.ToInt32(numericUpDownPeriod.Value);
             string descrip = rtbDes.Text;
             int id = Convert.ToInt32(cbSelectedCourse.SelectedValue);
+            int sem = Convert.ToInt32(cbSem.Text);
 
             //lấy lại phần kiểm tra tên course
             if(!course.checkCourseName(name, Convert.ToInt32(cbSelectedCourse.SelectedValue)))
             {
                 MessageBox.Show("This Coursename has already exist", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if(course.updateCourse(id, name, hrs, descrip))
+            else if(course.updateCourse(id, name, hrs, descrip, sem))
             {
                 MessageBox.Show("Course updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 fillCombo(cbSelectedCourse.SelectedIndex);

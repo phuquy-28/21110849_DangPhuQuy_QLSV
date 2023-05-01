@@ -13,13 +13,14 @@ namespace _21110849_DangPhuQuy_QLSV
     {
         MY_DB mydb = new MY_DB();
 
-        public bool insertCourse(int id, string courseName, int hoursNumber, string description)
+        public bool insertCourse(int id, string courseName, int hoursNumber, string description, int semester)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Course (id, label, period, description) Values (@id, @name, @hours, @des)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO Course (id, label, period, description, semester) Values (@id, @name, @hours, @des, @sem)", mydb.getConnection);
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@name", courseName);
             command.Parameters.AddWithValue("@hours", hoursNumber);
             command.Parameters.AddWithValue("@des", description);
+            command.Parameters.AddWithValue("@sem", semester);
 
             mydb.openConnection();
 
@@ -34,13 +35,14 @@ namespace _21110849_DangPhuQuy_QLSV
 
             mydb.closeConnection();
         }
-        public bool updateCourse(int id, string courseName, int hoursNumber, string description)
+        public bool updateCourse(int id, string courseName, int hoursNumber, string description, int semester)
         {
-            SqlCommand command = new SqlCommand("UPDATE Course SET label=@name, period=@hours, description=@des WHERE id= " + id, mydb.getConnection);
+            SqlCommand command = new SqlCommand("UPDATE Course SET label=@name, period=@hours, description=@des, semester = @sem WHERE id= " + id, mydb.getConnection);
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@name", courseName);
             command.Parameters.AddWithValue("@hours", hoursNumber);
             command.Parameters.AddWithValue("@des", description);
+            command.Parameters.AddWithValue("@sem", semester);
 
             mydb.openConnection();
 
@@ -74,6 +76,20 @@ namespace _21110849_DangPhuQuy_QLSV
 
             mydb.closeConnection();
         }
+        public DataTable getCourseBySem(int semester)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM Course WHERE semester = @sem", mydb.getConnection);
+            command.Parameters.Add("sem", SqlDbType.Int).Value = semester;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            System.Data.DataTable table = new System.Data.DataTable();
+
+            adapter.Fill(table);
+
+            return table;
+        }
+
         public System.Data.DataTable getAllCourse()
         {
             SqlCommand command = new SqlCommand("SELECT * FROM Course", mydb.getConnection);

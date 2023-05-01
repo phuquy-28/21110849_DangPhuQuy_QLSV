@@ -44,6 +44,7 @@
             this.dgvContactList.Size = new System.Drawing.Size(739, 424);
             this.dgvContactList.TabIndex = 0;
             this.dgvContactList.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContactList_ColumnHeaderMouseClick);
+            this.dgvContactList.DoubleClick += new System.EventHandler(this.dgvContactList_DoubleClick);
             // 
             // label1
             // 
@@ -97,7 +98,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvContactList);
             this.Name = "ShowFullListForm";
-            this.Text = "SelectContactForm";
+            this.Text = "ShowFullListForm";
             this.Load += new System.EventHandler(this.ShowFullListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).EndInit();
             this.ResumeLayout(false);

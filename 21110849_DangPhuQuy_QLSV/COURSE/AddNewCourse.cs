@@ -20,6 +20,7 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             InitializeComponent();
             this.AcceptButton = btnAdd;
+            cbSem.SelectedIndex = 0;
         }
         
         bool checkPeriod(int period)
@@ -33,6 +34,7 @@ namespace _21110849_DangPhuQuy_QLSV
             string label = tbLabel.Text;
             int period = Convert.ToInt32(tbPeriod.Text);
             string des = rtbDes.Text;
+            int semester = Convert.ToInt32(cbSem.Text);
 
 
             if (label.Trim() == "")
@@ -47,7 +49,7 @@ namespace _21110849_DangPhuQuy_QLSV
             {
                 try
                 {
-                    if (course.insertCourse(id, label, period, des))
+                    if (course.insertCourse(id, label, period, des, semester))
                     {
                         tbID.Text = "";
                         tbLabel.Text = "";

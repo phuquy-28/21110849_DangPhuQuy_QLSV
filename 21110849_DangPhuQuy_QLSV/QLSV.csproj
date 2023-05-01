@@ -80,10 +80,22 @@
     <Compile Include="ACCOUNT\AccountListForm.Designer.cs">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddCourseStudentForm.cs">
+    <Compile Include="HR\CourseContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCourseStudentForm.Designer.cs">
+    <Compile Include="HR\CourseContactForm.Designer.cs">
+      <DependentUpon>CourseContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR\AddCourseContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\AddCourseContactForm.Designer.cs">
+      <DependentUpon>AddCourseContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STUDENT\AddCourseStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STUDENT\AddCourseStudentForm.Designer.cs">
       <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GROUP.cs" />
@@ -100,10 +112,10 @@
     <Compile Include="SelectedContact.Designer.cs">
       <DependentUpon>SelectedContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\CourseStudentListForm.cs">
+    <Compile Include="COURSE\CourseStudentListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\CourseStudentListForm.Designer.cs">
+    <Compile Include="COURSE\CourseStudentListForm.Designer.cs">
       <DependentUpon>CourseStudentListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\EditContactForm.cs">
@@ -294,7 +306,13 @@
     <EmbeddedResource Include="ACCOUNT\AccountListForm.resx">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddCourseStudentForm.resx">
+    <EmbeddedResource Include="HR\CourseContactForm.resx">
+      <DependentUpon>CourseContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\AddCourseContactForm.resx">
+      <DependentUpon>AddCourseContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STUDENT\AddCourseStudentForm.resx">
       <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\AddContactForm.resx">
@@ -303,7 +321,7 @@
     <EmbeddedResource Include="SelectedContact.resx">
       <DependentUpon>SelectedContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\CourseStudentListForm.resx">
+    <EmbeddedResource Include="COURSE\CourseStudentListForm.resx">
       <DependentUpon>CourseStudentListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\EditContactForm.resx">

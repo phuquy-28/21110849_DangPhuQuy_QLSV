@@ -38,6 +38,8 @@
             this.rtbDes = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbSem = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +103,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 167);
+            this.label5.Location = new System.Drawing.Point(32, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 20);
             this.label5.TabIndex = 8;
@@ -110,7 +112,7 @@
             // rtbDes
             // 
             this.rtbDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDes.Location = new System.Drawing.Point(148, 167);
+            this.rtbDes.Location = new System.Drawing.Point(148, 201);
             this.rtbDes.Name = "rtbDes";
             this.rtbDes.Size = new System.Drawing.Size(214, 96);
             this.rtbDes.TabIndex = 9;
@@ -120,7 +122,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(148, 278);
+            this.btnAdd.Location = new System.Drawing.Point(148, 312);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(214, 36);
             this.btnAdd.TabIndex = 10;
@@ -138,11 +140,35 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(44, 166);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Semester:";
+            // 
+            // cbSem
+            // 
+            this.cbSem.FormattingEnabled = true;
+            this.cbSem.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSem.Location = new System.Drawing.Point(148, 168);
+            this.cbSem.Name = "cbSem";
+            this.cbSem.Size = new System.Drawing.Size(121, 21);
+            this.cbSem.TabIndex = 14;
+            // 
             // AddNewCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 352);
+            this.ClientSize = new System.Drawing.Size(529, 371);
+            this.Controls.Add(this.cbSem);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.rtbDes);
@@ -173,5 +199,7 @@
         private System.Windows.Forms.RichTextBox rtbDes;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbSem;
     }
 }

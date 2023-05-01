@@ -26,6 +26,7 @@ namespace _21110849_DangPhuQuy_QLSV
         private void ManageCourseForm_Load(object sender, EventArgs e)
         {
             reLoadListBoxData();
+            cbSem.SelectedIndex = 0;
         }
 
         void reLoadListBoxData()
@@ -48,6 +49,7 @@ namespace _21110849_DangPhuQuy_QLSV
             tbID.Text = dr.ItemArray[0].ToString();
             tbLabel.Text = dr.ItemArray[1].ToString();
             numPeriod.Value = Convert.ToInt32(dr.ItemArray[2].ToString());
+            cbSem.Text = dr.ItemArray[4].ToString();
             rtbDes.Text = dr.ItemArray[3].ToString();
         }
 
@@ -59,6 +61,7 @@ namespace _21110849_DangPhuQuy_QLSV
             string label = tbLabel.Text;
             int period = Convert.ToInt32(numPeriod.Text);
             string des = rtbDes.Text;
+            int sem = Convert.ToInt32(cbSem.Text);
 
 
             if (label.Trim() == "")
@@ -69,7 +72,7 @@ namespace _21110849_DangPhuQuy_QLSV
             {
                 try
                 {
-                    if (course.insertCourse(id, label, period, des))
+                    if (course.insertCourse(id, label, period, des, sem))
                     {
                         MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tbID.Text = "";
@@ -113,13 +116,15 @@ namespace _21110849_DangPhuQuy_QLSV
             int hrs = Convert.ToInt32(numPeriod.Value);
             string descrip = rtbDes.Text;
             int id = Convert.ToInt32(tbID.Text);
+            int sem = Convert.ToInt32(cbSem.Text);
+
 
             //lấy lại phần kiểm tra tên course
             if (!course.checkCourseName(name, Convert.ToInt32(tbID.Text)))
             {
                 MessageBox.Show("This Coursename has already exist", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (course.updateCourse(id, name, hrs, descrip))
+            else if (course.updateCourse(id, name, hrs, descrip, sem))
             {
                 MessageBox.Show("Course updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 reLoadListBoxData();

@@ -37,6 +37,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lbTotalCourse = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbSemester = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -131,11 +133,37 @@
             this.lbTotalCourse.TabIndex = 9;
             this.lbTotalCourse.Text = "label4";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(303, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 24);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Semester:";
+            // 
+            // cbSemester
+            // 
+            this.cbSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSemester.FormattingEnabled = true;
+            this.cbSemester.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSemester.Location = new System.Drawing.Point(410, 27);
+            this.cbSemester.Name = "cbSemester";
+            this.cbSemester.Size = new System.Drawing.Size(121, 28);
+            this.cbSemester.TabIndex = 11;
+            this.cbSemester.SelectedIndexChanged += new System.EventHandler(this.cbSemester_SelectedIndexChanged);
+            // 
             // AddCourseStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 324);
+            this.Controls.Add(this.cbSemester);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lbTotalCourse);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
@@ -164,5 +192,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lbTotalCourse;
         internal System.Windows.Forms.TextBox tbStdId;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbSemester;
     }
 }
