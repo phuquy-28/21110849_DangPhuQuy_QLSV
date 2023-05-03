@@ -523,7 +523,6 @@
             // 
             // stdListDgv
             // 
-            this.stdListDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.stdListDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.stdListDgv.Location = new System.Drawing.Point(477, 47);
             this.stdListDgv.Name = "stdListDgv";

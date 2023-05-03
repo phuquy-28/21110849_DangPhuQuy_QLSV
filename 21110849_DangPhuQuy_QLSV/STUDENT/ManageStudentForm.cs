@@ -9,6 +9,7 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,37 @@ namespace _21110849_DangPhuQuy_QLSV
         public ManageStudentForm()
         {
             InitializeComponent();
+        }
+
+        public string selectedCourse(int studentId)
+        {
+            SqlCommand command = new SqlCommand("SELECT dbo.course.label " +
+                "FROM dbo.course JOIN dbo.course_student " +
+                "ON course.id = dbo.course_student.course_id " +
+                "WHERE dbo.course_student.student_id = @sid ", mydb.getConnection);
+            command.Parameters.Add("sid", SqlDbType.Int).Value = studentId;
+
+            DataTable table = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            adapter.Fill(table);
+
+            string selectedCourse = "";
+
+            foreach(DataRow row in table.Rows)
+            {
+                selectedCourse += row["label"] + ", ";
+            }
+
+            int lengthToRemove = 2;
+
+            if (selectedCourse.Length >= lengthToRemove)
+            {
+                selectedCourse = selectedCourse.Remove(selectedCourse.Length - lengthToRemove);
+            }
+
+            return selectedCourse;
         }
 
         public void fillGrid(SqlCommand command)
@@ -58,10 +90,21 @@ namespace _21110849_DangPhuQuy_QLSV
                 //Xu ly hinh anh
                 DataGridViewImageColumn picCol = new DataGridViewImageColumn();
                 stdListDgv.RowTemplate.Height = 80;
-                stdListDgv.DataSource = student.getStudents(command);
+
+                DataTable table2 = new DataTable();
+                table2 = student.getStudents(command);
+                table2.Columns.Add(new DataColumn("Selected Course", typeof(string)));
+                foreach(DataRow row in table2.Rows)
+                {
+                    row["selected Course"] = selectedCourse(Convert.ToInt32(row["id"].ToString()));
+                }
+
+                stdListDgv.DataSource = table2;
                 picCol = (DataGridViewImageColumn)stdListDgv.Columns[13];
                 picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
                 stdListDgv.AllowUserToAddRows = false; ;
+
+                stdListDgv.Columns["Selected Course"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
                 //Đổi thử tự hiển thị các cột 
                 //stdListDgv.Columns[7].DisplayIndex = 13;
