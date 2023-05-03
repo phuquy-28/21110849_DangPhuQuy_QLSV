@@ -37,7 +37,8 @@ namespace _21110849_DangPhuQuy_QLSV
                 byte[] pic = (byte[])table.Rows[0]["fig"];
                 MemoryStream picture = new MemoryStream(pic);
                 picbxAvatar.Image = Image.FromStream(picture);
-                lbUsername.Text = "Welcome back ( " + table.Rows[0]["uname"].ToString().Trim() + " )";
+                string fullName = table.Rows[0]["f_name"].ToString().Trim() + " " + table.Rows[0]["l_name"].ToString().Trim();
+                lbUsername.Text = "Welcome back ( " + fullName + " )";
             }
         }
 
@@ -88,7 +89,7 @@ namespace _21110849_DangPhuQuy_QLSV
             int userid = Globals.GlobalUserId;
             try
             {
-                if (!group.groupExist(name, "add", userid, id))
+                if (!group.groupExist(name, "add", userid, id) && !group.groupIdExist(id))
                 {
                     if (group.insertGroup(id, name, userid))
                     {
@@ -104,7 +105,7 @@ namespace _21110849_DangPhuQuy_QLSV
                 }
                 else
                 {
-                    MessageBox.Show("Group name has already exist", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Group name or Group Id has already exist", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }

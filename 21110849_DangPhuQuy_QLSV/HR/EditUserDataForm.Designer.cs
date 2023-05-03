@@ -43,6 +43,7 @@
             this.picbxPic = new System.Windows.Forms.PictureBox();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.showpassCb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +134,7 @@
             this.tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPass.Location = new System.Drawing.Point(140, 203);
             this.tbPass.Name = "tbPass";
+            this.tbPass.PasswordChar = '●';
             this.tbPass.Size = new System.Drawing.Size(281, 29);
             this.tbPass.TabIndex = 10;
             // 
@@ -150,7 +152,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 241);
+            this.label7.Location = new System.Drawing.Point(36, 263);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 24);
             this.label7.TabIndex = 11;
@@ -159,7 +161,7 @@
             // picbxPic
             // 
             this.picbxPic.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.picbxPic.Location = new System.Drawing.Point(140, 241);
+            this.picbxPic.Location = new System.Drawing.Point(140, 263);
             this.picbxPic.Name = "picbxPic";
             this.picbxPic.Size = new System.Drawing.Size(100, 90);
             this.picbxPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -168,7 +170,7 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(153, 337);
+            this.btnUpload.Location = new System.Drawing.Point(153, 359);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(75, 23);
             this.btnUpload.TabIndex = 13;
@@ -179,7 +181,7 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(327, 292);
+            this.btnEdit.Location = new System.Drawing.Point(327, 314);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(94, 39);
             this.btnEdit.TabIndex = 14;
@@ -187,11 +189,24 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // showpassCb
+            // 
+            this.showpassCb.AutoSize = true;
+            this.showpassCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showpassCb.Location = new System.Drawing.Point(139, 238);
+            this.showpassCb.Name = "showpassCb";
+            this.showpassCb.Size = new System.Drawing.Size(101, 17);
+            this.showpassCb.TabIndex = 17;
+            this.showpassCb.Text = "Show password";
+            this.showpassCb.UseVisualStyleBackColor = true;
+            this.showpassCb.CheckedChanged += new System.EventHandler(this.showpassCb_CheckedChanged);
+            // 
             // EditUserDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 374);
+            this.ClientSize = new System.Drawing.Size(556, 403);
+            this.Controls.Add(this.showpassCb);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.picbxPic);
@@ -233,5 +248,6 @@
         private System.Windows.Forms.PictureBox picbxPic;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.CheckBox showpassCb;
     }
 }

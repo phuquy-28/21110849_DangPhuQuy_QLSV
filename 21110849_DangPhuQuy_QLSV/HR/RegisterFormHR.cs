@@ -95,5 +95,17 @@ namespace _21110849_DangPhuQuy_QLSV
                 MessageBox.Show(ex.Message, "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void showpassCb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showpassCb.Checked == true)
+            {
+                tbPass.PasswordChar = '\0';
+            }
+            else
+            {
+                tbPass.PasswordChar = '●';
+            }
+        }
     }
 }

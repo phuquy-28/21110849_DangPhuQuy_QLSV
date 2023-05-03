@@ -130,5 +130,24 @@ namespace _21110849_DangPhuQuy_QLSV
                 return false;
             }
         }
+
+        public bool groupIdExist(int id)
+        {
+            SqlCommand command = new SqlCommand("Select * from mygroups where id = @id", mydb.getConnection);
+
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;   
+        }
     }
 }

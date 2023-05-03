@@ -106,5 +106,17 @@ namespace _21110849_DangPhuQuy_QLSV
             }
 
         }
+
+        private void showpassCb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showpassCb.Checked == true)
+            {
+                tbPass.PasswordChar = '\0';
+            }
+            else
+            {
+                tbPass.PasswordChar = '●';
+            }
+        }
     }
 }

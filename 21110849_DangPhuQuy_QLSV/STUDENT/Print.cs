@@ -136,6 +136,129 @@ namespace _21110849_DangPhuQuy_QLSV
             }
         }
 
+        //public void Export_Data_To_Word(DataGridView DGV, string filename)
+        //{
+        //    if (DGV.Rows.Count != 0)
+        //    {
+
+        //        int RowCount = DGV.Rows.Count;
+        //        int ColumnCount = DGV.Columns.Count;
+        //        Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
+
+        //        //add rows
+        //        int r = 0;
+        //        for (int c = 0; c <= ColumnCount - 1; c++)
+        //        {
+        //            for (r = 0; r <= RowCount - 1; r++)
+        //            {
+        //                //if (c != ColumnCount - 1)
+        //                //{
+        //                //        DataArray[r, c] = DGV.Rows[r].Cells[c].Value;
+        //                //}
+        //                if (c != ColumnCount - 1)
+        //                {
+        //                    if (c != 3)
+        //                        DataArray[r, c] = DGV.Rows[r].Cells[c].Value;
+        //                    else
+        //                    {
+        //                        DateTime datetime = (DateTime)DGV.Rows[r].Cells[c].Value;
+        //                        DataArray[r, c] = datetime.ToString("dd/MM/yyyy");
+        //                    }
+        //                }
+        //            } //end row loop
+        //        } //end column loop
+
+        //        Word.Document oDoc = new Word.Document();
+        //        oDoc.Application.Visible = true;
+
+        //        //page orintation
+        //        oDoc.PageSetup.Orientation = Word.WdOrientation.wdOrientLandscape;
+
+        //        dynamic oRange = oDoc.Content.Application.Selection.Range;
+        //        string oTemp = "";
+        //        for (r = 0; r <= RowCount - 1; r++)
+        //        {
+        //            for (int c = 0; c <= ColumnCount - 1; c++)
+        //            {
+        //                oTemp = oTemp + DataArray[r, c] + "\t";
+
+        //            }
+        //        }
+
+        //        //table format
+        //        oRange.Text = oTemp;
+
+        //        object Separator = Word.WdTableFieldSeparator.wdSeparateByTabs;
+        //        object ApplyBorders = true;
+        //        object AutoFit = true;
+        //        object AutoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitContent;
+
+        //        oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
+        //                              Type.Missing, Type.Missing, ref ApplyBorders,
+        //                              Type.Missing, Type.Missing, Type.Missing,
+        //                              Type.Missing, Type.Missing, Type.Missing,
+        //                              Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
+
+        //        oRange.Select();
+
+        //        oDoc.Application.Selection.Tables[1].Select();
+        //        oDoc.Application.Selection.Tables[1].Rows.AllowBreakAcrossPages = 0;
+        //        oDoc.Application.Selection.Tables[1].Rows.Alignment = 0;
+        //        oDoc.Application.Selection.Tables[1].Rows[1].Select();
+        //        oDoc.Application.Selection.InsertRowsAbove(1);
+        //        oDoc.Application.Selection.Tables[1].Rows[1].Select();
+
+        //        //header row style
+        //        oDoc.Application.Selection.Tables[1].Rows[1].Range.Bold = 1;
+        //        oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Name = "Tahoma";
+        //        oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Size = 14;
+
+        //        //add header row manually
+        //        for (int c = 0; c <= ColumnCount - 1; c++)
+        //        {
+        //            oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Text = DGV.Columns[c].HeaderText;
+        //        }
+
+        //        //table style 
+        //        oDoc.Application.Selection.Tables[1].set_Style("Grid Table 4 - Accent 5");
+        //        oDoc.Application.Selection.Tables[1].Rows[1].Select();
+        //        oDoc.Application.Selection.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+        //        //header text
+        //        foreach (Word.Section section in oDoc.Application.ActiveDocument.Sections)
+        //        {
+        //            Word.Range headerRange = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+        //            headerRange.Fields.Add(headerRange, Word.WdFieldType.wdFieldPage);
+        //            headerRange.Text = "STUDENTS LIST";
+        //            headerRange.Font.Size = 16;
+        //            headerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+        //        }
+
+        //        for (int c = 0; c <= ColumnCount - 1; c++)
+        //        {
+        //            for (r = 0; r <= RowCount - 1; r++)
+        //            {
+        //                if (c == ColumnCount - 1)
+        //                {
+
+        //                    Object oMissing = oDoc.Tables[1].Cell(r + 2, 14).Range; //the position where you want to put the images
+
+        //                    Image sparePicture = ByteArrayToImage((byte[])DGV.Rows[r].Cells[c].Value);
+        //                    Clipboard.SetImage(sparePicture);
+        //                    Word.Paragraph oPara2 = oDoc.Content.Paragraphs.Add(ref oMissing);
+        //                    oPara2.Range.Paste();
+        //                    oPara2.Range.InsertParagraphAfter();
+        //                }
+        //            }
+        //        }
+
+        //        //save the file
+        //        oDoc.SaveAs2(filename);
+
+        //        //NASSIM LOUCHANI
+        //    }
+        //}
+
         public void Export_Data_To_Word(DataGridView DGV, string filename)
         {
             if (DGV.Rows.Count != 0)
@@ -143,29 +266,36 @@ namespace _21110849_DangPhuQuy_QLSV
 
                 int RowCount = DGV.Rows.Count;
                 int ColumnCount = DGV.Columns.Count;
-                Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
+                int WantedCol = 7; //id, fname, lname bdate, phone, major, pic
+                                   //0, 1, 2, 3, 5, 9, 13
+                                   //Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
+                Object[,] DataArray = new object[RowCount + 1, WantedCol + 1];
 
                 //add rows
-                int r = 0;
+                int r = 0; int cArr = 0;
                 for (int c = 0; c <= ColumnCount - 1; c++)
                 {
-                    for (r = 0; r <= RowCount - 1; r++)
+                    if (c == 0 || c == 1 || c == 2 || c == 3 || c == 5 || c == 9 || c == 13)
                     {
-                        //if (c != ColumnCount - 1)
-                        //{
-                        //        DataArray[r, c] = DGV.Rows[r].Cells[c].Value;
-                        //}
-                        if (c != ColumnCount - 1)
+                        for (r = 0; r <= RowCount - 1; r++)
                         {
-                            if (c != 3)
-                                DataArray[r, c] = DGV.Rows[r].Cells[c].Value;
-                            else
+                            if (c != ColumnCount - 1)
                             {
-                                DateTime datetime = (DateTime)DGV.Rows[r].Cells[c].Value;
-                                DataArray[r, c] = datetime.ToString("dd/MM/yyyy");
+                                if (c != 3)
+                                {
+                                    DataArray[r, cArr] = DGV.Rows[r].Cells[c].Value;
+                                }
+                                else
+                                {
+                                    DateTime datetime = (DateTime)DGV.Rows[r].Cells[c].Value;
+                                    DataArray[r, cArr] = datetime.ToString("dd/MM/yyyy");
+                                }
                             }
-                        }
-                    } //end row loop
+                        } //end row loop
+                        cArr++;
+                    }
+
+
                 } //end column loop
 
                 Word.Document oDoc = new Word.Document();
@@ -178,7 +308,7 @@ namespace _21110849_DangPhuQuy_QLSV
                 string oTemp = "";
                 for (r = 0; r <= RowCount - 1; r++)
                 {
-                    for (int c = 0; c <= ColumnCount - 1; c++)
+                    for (int c = 0; c <= WantedCol - 1; c++)
                     {
                         oTemp = oTemp + DataArray[r, c] + "\t";
 
@@ -193,7 +323,7 @@ namespace _21110849_DangPhuQuy_QLSV
                 object AutoFit = true;
                 object AutoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitContent;
 
-                oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
+                oRange.ConvertToTable(ref Separator, ref RowCount, ref WantedCol,//
                                       Type.Missing, Type.Missing, ref ApplyBorders,
                                       Type.Missing, Type.Missing, Type.Missing,
                                       Type.Missing, Type.Missing, Type.Missing,
@@ -208,16 +338,23 @@ namespace _21110849_DangPhuQuy_QLSV
                 oDoc.Application.Selection.InsertRowsAbove(1);
                 oDoc.Application.Selection.Tables[1].Rows[1].Select();
 
-                //header row style
-                oDoc.Application.Selection.Tables[1].Rows[1].Range.Bold = 1;
-                oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Name = "Tahoma";
-                oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Size = 14;
-
                 //add header row manually
+                cArr = 0;
                 for (int c = 0; c <= ColumnCount - 1; c++)
                 {
-                    oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Text = DGV.Columns[c].HeaderText;
+                    if (c == 4 || c == 6 || c == 7 || c == 8 || c == 10 || c == 11 || c == 12)
+                        continue;
+                    else
+                    {
+                        oDoc.Application.Selection.Tables[1].Cell(1, cArr + 1).Range.Text = DGV.Columns[c].HeaderText;
+                        cArr++;
+                    }
                 }
+
+                //header row style
+                //oDoc.Application.Selection.Tables[1].Rows[1].Range.Bold = 1;
+                oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Name = "Tahoma";
+                oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Size = 12;
 
                 //table style 
                 oDoc.Application.Selection.Tables[1].set_Style("Grid Table 4 - Accent 5");
@@ -229,8 +366,10 @@ namespace _21110849_DangPhuQuy_QLSV
                 {
                     Word.Range headerRange = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
                     headerRange.Fields.Add(headerRange, Word.WdFieldType.wdFieldPage);
-                    headerRange.Text = "STUDENTS LIST";
-                    headerRange.Font.Size = 16;
+                    headerRange.Text = $"TRƯỜNG ĐẠI HỌC SPKT TP.HCM\t\t\tNgày in: {DateTime.Now.ToString("dd/MM/yyyy")}" +
+                        "\n\nDANH SÁCH SINH VIÊN\nHỌC KỲ HK02 - NĂM HỌC 2022-2023";
+                    headerRange.Font.Size = 14;
+                    headerRange.Bold = 1;
                     headerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
                 }
 
@@ -241,7 +380,7 @@ namespace _21110849_DangPhuQuy_QLSV
                         if (c == ColumnCount - 1)
                         {
 
-                            Object oMissing = oDoc.Tables[1].Cell(r + 2, 14).Range; //the position where you want to put the images
+                            Object oMissing = oDoc.Tables[1].Cell(r + 2, 7).Range; //the position where you want to put the images
 
                             Image sparePicture = ByteArrayToImage((byte[])DGV.Rows[r].Cells[c].Value);
                             Clipboard.SetImage(sparePicture);

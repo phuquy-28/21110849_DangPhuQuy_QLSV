@@ -90,9 +90,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(27, 241);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 24);
+            this.label3.Size = new System.Drawing.Size(97, 24);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Username:";
+            this.label3.Text = "Password:";
             // 
             // showPassCB
             // 
@@ -111,7 +111,7 @@
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(69, 342);
+            this.cancelButton.Location = new System.Drawing.Point(214, 339);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(102, 54);
             this.cancelButton.TabIndex = 7;
@@ -124,7 +124,7 @@
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(199, 342);
+            this.loginButton.Location = new System.Drawing.Point(89, 339);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(102, 54);
             this.loginButton.TabIndex = 8;
@@ -160,7 +160,7 @@
             // rbtnAdmin
             // 
             this.rbtnAdmin.AutoSize = true;
-            this.rbtnAdmin.Location = new System.Drawing.Point(252, 295);
+            this.rbtnAdmin.Location = new System.Drawing.Point(246, 295);
             this.rbtnAdmin.Name = "rbtnAdmin";
             this.rbtnAdmin.Size = new System.Drawing.Size(54, 17);
             this.rbtnAdmin.TabIndex = 1;
@@ -206,6 +206,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login_Form";
             this.Text = "Login_Formcs";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

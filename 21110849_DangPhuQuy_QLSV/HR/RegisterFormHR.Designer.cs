@@ -44,6 +44,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.lbExistAcc = new System.Windows.Forms.Label();
             this.picbxPic = new System.Windows.Forms.PictureBox();
+            this.showpassCb = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,6 +135,7 @@
             this.tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPass.Location = new System.Drawing.Point(121, 201);
             this.tbPass.Name = "tbPass";
+            this.tbPass.PasswordChar = '●';
             this.tbPass.Size = new System.Drawing.Size(162, 22);
             this.tbPass.TabIndex = 10;
             // 
@@ -151,7 +153,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 235);
+            this.label7.Location = new System.Drawing.Point(36, 253);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 16);
             this.label7.TabIndex = 11;
@@ -159,7 +161,7 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(153, 367);
+            this.btnUpload.Location = new System.Drawing.Point(153, 385);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(99, 23);
             this.btnUpload.TabIndex = 13;
@@ -170,7 +172,7 @@
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(94, 422);
+            this.btnRegister.Location = new System.Drawing.Point(94, 440);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(158, 45);
             this.btnRegister.TabIndex = 14;
@@ -194,18 +196,31 @@
             // picbxPic
             // 
             this.picbxPic.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.picbxPic.Location = new System.Drawing.Point(121, 235);
+            this.picbxPic.Location = new System.Drawing.Point(121, 253);
             this.picbxPic.Name = "picbxPic";
             this.picbxPic.Size = new System.Drawing.Size(162, 126);
             this.picbxPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picbxPic.TabIndex = 12;
             this.picbxPic.TabStop = false;
             // 
+            // showpassCb
+            // 
+            this.showpassCb.AutoSize = true;
+            this.showpassCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showpassCb.Location = new System.Drawing.Point(121, 227);
+            this.showpassCb.Name = "showpassCb";
+            this.showpassCb.Size = new System.Drawing.Size(101, 17);
+            this.showpassCb.TabIndex = 16;
+            this.showpassCb.Text = "Show password";
+            this.showpassCb.UseVisualStyleBackColor = true;
+            this.showpassCb.CheckedChanged += new System.EventHandler(this.showpassCb_CheckedChanged);
+            // 
             // RegisterFormHR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 526);
+            this.Controls.Add(this.showpassCb);
             this.Controls.Add(this.lbExistAcc);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnUpload);
@@ -249,5 +264,6 @@
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lbExistAcc;
+        private System.Windows.Forms.CheckBox showpassCb;
     }
 }

@@ -25,26 +25,52 @@ namespace _21110849_DangPhuQuy_QLSV.HR
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(tbContactId.Text);
+            try
+            {
+                int id = Convert.ToInt32(tbContactId.Text);
 
-            DataTable table = new DataTable();
-            table = contact.getContactById(id);
-            if (table.Rows.Count > 0)
-            {
-                tbFname.Text = table.Rows[0]["fname"].ToString();
-                tbLname.Text = table.Rows[0]["lname"].ToString();
-                cbGrp.Text = table.Rows[0]["group_id"].ToString();
-                tbPhone.Text = table.Rows[0]["phone"].ToString();
-                tbEmail.Text = table.Rows[0]["email"].ToString();
-                rtbAdrs.Text = table.Rows[0]["address"].ToString();
-                byte[] pic = (byte[])table.Rows[0]["pic"];
-                MemoryStream picture = new MemoryStream(pic);
-                picbxPic.Image = Image.FromStream(picture);
+                DataTable table = new DataTable();
+                table = contact.getContactById(id);
+
+                DataTable table1 = new DataTable();
+                SqlCommand command1 = new SqlCommand("select * from mygroups where userid = @uid", mydb.getConnection);
+                command1.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
+                table1 = group.selectGroupList(command1);
+
+
+                if (table.Rows.Count > 0)
+                {
+                    tbFname.Text = table.Rows[0]["fname"].ToString();
+                    tbLname.Text = table.Rows[0]["lname"].ToString();
+
+                    int group_id = Convert.ToInt32(table.Rows[0]["group_id"].ToString());
+                    foreach (DataRow row in table1.Rows)
+                    {
+                        int group_id_temp = Convert.ToInt32(row["id"].ToString());
+                        if (group_id_temp == group_id)
+                        {
+                            cbGrp.Text = row["name"].ToString();
+                            break;
+                        }
+                    }
+
+                    tbPhone.Text = table.Rows[0]["phone"].ToString();
+                    tbEmail.Text = table.Rows[0]["email"].ToString();
+                    rtbAdrs.Text = table.Rows[0]["address"].ToString();
+                    byte[] pic = (byte[])table.Rows[0]["pic"];
+                    MemoryStream picture = new MemoryStream(pic);
+                    picbxPic.Image = Image.FromStream(picture);
+                }
+                else
+                {
+                    MessageBox.Show("Not found", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Not found", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         public bool verify()
@@ -65,35 +91,44 @@ namespace _21110849_DangPhuQuy_QLSV.HR
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select * from mycontact where userid = @uid");
-            command.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
-
-            int id = Convert.ToInt32(tbContactId.Text);
-            string fname = tbFname.Text.Trim();
-            string lname = tbLname.Text.Trim();
-            int grp = Convert.ToInt32(cbGrp.SelectedValue);
-            string phone = tbPhone.Text.Trim();
-            string email = tbEmail.Text.Trim();
-            string adrs = rtbAdrs.Text.Trim();
-            MemoryStream pic = new MemoryStream();
-
-            if (verify())
+            try
             {
-                picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                if (contact.updateContact(id, fname, lname, grp, phone, email, adrs, pic))
+                SqlCommand command = new SqlCommand("select * from mycontact where userid = @uid");
+                command.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
+
+                int id = Convert.ToInt32(tbContactId.Text);
+                string fname = tbFname.Text.Trim();
+                string lname = tbLname.Text.Trim();
+                int grp = Convert.ToInt32(cbGrp.SelectedValue);
+                string phone = tbPhone.Text.Trim();
+                string email = tbEmail.Text.Trim();
+                string adrs = rtbAdrs.Text.Trim();
+                MemoryStream pic = new MemoryStream();
+
+                if (verify())
                 {
-                    MessageBox.Show("Editing Successfully", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvContactList.DataSource = contact.selectContactList(command);
+                    picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
+                    if (contact.updateContact(id, fname, lname, grp, phone, email, adrs, pic))
+                    {
+                        MessageBox.Show("Editing Successfully", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvContactList.DataSource = contact.selectContactList(command);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Editing Fail", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Editing Fail", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Empty Fields", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Empty Fields", "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Edit Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
         }
 
         private void isDigit_KeyPress(object sender, KeyPressEventArgs e)
@@ -176,11 +211,31 @@ namespace _21110849_DangPhuQuy_QLSV.HR
 
             DataTable table = new DataTable();
             table = contact.getContactById(id);
+
+            DataTable table1 = new DataTable();
+            SqlCommand command1 = new SqlCommand("select * from mygroups where userid = @uid", mydb.getConnection);
+            command1.Parameters.Add("uid", SqlDbType.Int).Value = Globals.GlobalUserId;
+            table1 = group.selectGroupList(command1);
+
+
             if (table.Rows.Count > 0)
             {
                 tbFname.Text = table.Rows[0]["fname"].ToString();
                 tbLname.Text = table.Rows[0]["lname"].ToString();
-                cbGrp.Text = table.Rows[0]["group_id"].ToString();
+
+
+                int group_id = Convert.ToInt32(table.Rows[0]["group_id"].ToString());
+                foreach (DataRow row in table1.Rows)
+                {
+                    int group_id_temp = Convert.ToInt32(row["id"].ToString());
+                    if (group_id_temp == group_id)
+                    {
+                        cbGrp.Text = row["name"].ToString();
+                        break;
+                    }
+                }
+
+
                 tbPhone.Text = table.Rows[0]["phone"].ToString();
                 tbEmail.Text = table.Rows[0]["email"].ToString();
                 rtbAdrs.Text = table.Rows[0]["address"].ToString();
