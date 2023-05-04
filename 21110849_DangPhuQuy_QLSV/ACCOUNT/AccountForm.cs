@@ -192,5 +192,10 @@ namespace _21110849_DangPhuQuy_QLSV
                 MessageBox.Show("Thất bại");
             }
         }
+
+        private void tabStudent_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

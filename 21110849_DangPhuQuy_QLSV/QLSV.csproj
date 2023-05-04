@@ -92,6 +92,12 @@
     <Compile Include="HR\AddCourseContactForm.Designer.cs">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RESULT\StudentResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RESULT\StudentResultForm.Designer.cs">
+      <DependentUpon>StudentResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="STUDENT\AddCourseStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,10 +112,10 @@
       <DependentUpon>AddContactForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\CONTACT.cs" />
-    <Compile Include="SelectedContact.cs">
+    <Compile Include="HR\SelectedContact.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectedContact.Designer.cs">
+    <Compile Include="HR\SelectedContact.Designer.cs">
       <DependentUpon>SelectedContact.cs</DependentUpon>
     </Compile>
     <Compile Include="COURSE\CourseStudentListForm.cs">
@@ -312,13 +318,16 @@
     <EmbeddedResource Include="HR\AddCourseContactForm.resx">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RESULT\StudentResultForm.resx">
+      <DependentUpon>StudentResultForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="STUDENT\AddCourseStudentForm.resx">
       <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\AddContactForm.resx">
       <DependentUpon>AddContactForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectedContact.resx">
+    <EmbeddedResource Include="HR\SelectedContact.resx">
       <DependentUpon>SelectedContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSE\CourseStudentListForm.resx">

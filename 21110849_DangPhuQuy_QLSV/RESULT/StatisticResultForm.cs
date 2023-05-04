@@ -46,15 +46,15 @@ namespace _21110849_DangPhuQuy_QLSV
             Controls.Add(chartByCourse);
 
 
-            // Tạo series cho biểu đồ cột
+            // Tạo series cho biểu đồ tròn
             Series series2 = new Series();
             series2.Name = "Students";
             series2.ChartType = SeriesChartType.Pie;
             series2.IsValueShownAsLabel = true;
 
             // Thiết lập dữ liệu nguồn cho series
-            series2.Points.AddXY("Pass", Convert.ToInt32(score.getNumPass()));
-            series2.Points.AddXY("Fail", Convert.ToInt32(score.getNumFail()));
+            series2.Points.AddXY("Pass", Convert.ToInt32(score.getNumPass(1)));
+            series2.Points.AddXY("Fail", Convert.ToInt32(score.getNumFail(1)));
 
 
             chartByResult.Series.Add(series2);

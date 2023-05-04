@@ -30,12 +30,12 @@
         {
             this.tabtablePending = new System.Windows.Forms.TabControl();
             this.tabStudent = new System.Windows.Forms.TabPage();
-            this.tabHr = new System.Windows.Forms.TabPage();
             this.btnStdDel = new System.Windows.Forms.Button();
             this.btnStdAccAll = new System.Windows.Forms.Button();
             this.btnStdAccept = new System.Windows.Forms.Button();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabHr = new System.Windows.Forms.TabPage();
             this.btnHrDelete = new System.Windows.Forms.Button();
             this.btnHrAccAll = new System.Windows.Forms.Button();
             this.btnHrAcpt = new System.Windows.Forms.Button();
@@ -43,8 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabtablePending.SuspendLayout();
             this.tabStudent.SuspendLayout();
-            this.tabHr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
+            this.tabHr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHr)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,62 @@
             this.tabStudent.TabIndex = 0;
             this.tabStudent.Text = "Student";
             this.tabStudent.UseVisualStyleBackColor = true;
+            this.tabStudent.Click += new System.EventHandler(this.tabStudent_Click);
+            // 
+            // btnStdDel
+            // 
+            this.btnStdDel.BackColor = System.Drawing.Color.Red;
+            this.btnStdDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStdDel.Location = new System.Drawing.Point(112, 371);
+            this.btnStdDel.Name = "btnStdDel";
+            this.btnStdDel.Size = new System.Drawing.Size(84, 37);
+            this.btnStdDel.TabIndex = 9;
+            this.btnStdDel.Text = "Delete";
+            this.btnStdDel.UseVisualStyleBackColor = false;
+            this.btnStdDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnStdAccAll
+            // 
+            this.btnStdAccAll.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnStdAccAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStdAccAll.Location = new System.Drawing.Point(650, 371);
+            this.btnStdAccAll.Name = "btnStdAccAll";
+            this.btnStdAccAll.Size = new System.Drawing.Size(120, 37);
+            this.btnStdAccAll.TabIndex = 8;
+            this.btnStdAccAll.Text = "Accept All";
+            this.btnStdAccAll.UseVisualStyleBackColor = false;
+            this.btnStdAccAll.Click += new System.EventHandler(this.btnAccAll_Click);
+            // 
+            // btnStdAccept
+            // 
+            this.btnStdAccept.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnStdAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStdAccept.Location = new System.Drawing.Point(22, 371);
+            this.btnStdAccept.Name = "btnStdAccept";
+            this.btnStdAccept.Size = new System.Drawing.Size(84, 37);
+            this.btnStdAccept.TabIndex = 7;
+            this.btnStdAccept.Text = "Accept";
+            this.btnStdAccept.UseVisualStyleBackColor = false;
+            this.btnStdAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // dgvStudent
+            // 
+            this.dgvStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudent.Location = new System.Drawing.Point(22, 47);
+            this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.Size = new System.Drawing.Size(747, 308);
+            this.dgvStudent.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(251, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(278, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Pending Student Account";
             // 
             // tabHr
             // 
@@ -87,58 +143,6 @@
             this.tabHr.TabIndex = 1;
             this.tabHr.Text = "Human Resource";
             this.tabHr.UseVisualStyleBackColor = true;
-            // 
-            // btnStdDel
-            // 
-            this.btnStdDel.BackColor = System.Drawing.Color.Red;
-            this.btnStdDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStdDel.Location = new System.Drawing.Point(112, 371);
-            this.btnStdDel.Name = "btnStdDel";
-            this.btnStdDel.Size = new System.Drawing.Size(84, 37);
-            this.btnStdDel.TabIndex = 9;
-            this.btnStdDel.Text = "Delete";
-            this.btnStdDel.UseVisualStyleBackColor = false;
-            // 
-            // btnStdAccAll
-            // 
-            this.btnStdAccAll.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnStdAccAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStdAccAll.Location = new System.Drawing.Point(650, 371);
-            this.btnStdAccAll.Name = "btnStdAccAll";
-            this.btnStdAccAll.Size = new System.Drawing.Size(120, 37);
-            this.btnStdAccAll.TabIndex = 8;
-            this.btnStdAccAll.Text = "Accept All";
-            this.btnStdAccAll.UseVisualStyleBackColor = false;
-            // 
-            // btnStdAccept
-            // 
-            this.btnStdAccept.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnStdAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStdAccept.Location = new System.Drawing.Point(22, 371);
-            this.btnStdAccept.Name = "btnStdAccept";
-            this.btnStdAccept.Size = new System.Drawing.Size(84, 37);
-            this.btnStdAccept.TabIndex = 7;
-            this.btnStdAccept.Text = "Accept";
-            this.btnStdAccept.UseVisualStyleBackColor = false;
-            // 
-            // dgvStudent
-            // 
-            this.dgvStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudent.Location = new System.Drawing.Point(22, 47);
-            this.dgvStudent.Name = "dgvStudent";
-            this.dgvStudent.Size = new System.Drawing.Size(747, 308);
-            this.dgvStudent.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(308, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Pending Account";
             // 
             // btnHrDelete
             // 
@@ -186,11 +190,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(308, 15);
+            this.label2.Location = new System.Drawing.Point(193, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 25);
+            this.label2.Size = new System.Drawing.Size(377, 25);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Pending Account";
+            this.label2.Text = "Pending Human Resource Account";
             // 
             // AccountForm
             // 
@@ -204,9 +208,9 @@
             this.tabtablePending.ResumeLayout(false);
             this.tabStudent.ResumeLayout(false);
             this.tabStudent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             this.tabHr.ResumeLayout(false);
             this.tabHr.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHr)).EndInit();
             this.ResumeLayout(false);
 

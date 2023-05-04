@@ -40,6 +40,9 @@
             this.dgvResult = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbSem = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(431, 9);
+            this.label1.Location = new System.Drawing.Point(437, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 33);
             this.label1.TabIndex = 0;
@@ -134,6 +137,7 @@
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.Size = new System.Drawing.Size(794, 210);
             this.dgvResult.TabIndex = 9;
+            this.dgvResult.DoubleClick += new System.EventHandler(this.dgvResult_DoubleClick);
             // 
             // btnSearch
             // 
@@ -145,6 +149,7 @@
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnPrint
             // 
@@ -158,11 +163,50 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click_1);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(212, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Show All";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // cbSem
+            // 
+            this.cbSem.FormattingEnabled = true;
+            this.cbSem.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSem.Location = new System.Drawing.Point(885, 35);
+            this.cbSem.Name = "cbSem";
+            this.cbSem.Size = new System.Drawing.Size(121, 21);
+            this.cbSem.TabIndex = 16;
+            this.cbSem.SelectedIndexChanged += new System.EventHandler(this.cbSem_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(781, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 20);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Semester:";
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 320);
+            this.Controls.Add(this.cbSem);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgvResult);
@@ -198,5 +242,8 @@
         private System.Windows.Forms.DataGridView dgvResult;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbSem;
+        private System.Windows.Forms.Label label7;
     }
 }

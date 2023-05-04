@@ -65,6 +65,25 @@ namespace _21110849_DangPhuQuy_QLSV
 
         }
 
+        public bool isExist(int studentId , int courseId)
+        {
+            SqlCommand command = new SqlCommand("select * from course_student where student_id = @sid and course_id = @cid", mydb.getConnection);
+            command.Parameters.Add("sid", SqlDbType.Int).Value = studentId;
+            command.Parameters.Add("cid", SqlDbType.Int).Value = courseId;
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            DataTable table = new DataTable();
+
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             int flag = 1;
@@ -72,15 +91,20 @@ namespace _21110849_DangPhuQuy_QLSV
             
             foreach (var i in courseList)
             {
-                SqlCommand command = new SqlCommand();
-                command.Connection = mydb.getConnection;
-                command.CommandText = "insert into course_student (course_id, student_id) values (@cid, @sid)";
-                command.Parameters.Add("sid", SqlDbType.Int).Value = Convert.ToInt32(tbStdId.Text);
-                command.Parameters.Add("cid", SqlDbType.Int).Value = (Int32)i;
-                mydb.openConnection();
-                if (command.ExecuteNonQuery() == 0)
+                if (!isExist(Convert.ToInt32(tbStdId.Text), (Int32)i))
+                {
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = mydb.getConnection;
+                    command.CommandText = "insert into course_student (course_id, student_id) values (@cid, @sid)";
+                    command.Parameters.Add("sid", SqlDbType.Int).Value = Convert.ToInt32(tbStdId.Text);
+                    command.Parameters.Add("cid", SqlDbType.Int).Value = (Int32)i;
+                    mydb.openConnection();
+                    if (command.ExecuteNonQuery() == 0)
+                        flag = 0;
+                    mydb.closeConnection();
+                }
+                else
                     flag = 0;
-                mydb.closeConnection();
             }
 
             if (flag == 1)
@@ -89,7 +113,7 @@ namespace _21110849_DangPhuQuy_QLSV
             }
             else
             {
-                MessageBox.Show("Adding fail", "Add Course Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Some courses have been added", "Add Course Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

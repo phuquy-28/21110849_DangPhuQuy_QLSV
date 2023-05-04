@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _21110849_DangPhuQuy_QLSV
 {
@@ -16,6 +17,8 @@ namespace _21110849_DangPhuQuy_QLSV
         public ResultForm()
         {
             InitializeComponent();
+            dgvResult.AllowUserToAddRows = false;
+            cbSem.SelectedIndex = 0;
         }
         SCORE score = new SCORE();
 
@@ -26,7 +29,9 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void ResultForm_Load(object sender, EventArgs e)
         {
-            dgvResult.DataSource = score.getResultStudent();
+            dgvResult.DataSource = score.getResultStudent(Convert.ToInt32(cbSem.Text.ToString()));
+            dgvResult.Columns["fname"].HeaderText = "First name";
+            dgvResult.Columns["lname"].HeaderText = "Last name";
         }
 
         public static Bitmap ResizeImage(Bitmap imgToResize, Size size)
@@ -55,6 +60,7 @@ namespace _21110849_DangPhuQuy_QLSV
             //Subtitle
             //printer.SubTitle = String.Format("Date: {0}", DateTime.Now.Date);
             printer.SubTitle = "BẢNG ĐIỂM NĂM HỌC 2022 - 2023" +
+                $"\nHọc kỳ: {cbSem.Text} " +
                 $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";
             printer.SubTitleSpacing = 20;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
@@ -98,6 +104,42 @@ namespace _21110849_DangPhuQuy_QLSV
 
 
             printer.PrintPreviewDataGridView(dgvResult);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            int studentId = -1; string firstName = "";
+            if (int.TryParse(tbSearch.Text, out studentId))
+            {
+                dgvResult.DataSource = score.getResultStudent(Convert.ToInt32(cbSem.Text.ToString()), studentId);
+                dgvResult.Columns["fname"].HeaderText = "First name";
+                dgvResult.Columns["lname"].HeaderText = "Last name";
+            }
+            else
+            {
+                firstName = tbSearch.Text.ToString();
+                dgvResult.DataSource = score.getResultStudent(Convert.ToInt32(cbSem.Text.ToString()), fname: firstName);
+                dgvResult.Columns["fname"].HeaderText = "First name";
+                dgvResult.Columns["lname"].HeaderText = "Last name";
+            }
+        }
+
+        private void dgvResult_DoubleClick(object sender, EventArgs e)
+        {
+            StudentResultForm studentResultForm = new StudentResultForm();
+            studentResultForm.labelId.Text = dgvResult.CurrentRow.Cells["Id"].Value.ToString();
+            studentResultForm.labelName.Text = dgvResult.CurrentRow.Cells["fname"].Value.ToString() + " " + dgvResult.CurrentRow.Cells["lname"].Value.ToString();
+            studentResultForm.Show(this);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            ResultForm_Load(null, null);
+        }
+
+        private void cbSem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ResultForm_Load(null, null);
         }
     }
 }
