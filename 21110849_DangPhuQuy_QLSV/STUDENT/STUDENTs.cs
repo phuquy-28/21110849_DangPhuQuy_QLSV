@@ -14,7 +14,7 @@ namespace _21110849_DangPhuQuy_QLSV
         public string Gender { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
-        public MemoryStream Picture { get; set; }
+        public byte[] Picture { get; set; }
         public string Email { get; set; }
         public string Faculty { get; set; }
         public string Major { get; set; }

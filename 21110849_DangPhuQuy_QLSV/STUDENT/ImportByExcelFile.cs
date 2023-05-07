@@ -37,7 +37,15 @@ namespace _21110849_DangPhuQuy_QLSV
                     s.Id = dt.Rows[i]["id"].ToString();
                     s.FName = dt.Rows[i]["fname"].ToString();
                     s.LName = dt.Rows[i]["lname"].ToString();
-                    s.Birthday = (DateTime)dt.Rows[i]["bdate"];
+
+                    MessageBox.Show(dt.Rows[i]["bdate"].ToString());
+
+                    // Sử dụng phương thức TryParseExact để chuyển đổi chuỗi ngày tháng năm trong Excel sang kiểu DateTime
+                    DateTime.TryParse(dt.Rows[i]["bdate"].ToString(), out DateTime bdate);
+                    s.Birthday = bdate;
+
+                    MessageBox.Show(s.Birthday.ToString());
+
                     s.Gender = dt.Rows[i]["gender"].ToString();
                     s.Phone = dt.Rows[i]["phone"].ToString();
                     s.Address = dt.Rows[i]["address"].ToString();
@@ -49,9 +57,8 @@ namespace _21110849_DangPhuQuy_QLSV
                     // Chuyển đổi hình ảnh sang kiểu MemoryStream
                     MemoryStream ms = new MemoryStream();
                     defaultImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                    // Sử dụng MemoryStream
-                    s.Picture = ms;
+                    byte[] imageBytes = (byte[])ms.ToArray();
+                    s.Picture = imageBytes;
 
                     s.Email = dt.Rows[i]["email"].ToString();
                     s.Faculty = dt.Rows[i]["faculty"].ToString();
@@ -92,21 +99,37 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             try
             {
-                DapperPlusManager.Entity<STUDENTs>().Table("std");
+                DapperPlusManager.Entity<STUDENTs>()
+                    .Table("std")
+                    .Map(x => x.Id, "Id")
+                    .Map(x => x.FName, "fname")
+                    .Map(x => x.LName, "lname")
+                    .Map(x => x.Birthday, "bdate")
+                    .Map(x => x.Gender, "gender")
+                    .Map(x => x.Phone, "phone")
+                    .Map(x => x.Address, "address")
+                    .Map(x => x.Picture, "picture")
+                    .Map(x => x.Email, "email")
+                    .Map(x => x.Faculty, "faculty")
+                    .Map(x => x.Major, "major")
+                    .Map(x => x.Pob, "pob")
+                    .Map(x => x.Nationality, "nationality")
+                    .Map(x => x.State, "state");
+
                 List<STUDENTs> student = stdBindingSource.DataSource as List<STUDENTs>;
                 if (student != null)
                 {
                     IDbConnection db = mydb.getConnection;
                     db.BulkInsert(student);
                     MessageBox.Show("Finish");
-                    
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
