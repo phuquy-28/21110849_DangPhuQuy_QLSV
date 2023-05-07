@@ -35,6 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dgvStudentResult = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.lbSem = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +111,33 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // lbSem
+            // 
+            this.lbSem.AutoSize = true;
+            this.lbSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSem.Location = new System.Drawing.Point(619, 64);
+            this.lbSem.Name = "lbSem";
+            this.lbSem.Size = new System.Drawing.Size(27, 20);
+            this.lbSem.TabIndex = 8;
+            this.lbSem.Text = "Id:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(522, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Semester:";
+            // 
             // StudentResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 381);
+            this.Controls.Add(this.lbSem);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgvStudentResult);
             this.Controls.Add(this.labelName);
@@ -139,5 +163,7 @@
         internal System.Windows.Forms.Label labelId;
         internal System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button btnPrint;
+        internal System.Windows.Forms.Label lbSem;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -129,6 +129,7 @@ namespace _21110849_DangPhuQuy_QLSV
             StudentResultForm studentResultForm = new StudentResultForm();
             studentResultForm.labelId.Text = dgvResult.CurrentRow.Cells["Id"].Value.ToString();
             studentResultForm.labelName.Text = dgvResult.CurrentRow.Cells["fname"].Value.ToString() + " " + dgvResult.CurrentRow.Cells["lname"].Value.ToString();
+            studentResultForm.lbSem.Text = cbSem.Text.ToString();
             studentResultForm.Show(this);
         }
 

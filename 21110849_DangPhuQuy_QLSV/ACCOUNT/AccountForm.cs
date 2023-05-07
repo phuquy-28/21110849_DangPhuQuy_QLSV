@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace _21110849_DangPhuQuy_QLSV
     public partial class AccountForm : Form
     {
         MY_DB mydb = new MY_DB();
+        USER user = new USER();
         public AccountForm()
         {
             InitializeComponent();
@@ -35,6 +38,7 @@ namespace _21110849_DangPhuQuy_QLSV
             dgvStudent.Columns[0].HeaderText = "Username";
             dgvStudent.Columns[1].HeaderText = "Password";
             dgvStudent.Columns[2].HeaderText = "Role";
+            dgvStudent.AllowUserToAddRows = false;
 
             mydb.closeConnection();
         }
@@ -196,6 +200,126 @@ namespace _21110849_DangPhuQuy_QLSV
         private void tabStudent_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void loadTabHr()
+        {
+            SqlCommand command = new SqlCommand("select * from pendingHr", mydb.getConnection);
+
+            DataTable table = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            adapter.Fill(table);
+
+            dgvHr.RowTemplate.Height = 80;
+            dgvHr.DataSource = table;
+            dgvHr.AllowUserToAddRows = false;
+            dgvHr.Columns["id"].HeaderText = "Id";
+            dgvHr.Columns["f_name"].HeaderText = "First name";
+            dgvHr.Columns["l_name"].HeaderText = "Last name";
+            dgvHr.Columns["uname"].HeaderText = "Username";
+            dgvHr.Columns["pwd"].HeaderText = "Password";
+            dgvHr.Columns["fig"].HeaderText = "Image";
+
+            DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+            picCol = (DataGridViewImageColumn)dgvHr.Columns["fig"];
+            picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+        }
+
+        private void tabtablePending_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabtablePending.SelectedIndex == 0)
+            {
+                AccountForm_Load(null, null);
+            }
+            else if (tabtablePending.SelectedIndex == 1)
+            {
+                loadTabHr();
+            }
+        }
+
+        private void btnHrAcpt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(dgvHr.CurrentRow.Cells["id"].Value.ToString());
+                string fname = dgvHr.CurrentRow.Cells["f_name"].Value.ToString();
+                string lname = dgvHr.CurrentRow.Cells["l_name"].Value.ToString();
+                string uname = dgvHr.CurrentRow.Cells["uname"].Value.ToString();
+                string password = dgvHr.CurrentRow.Cells["pwd"].Value.ToString();
+                byte[] pic = (byte[])dgvHr.CurrentRow.Cells["fig"].Value;
+                MemoryStream picture = new MemoryStream(pic);
+                if (user.insertUser(id, fname, lname, uname, password, picture))
+                {
+                    user.deletePendingHr(id);
+                    loadTabHr();
+                    MessageBox.Show("Adding succesfully", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Adding fail", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnHrDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(dgvHr.CurrentRow.Cells["id"].Value.ToString());
+                if (user.deletePendingHr(id))
+                {
+                    loadTabHr();
+                    MessageBox.Show("Deleting succesfully", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Deleting fail", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnHrAccAll_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow row in dgvHr.Rows)
+            {
+                try
+                {
+                    int id = Convert.ToInt32(row.Cells["id"].Value.ToString());
+                    string fname = row.Cells["f_name"].Value.ToString();
+                    string lname = row.Cells["l_name"].Value.ToString();
+                    string uname = row.Cells["uname"].Value.ToString();
+                    string password = row.Cells["pwd"].Value.ToString();
+                    byte[] pic = (byte[])row.Cells["fig"].Value;
+                    MemoryStream picture = new MemoryStream(pic);
+                    if (user.insertUser(id, fname, lname, uname, password, picture))
+                    {
+                        user.deletePendingHr(id);
+                        //loadTabHr();
+                        //MessageBox.Show("Adding succesfully", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Adding fail", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            loadTabHr();
+            MessageBox.Show("Adding succesfully", "Pending Account HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

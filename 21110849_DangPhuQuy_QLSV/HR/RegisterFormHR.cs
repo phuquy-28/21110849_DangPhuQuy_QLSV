@@ -67,12 +67,12 @@ namespace _21110849_DangPhuQuy_QLSV
 
                 if (verif())
                 {
-                    if (!user.usernameExist(uname, "register") && !user.UserIdExist(id))
+                    if (!user.pendingUsernameAndUserIdExist(uname, id) && !user.usernameExist(uname, "register") && !user.UserIdExist(id))
                     {
                         picbxPic.Image.Save(pic, picbxPic.Image.RawFormat);
-                        if (user.insertUser(id, fname, lname, uname, pass, pic))
+                        if (user.insertPendingUser(id, fname, lname, uname, pass, pic))
                         {
-                            MessageBox.Show("New HR Added", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("New HR is waiting to be accepted by the admin", "Add HR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {

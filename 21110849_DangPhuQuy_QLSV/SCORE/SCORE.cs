@@ -284,7 +284,7 @@ namespace _21110849_DangPhuQuy_QLSV
         }
         
 
-        public DataTable getStudentResultDetail(int id)
+        public DataTable getStudentResultDetail(int id, int semester)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = mydb.getConnection;
@@ -296,8 +296,9 @@ namespace _21110849_DangPhuQuy_QLSV
                 "FROM dbo.score " +
                 "JOIN dbo.course ON dbo.score.course_id = dbo.course.id " +
                 "JOIN dbo.std ON dbo.score.student_id = dbo.std.Id " +
-                "WHERE dbo.std.Id = @id ";
+                "WHERE dbo.std.Id = @id and semester = @sem";
             cmd.Parameters.Add("id", SqlDbType.Int).Value = id;
+            cmd.Parameters.Add("sem", SqlDbType.Int).Value = semester;
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -305,15 +306,15 @@ namespace _21110849_DangPhuQuy_QLSV
             return table;
         }
 
-        public DataTable getCourseStdList(string cname)
+        public DataTable getCourseStdList(int id)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = mydb.getConnection;
             cmd.CommandText = "SELECT ROW_NUMBER() OVER (ORDER BY std.Id) AS STT, std.Id, fname, lname, bdate " +
                 "FROM std JOIN dbo.score ON std.Id = student_id " +
                 "JOIN dbo.course ON course.id = score.course_id " +
-                "WHERE course.label = @cname ";
-            cmd.Parameters.Add("@cname", SqlDbType.NVarChar).Value = cname;
+                "WHERE course.id = @cid ";
+            cmd.Parameters.Add("@cid", SqlDbType.Int).Value = id;
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table = new DataTable();

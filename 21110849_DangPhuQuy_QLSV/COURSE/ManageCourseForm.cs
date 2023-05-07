@@ -222,13 +222,20 @@ namespace _21110849_DangPhuQuy_QLSV
         private void lisbCourse_DoubleClick(object sender, EventArgs e)
         {
             CourseStudentListForm courseListFrm = new CourseStudentListForm();
+
+            courseListFrm.labelCourseId.Text = lisbCourse.SelectedValue.ToString();
+           
+            // Lấy dữ liệu được chọn từ ListBox
+            DataRowView selectedRow = (DataRowView)lisbCourse.SelectedItem;
+
+            // Truy cập đến giá trị của cột dữ liệu cụ thể cho hàng được chọn
+            string value = selectedRow["label"].ToString();
+
+            // Gán giá trị cho Label
+            courseListFrm.labelCourseName.Text = value;
             
+            courseListFrm.labelSemester.Text = cbSem.Text;
 
-            int index = lisbCourse.SelectedIndex;
-            DataRow dr = course.getAllCourse().Rows[index];
-
-            courseListFrm.tbCourseName.Clear();
-            courseListFrm.tbCourseName.Text = dr.ItemArray[1].ToString();
 
             courseListFrm.Show(this);
         }

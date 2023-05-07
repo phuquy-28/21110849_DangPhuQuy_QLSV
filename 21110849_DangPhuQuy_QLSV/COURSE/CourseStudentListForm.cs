@@ -26,8 +26,8 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void CourseListForm_Load(object sender, EventArgs e)
         {
-            string temp = tbCourseName.Text.ToString().Trim();
-            dgvCourseStudent.DataSource = score.getCourseStdList(temp);
+            int courseId = Convert.ToInt32(labelCourseId.Text.ToString());
+            dgvCourseStudent.DataSource = score.getCourseStdList(courseId);
 
             dgvCourseStudent.Columns[1].HeaderText = "ID";
             dgvCourseStudent.Columns[2].HeaderText = "FIRST NAME";
@@ -61,8 +61,8 @@ namespace _21110849_DangPhuQuy_QLSV
 
             //Subtitle
             //printer.SubTitle = String.Format("Date: {0}", DateTime.Now.Date);
-            printer.SubTitle = "DANH SÁCH SINH VIÊN NĂM HỌC 2022 - 2023" +
-                $"\nMôn: {tbCourseName.Text}" +
+            printer.SubTitle = $"DANH SÁCH SINH VIÊN HỌC KỲ {labelSemester.Text} NĂM HỌC 2022 - 2023" +
+                $"\nMôn: {labelCourseName.Text}, Mã: {labelCourseId.Text}" +
                 $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";
             printer.SubTitleSpacing = 20;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;

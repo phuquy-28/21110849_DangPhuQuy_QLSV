@@ -57,6 +57,7 @@
             this.tabtablePending.SelectedIndex = 0;
             this.tabtablePending.Size = new System.Drawing.Size(797, 447);
             this.tabtablePending.TabIndex = 6;
+            this.tabtablePending.SelectedIndexChanged += new System.EventHandler(this.tabtablePending_SelectedIndexChanged);
             // 
             // tabStudent
             // 
@@ -154,6 +155,7 @@
             this.btnHrDelete.TabIndex = 14;
             this.btnHrDelete.Text = "Delete";
             this.btnHrDelete.UseVisualStyleBackColor = false;
+            this.btnHrDelete.Click += new System.EventHandler(this.btnHrDelete_Click);
             // 
             // btnHrAccAll
             // 
@@ -165,6 +167,7 @@
             this.btnHrAccAll.TabIndex = 13;
             this.btnHrAccAll.Text = "Accept All";
             this.btnHrAccAll.UseVisualStyleBackColor = false;
+            this.btnHrAccAll.Click += new System.EventHandler(this.btnHrAccAll_Click);
             // 
             // btnHrAcpt
             // 
@@ -176,6 +179,7 @@
             this.btnHrAcpt.TabIndex = 12;
             this.btnHrAcpt.Text = "Accept";
             this.btnHrAcpt.UseVisualStyleBackColor = false;
+            this.btnHrAcpt.Click += new System.EventHandler(this.btnHrAcpt_Click);
             // 
             // dgvHr
             // 

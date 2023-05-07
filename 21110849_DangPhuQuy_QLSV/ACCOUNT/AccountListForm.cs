@@ -19,6 +19,7 @@ namespace _21110849_DangPhuQuy_QLSV
         }
 
         MY_DB mydb = new MY_DB();
+        USER user = new USER();
 
         private void AccountListForm_Load(object sender, EventArgs e)
         {
@@ -32,6 +33,7 @@ namespace _21110849_DangPhuQuy_QLSV
             dgvAccList.Columns[0].HeaderText = "Username";
             dgvAccList.Columns[1].HeaderText = "Password";
             dgvAccList.Columns[2].HeaderText = "Role";
+            dgvAccList.AllowUserToAddRows = false;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace _21110849_DangPhuQuy_QLSV
             {
                 AccountListForm_Load(null, null);
             }
-            else if(tabControl1.SelectedIndex == 1)
+            else if (tabControl1.SelectedIndex == 1)
             {
                 loadTabHr();
             }
@@ -65,11 +67,67 @@ namespace _21110849_DangPhuQuy_QLSV
             dgvHr.Columns["uname"].HeaderText = "Username";
             dgvHr.Columns["pwd"].HeaderText = "Password";
             dgvHr.Columns["fig"].HeaderText = "Image";
-            
+
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             picCol = (DataGridViewImageColumn)dgvHr.Columns["fig"];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
+        }
+
+        public bool deleteStudentAcc(string uname)
+        {
+            SqlCommand cmd = new SqlCommand("delete from log_in where username = @uname and role <> 'admin'", mydb.getConnection);
+            cmd.Parameters.Add("uname", SqlDbType.NVarChar).Value = uname;
+            mydb.openConnection();
+            if(cmd.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            mydb.closeConnection();
+            return false;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string uname = dgvAccList.CurrentRow.Cells["username"].Value.ToString();
+                if (deleteStudentAcc(uname))
+                {
+                    MessageBox.Show("Deleting successfully", "Deleting Student Account", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AccountListForm_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Deleting fail", "Deleting Student Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Deleting Student Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemoveHr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(dgvHr.CurrentRow.Cells["id"].Value.ToString());
+                if (user.deleteHr(id))
+                {
+                    MessageBox.Show("Deleting successfully", "Deleting HR Account", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadTabHr();
+                }
+                else
+                {
+                    MessageBox.Show("Deleting fail", "Deleting HR Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Deleting HR Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

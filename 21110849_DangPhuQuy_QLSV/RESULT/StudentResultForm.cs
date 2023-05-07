@@ -22,7 +22,13 @@ namespace _21110849_DangPhuQuy_QLSV
         private void StudentResultForm_Load(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(labelId.Text.ToString());
-            dgvStudentResult.DataSource = score.getStudentResultDetail(id);
+            int sem = Convert.ToInt32(lbSem.Text.ToString());
+            dgvStudentResult.DataSource = score.getStudentResultDetail(id, sem);
+            dgvStudentResult.AllowUserToAddRows = false;
+
+            dgvStudentResult.Columns["course_id"].HeaderText = "Course Id";
+            dgvStudentResult.Columns["label"].HeaderText = "Course name";
+            dgvStudentResult.Columns["student_score"].HeaderText = "Score";
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -39,7 +45,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
             //Subtitle
             //printer.SubTitle = String.Format("Date: {0}", DateTime.Now.Date);
-            printer.SubTitle = "BẢNG ĐIỂM NĂM HỌC 2022 - 2023" +
+            printer.SubTitle = $"BẢNG ĐIỂM HỌC KỲ {lbSem.Text} NĂM HỌC 2022 - 2023" +
                 $"\nMSSV: {labelId.Text}" +
                 $"\nHọ Tên: {labelName.Text}" +
                 $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";

@@ -44,8 +44,9 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             CourseStudentListForm courseListFrm = new CourseStudentListForm();
 
-            courseListFrm.tbCourseName.Clear();
-            courseListFrm.tbCourseName.Text = dgvCourseContact.CurrentRow.Cells["Course name"].Value.ToString();
+            courseListFrm.labelCourseId.Text = dgvCourseContact.CurrentRow.Cells["Course Id"].Value.ToString();
+            courseListFrm.labelCourseName.Text = dgvCourseContact.CurrentRow.Cells["Course name"].Value.ToString();
+            courseListFrm.labelSemester.Text = cbSem.Text;
 
             courseListFrm.Show(this);
         }
