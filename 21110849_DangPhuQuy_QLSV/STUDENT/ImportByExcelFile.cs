@@ -26,51 +26,58 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void cbSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
-            dgvReadFile.DataSource = dt;
-            dgvReadFile.AllowUserToAddRows = false;
-
-            if (dt != null)
+            try
             {
-                List<STUDENTs> student = new List<STUDENTs>();
-                for (int i = 0; i < dgvReadFile.Rows.Count - 1; i++)
+                DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
+                dgvReadFile.DataSource = dt;
+                dgvReadFile.AllowUserToAddRows = false;
+
+                if (dt != null)
                 {
-                    STUDENTs s = new STUDENTs();
-                    s.Id = dt.Rows[i]["id"].ToString();
-                    s.FName = dt.Rows[i]["fname"].ToString();
-                    s.LName = dt.Rows[i]["lname"].ToString();
+                    List<STUDENTs> student = new List<STUDENTs>();
+                    for (int i = 0; i < dgvReadFile.Rows.Count - 1; i++)
+                    {
+                        STUDENTs s = new STUDENTs();
+                        s.Id = dt.Rows[i]["id"].ToString();
+                        s.FName = dt.Rows[i]["fname"].ToString();
+                        s.LName = dt.Rows[i]["lname"].ToString();
 
-                    //MessageBox.Show(dt.Rows[i]["bdate"].ToString());
+                        //MessageBox.Show(dt.Rows[i]["bdate"].ToString());
 
-                    // Sử dụng phương thức TryParseExact để chuyển đổi chuỗi ngày tháng năm trong Excel sang kiểu DateTime
-                    DateTime.TryParse(dt.Rows[i]["bdate"].ToString(), out DateTime bdate);
-                    s.Birthday = bdate;
+                        // Sử dụng phương thức TryParseExact để chuyển đổi chuỗi ngày tháng năm trong Excel sang kiểu DateTime
+                        DateTime.TryParse(dt.Rows[i]["bdate"].ToString(), out DateTime bdate);
+                        s.Birthday = bdate;
 
-                    //MessageBox.Show(s.Birthday.ToString());
+                        //MessageBox.Show(s.Birthday.ToString());
 
-                    s.Gender = dt.Rows[i]["gender"].ToString();
-                    s.Phone = dt.Rows[i]["phone"].ToString();
-                    s.Address = dt.Rows[i]["address"].ToString();
-                    //s.Picture = null;//(MemoryStream)dt.Rows[i]["picture"];
+                        s.Gender = dt.Rows[i]["gender"].ToString();
+                        s.Phone = dt.Rows[i]["phone"].ToString();
+                        s.Address = dt.Rows[i]["address"].ToString();
+                        //s.Picture = null;//(MemoryStream)dt.Rows[i]["picture"];
 
-                    // Đọc hình ảnh mặc định từ tệp Resource
-                    Bitmap defaultImage = Properties.Resources.user1;
+                        // Đọc hình ảnh mặc định từ tệp Resource
+                        Bitmap defaultImage = Properties.Resources.user1;
 
-                    // Chuyển đổi hình ảnh sang kiểu byte[]
-                    MemoryStream ms = new MemoryStream();
-                    defaultImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    byte[] imageBytes = (byte[])ms.ToArray();
-                    s.Picture = imageBytes;
+                        // Chuyển đổi hình ảnh sang kiểu byte[]
+                        MemoryStream ms = new MemoryStream();
+                        defaultImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        byte[] imageBytes = (byte[])ms.ToArray();
+                        s.Picture = imageBytes;
 
-                    s.Email = dt.Rows[i]["email"].ToString();
-                    s.Faculty = dt.Rows[i]["faculty"].ToString();
-                    s.Major = dt.Rows[i]["major"].ToString();
-                    s.Pob = dt.Rows[i]["pob"].ToString();
-                    s.Nationality = dt.Rows[i]["nationality"].ToString();
-                    s.State = dt.Rows[i]["state"].ToString();
-                    student.Add(s);
+                        s.Email = dt.Rows[i]["email"].ToString();
+                        s.Faculty = dt.Rows[i]["faculty"].ToString();
+                        s.Major = dt.Rows[i]["major"].ToString();
+                        s.Pob = dt.Rows[i]["pob"].ToString();
+                        s.Nationality = dt.Rows[i]["nationality"].ToString();
+                        s.State = dt.Rows[i]["state"].ToString();
+                        student.Add(s);
+                    }
+                    stdBindingSource.DataSource = student;
                 }
-                stdBindingSource.DataSource = student;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
