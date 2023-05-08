@@ -11,8 +11,12 @@ namespace _21110849_DangPhuQuy_QLSV
 {
     internal class COURSE
     {
+        public int Id { get; set; }
+        public string Label { get; set; }
+        public int Period { get; set; }
+        public string Description { get; set; }
+        public int Semester { get; set; }
         MY_DB mydb = new MY_DB();
-
         public bool insertCourse(int id, string courseName, int hoursNumber, string description, int semester)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Course (id, label, period, description, semester) Values (@id, @name, @hours, @des, @sem)", mydb.getConnection);

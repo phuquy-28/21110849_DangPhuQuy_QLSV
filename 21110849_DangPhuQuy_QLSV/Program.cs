@@ -45,6 +45,9 @@ namespace _21110849_DangPhuQuy_QLSV
                 Application.Exit();
             }
 
+            //ImportCourseForm form1 = new ImportCourseForm();
+            //Application.Run(form1);
+
             //MainForm mainForm = new MainForm();
             //Application.Run(mainForm);
 
