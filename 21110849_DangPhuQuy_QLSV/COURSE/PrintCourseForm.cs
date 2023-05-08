@@ -132,7 +132,7 @@ namespace _21110849_DangPhuQuy_QLSV
                     Word.Range headerRange = section.Headers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
                     headerRange.Fields.Add(headerRange, Word.WdFieldType.wdFieldPage);
                     headerRange.Text = $"TRƯỜNG ĐẠI HỌC SPKT TP.HCM\t\t\tNgày in: {DateTime.Now.ToString("dd/MM/yyyy")}" +
-                        "\n\nDANH SÁCH MÔN HỌC\nHỌC KỲ HK02 - NĂM HỌC 2022-2023";
+                        $"\n\nDANH SÁCH MÔN HỌC\nHỌC KỲ {cbSem.Text} - NĂM HỌC 2022-2023";
                     headerRange.Font.Size = 16;
                     headerRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
                 }
@@ -204,7 +204,8 @@ namespace _21110849_DangPhuQuy_QLSV
 
             //Subtitle
             //printer.SubTitle = String.Format("Date: {0}", DateTime.Now.Date);
-            printer.SubTitle = "DANH SÁCH MÔN HỌC NĂM HỌC 2022 - 2023" +
+            printer.SubTitle = "DANH SÁCH MÔN HỌC " +
+                $"\nHỌC KỲ {cbSem.Text} NĂM HỌC 2022 - 2023" +
                 $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";
             printer.SubTitleSpacing = 20;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;

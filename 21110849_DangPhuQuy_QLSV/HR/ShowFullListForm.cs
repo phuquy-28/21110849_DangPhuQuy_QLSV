@@ -105,7 +105,7 @@ namespace _21110849_DangPhuQuy_QLSV
             courseContactFrm.tbContactId.Text = dgvContactList.CurrentRow.Cells["id"].Value.ToString();
             string fname = dgvContactList.CurrentRow.Cells["First name"].Value.ToString();
             string lname = dgvContactList.CurrentRow.Cells["Last name"].Value.ToString();
-            courseContactFrm.lbName.Text = $"Name contact: {fname} {lname}";
+            courseContactFrm.lbName.Text = $"{fname} {lname}";
             
 
             courseContactFrm.Show(this);

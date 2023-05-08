@@ -48,6 +48,12 @@ namespace _21110849_DangPhuQuy_QLSV
             courseListFrm.labelCourseName.Text = dgvCourseContact.CurrentRow.Cells["Course name"].Value.ToString();
             courseListFrm.labelSemester.Text = cbSem.Text;
 
+            courseListFrm.lbLecturer.Visible = true;
+
+            courseListFrm.lbLecName.Visible = true;
+
+            courseListFrm.lbLecName.Text = lbName.Text;
+
             courseListFrm.Show(this);
         }
     }

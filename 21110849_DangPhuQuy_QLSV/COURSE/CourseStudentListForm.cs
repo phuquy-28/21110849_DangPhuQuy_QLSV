@@ -61,9 +61,20 @@ namespace _21110849_DangPhuQuy_QLSV
 
             //Subtitle
             //printer.SubTitle = String.Format("Date: {0}", DateTime.Now.Date);
-            printer.SubTitle = $"DANH SÁCH SINH VIÊN HỌC KỲ {labelSemester.Text} NĂM HỌC 2022 - 2023" +
-                $"\nMôn: {labelCourseName.Text}, Mã: {labelCourseId.Text}" +
+            if (lbLecName.Text != "label2")
+            {
+                printer.SubTitle = $"DANH SÁCH SINH VIÊN HỌC KỲ {labelSemester.Text} NĂM HỌC 2022 - 2023" +
+                $"\nMôn: {labelCourseName.Text}, Mã môn: {labelCourseId.Text}" +
+                $"\nGiảng viên: {lbLecName.Text}" +
                 $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";
+            }
+            else
+            {
+                printer.SubTitle = $"DANH SÁCH SINH VIÊN HỌC KỲ {labelSemester.Text} NĂM HỌC 2022 - 2023" +
+                $"\nMôn: {labelCourseName.Text}, Mã môn: {labelCourseId.Text}" +
+                $"\nNgày in: {DateTime.Now.Date.ToString("dd/MM/yyyy")}";
+            }
+            
             printer.SubTitleSpacing = 20;
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
 

@@ -141,5 +141,21 @@ namespace _21110849_DangPhuQuy_QLSV
                 passwordTextBox.PasswordChar = '*';
             }
         }
+
+        private void lbForgetPass_Click(object sender, EventArgs e)
+        {
+            if (rbtnUser.Checked)
+            {
+                ForgetPasswordForm forgetPasswordFrm = new ForgetPasswordForm();
+                forgetPasswordFrm.lbTypeAccount.Text = "STUDENT ACCOUNT";
+                forgetPasswordFrm.Show(this);
+            }
+            else if (rbtnHr.Checked)
+            {
+                ForgetPasswordForm forgetPasswordFrm = new ForgetPasswordForm();
+                forgetPasswordFrm.lbTypeAccount.Text = "HR ACCOUNT";
+                forgetPasswordFrm.Show(this);
+            }
+        }
     }
 }

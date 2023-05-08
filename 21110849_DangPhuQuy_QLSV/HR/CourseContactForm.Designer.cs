@@ -30,10 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.tbContactId = new System.Windows.Forms.TextBox();
-            this.lbName = new System.Windows.Forms.Label();
+            this.lbNameTitle = new System.Windows.Forms.Label();
             this.cbSem = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCourseContact = new System.Windows.Forms.DataGridView();
+            this.lbName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseContact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,15 +55,15 @@
             this.tbContactId.Size = new System.Drawing.Size(100, 20);
             this.tbContactId.TabIndex = 1;
             // 
-            // lbName
+            // lbNameTitle
             // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbName.Location = new System.Drawing.Point(25, 55);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(57, 18);
-            this.lbName.TabIndex = 2;
-            this.lbName.Text = "Name:";
+            this.lbNameTitle.AutoSize = true;
+            this.lbNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNameTitle.Location = new System.Drawing.Point(25, 55);
+            this.lbNameTitle.Name = "lbNameTitle";
+            this.lbNameTitle.Size = new System.Drawing.Size(57, 18);
+            this.lbNameTitle.TabIndex = 2;
+            this.lbNameTitle.Text = "Name:";
             // 
             // cbSem
             // 
@@ -97,15 +98,26 @@
             this.dgvCourseContact.TabIndex = 6;
             this.dgvCourseContact.DoubleClick += new System.EventHandler(this.dgvCourseContact_DoubleClick);
             // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(88, 55);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(45, 18);
+            this.lbName.TabIndex = 7;
+            this.lbName.Text = "name";
+            // 
             // CourseContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 450);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.dgvCourseContact);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbSem);
-            this.Controls.Add(this.lbName);
+            this.Controls.Add(this.lbNameTitle);
             this.Controls.Add(this.tbContactId);
             this.Controls.Add(this.label1);
             this.Name = "CourseContactForm";
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCourseContact;
         internal System.Windows.Forms.TextBox tbContactId;
+        internal System.Windows.Forms.Label lbNameTitle;
         internal System.Windows.Forms.Label lbName;
     }
 }

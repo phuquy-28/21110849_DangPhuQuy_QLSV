@@ -36,6 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelSemester = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbLecName = new System.Windows.Forms.Label();
+            this.lbLecturer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +107,7 @@
             // 
             this.labelSemester.AutoSize = true;
             this.labelSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSemester.Location = new System.Drawing.Point(617, 35);
+            this.labelSemester.Location = new System.Drawing.Point(438, 36);
             this.labelSemester.Name = "labelSemester";
             this.labelSemester.Size = new System.Drawing.Size(51, 20);
             this.labelSemester.TabIndex = 8;
@@ -115,17 +117,39 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(505, 32);
+            this.label4.Location = new System.Drawing.Point(326, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "Semester:";
+            // 
+            // lbLecName
+            // 
+            this.lbLecName.AutoSize = true;
+            this.lbLecName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLecName.Location = new System.Drawing.Point(438, 12);
+            this.lbLecName.Name = "lbLecName";
+            this.lbLecName.Size = new System.Drawing.Size(51, 20);
+            this.lbLecName.TabIndex = 10;
+            this.lbLecName.Text = "label2";
+            // 
+            // lbLecturer
+            // 
+            this.lbLecturer.AutoSize = true;
+            this.lbLecturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLecturer.Location = new System.Drawing.Point(326, 9);
+            this.lbLecturer.Name = "lbLecturer";
+            this.lbLecturer.Size = new System.Drawing.Size(103, 24);
+            this.lbLecturer.TabIndex = 9;
+            this.lbLecturer.Text = "Lecturers:";
             // 
             // CourseStudentListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 439);
+            this.Controls.Add(this.lbLecName);
+            this.Controls.Add(this.lbLecturer);
             this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelCourseId);
@@ -135,7 +159,7 @@
             this.Controls.Add(this.dgvCourseStudent);
             this.Controls.Add(this.label1);
             this.Name = "CourseStudentListForm";
-            this.Text = "CourseListForm";
+            this.Text = "CourseStudentListForm";
             this.Load += new System.EventHandler(this.CourseListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseStudent)).EndInit();
             this.ResumeLayout(false);
@@ -153,5 +177,7 @@
         internal System.Windows.Forms.Label labelCourseName;
         internal System.Windows.Forms.Label labelCourseId;
         internal System.Windows.Forms.Label labelSemester;
+        internal System.Windows.Forms.Label lbLecName;
+        internal System.Windows.Forms.Label lbLecturer;
     }
 }

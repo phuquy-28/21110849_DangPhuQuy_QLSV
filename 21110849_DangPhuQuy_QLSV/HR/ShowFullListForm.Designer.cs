@@ -38,6 +38,7 @@
             // 
             // dgvContactList
             // 
+            this.dgvContactList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvContactList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContactList.Location = new System.Drawing.Point(215, 74);
             this.dgvContactList.Name = "dgvContactList";

@@ -37,7 +37,8 @@ namespace _21110849_DangPhuQuy_QLSV
 
             dgvStudent.Columns[0].HeaderText = "Username";
             dgvStudent.Columns[1].HeaderText = "Password";
-            dgvStudent.Columns[2].HeaderText = "Role";
+            dgvStudent.Columns[2].HeaderText = "Email";
+            dgvStudent.Columns[3].HeaderText = "Role";
             dgvStudent.AllowUserToAddRows = false;
 
             mydb.closeConnection();
@@ -58,11 +59,12 @@ namespace _21110849_DangPhuQuy_QLSV
                 mydb.openConnection();
 
                 DataGridViewRow selectedRow = dgvStudent.SelectedRows[0];
-                SqlCommand command = new SqlCommand("INSERT INTO log_in (username, password, role) VALUES (@User, @Pass, @Rol) ", mydb.getConnection);
+                SqlCommand command = new SqlCommand("INSERT INTO log_in (username, password, email, role) VALUES (@User, @Pass, @mail, @Rol) ", mydb.getConnection);
                 {
                     command.Parameters.AddWithValue("User", selectedRow.Cells[0].Value.ToString());
                     command.Parameters.AddWithValue("Pass", selectedRow.Cells[1].Value.ToString());
-                    command.Parameters.AddWithValue("Rol", selectedRow.Cells[2].Value.ToString());
+                    command.Parameters.AddWithValue("mail", selectedRow.Cells[2].Value.ToString());
+                    command.Parameters.AddWithValue("Rol", selectedRow.Cells[3].Value.ToString());
                 }
 
                 //KQ thực thi câu truy vấn INSERT INTO
@@ -155,11 +157,12 @@ namespace _21110849_DangPhuQuy_QLSV
                 {
                     try
                     {
-                        SqlCommand command = new SqlCommand("INSERT INTO log_in (username, password, role) VALUES (@User, @Pass, @Rol) ", mydb.getConnection);
+                        SqlCommand command = new SqlCommand("INSERT INTO log_in (username, password, email, role) VALUES (@User, @Pass, @mail, @Rol) ", mydb.getConnection);
                         {
                             command.Parameters.AddWithValue("User", selectedRow.Cells[0].Value.ToString());
                             command.Parameters.AddWithValue("Pass", selectedRow.Cells[1].Value.ToString());
-                            command.Parameters.AddWithValue("Rol", selectedRow.Cells[2].Value.ToString());
+                            command.Parameters.AddWithValue("mail", selectedRow.Cells[2].Value.ToString());
+                            command.Parameters.AddWithValue("Rol", selectedRow.Cells[3].Value.ToString());
                         }
 
                         //KQ thực thi câu truy vấn INSERT INTO

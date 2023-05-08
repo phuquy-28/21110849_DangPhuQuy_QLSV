@@ -41,6 +41,7 @@
             this.rbtnAdmin = new System.Windows.Forms.RadioButton();
             this.rbtnHr = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbForgetPass = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,12 +188,26 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // lbForgetPass
+            // 
+            this.lbForgetPass.AutoSize = true;
+            this.lbForgetPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbForgetPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbForgetPass.ForeColor = System.Drawing.Color.White;
+            this.lbForgetPass.Location = new System.Drawing.Point(210, 477);
+            this.lbForgetPass.Name = "lbForgetPass";
+            this.lbForgetPass.Size = new System.Drawing.Size(171, 20);
+            this.lbForgetPass.TabIndex = 11;
+            this.lbForgetPass.Text = "Forget your password?";
+            this.lbForgetPass.Click += new System.EventHandler(this.lbForgetPass_Click);
+            // 
             // Login_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(388, 506);
+            this.Controls.Add(this.lbForgetPass);
             this.Controls.Add(this.rbtnHr);
             this.Controls.Add(this.rbtnAdmin);
             this.Controls.Add(this.rbtnUser);
@@ -230,5 +245,6 @@
         internal System.Windows.Forms.RadioButton rbtnUser;
         internal System.Windows.Forms.RadioButton rbtnAdmin;
         internal System.Windows.Forms.RadioButton rbtnHr;
+        private System.Windows.Forms.Label lbForgetPass;
     }
 }

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -55,10 +57,11 @@ namespace _21110849_DangPhuQuy_QLSV
                 }
                 if (passwordTB.Text == confirmPassTB.Text)
                 {
-                    SqlCommand command = new SqlCommand("INSERT INTO PendingAccount (username, password, role) VALUES (@User, @Pass, @Rol) ", db.getConnection);
+                    SqlCommand command = new SqlCommand("INSERT INTO PendingAccount (username, password, email, role) VALUES (@User, @Pass, @mail, @Rol) ", db.getConnection);
                     {
                         command.Parameters.AddWithValue("User", usernameTB.Text);
                         command.Parameters.AddWithValue("Pass", passwordTB.Text);
+                        command.Parameters.AddWithValue("mail", tbEmail.Text);
                         command.Parameters.AddWithValue("Rol", "student");
                     }
 
@@ -76,6 +79,7 @@ namespace _21110849_DangPhuQuy_QLSV
                         MessageBox.Show("Thêm thành công");
                         usernameTB.Clear();
                         passwordTB.Clear();
+                        tbEmail.Clear();
                         confirmPassTB.Clear();
                     }
                     else
@@ -117,6 +121,15 @@ namespace _21110849_DangPhuQuy_QLSV
             {
                 passwordTB.PasswordChar = '*';
                 confirmPassTB.PasswordChar = '*';
+            }
+        }
+
+        private void emailTb_Validating(object sender, CancelEventArgs e)
+        {
+            if (!(new EmailAddressAttribute().IsValid(tbEmail.Text)))
+            {
+                MessageBox.Show("Email Address is not valid", "Email Address", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbEmail.Text = "";
             }
         }
     }

@@ -236,6 +236,9 @@ namespace _21110849_DangPhuQuy_QLSV
             
             courseListFrm.labelSemester.Text = cbSem.Text;
 
+            courseListFrm.lbLecturer.Visible = false;
+
+            courseListFrm.lbLecName.Visible = false;
 
             courseListFrm.Show(this);
         }

@@ -28,6 +28,8 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
             dgvReadFile.DataSource = dt;
+            dgvReadFile.AllowUserToAddRows = false;
+
             if (dt != null)
             {
                 List<STUDENTs> student = new List<STUDENTs>();
@@ -38,13 +40,13 @@ namespace _21110849_DangPhuQuy_QLSV
                     s.FName = dt.Rows[i]["fname"].ToString();
                     s.LName = dt.Rows[i]["lname"].ToString();
 
-                    MessageBox.Show(dt.Rows[i]["bdate"].ToString());
+                    //MessageBox.Show(dt.Rows[i]["bdate"].ToString());
 
                     // Sử dụng phương thức TryParseExact để chuyển đổi chuỗi ngày tháng năm trong Excel sang kiểu DateTime
                     DateTime.TryParse(dt.Rows[i]["bdate"].ToString(), out DateTime bdate);
                     s.Birthday = bdate;
 
-                    MessageBox.Show(s.Birthday.ToString());
+                    //MessageBox.Show(s.Birthday.ToString());
 
                     s.Gender = dt.Rows[i]["gender"].ToString();
                     s.Phone = dt.Rows[i]["phone"].ToString();
@@ -54,7 +56,7 @@ namespace _21110849_DangPhuQuy_QLSV
                     // Đọc hình ảnh mặc định từ tệp Resource
                     Bitmap defaultImage = Properties.Resources.user1;
 
-                    // Chuyển đổi hình ảnh sang kiểu MemoryStream
+                    // Chuyển đổi hình ảnh sang kiểu byte[]
                     MemoryStream ms = new MemoryStream();
                     defaultImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                     byte[] imageBytes = (byte[])ms.ToArray();

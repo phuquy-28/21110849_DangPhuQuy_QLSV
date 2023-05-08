@@ -38,6 +38,8 @@
             this.showpassCb = new System.Windows.Forms.CheckBox();
             this.regisBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@
             // passwordTB
             // 
             this.passwordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTB.Location = new System.Drawing.Point(219, 187);
+            this.passwordTB.Location = new System.Drawing.Point(219, 224);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.PasswordChar = '*';
             this.passwordTB.Size = new System.Drawing.Size(219, 31);
@@ -82,7 +84,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(78, 190);
+            this.label3.Location = new System.Drawing.Point(78, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 25);
             this.label3.TabIndex = 4;
@@ -91,7 +93,7 @@
             // confirmPassTB
             // 
             this.confirmPassTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmPassTB.Location = new System.Drawing.Point(219, 224);
+            this.confirmPassTB.Location = new System.Drawing.Point(219, 261);
             this.confirmPassTB.Name = "confirmPassTB";
             this.confirmPassTB.PasswordChar = '*';
             this.confirmPassTB.Size = new System.Drawing.Size(219, 31);
@@ -101,7 +103,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(48, 227);
+            this.label4.Location = new System.Drawing.Point(44, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(146, 25);
             this.label4.TabIndex = 6;
@@ -111,7 +113,7 @@
             // 
             this.showpassCb.AutoSize = true;
             this.showpassCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showpassCb.Location = new System.Drawing.Point(219, 262);
+            this.showpassCb.Location = new System.Drawing.Point(219, 299);
             this.showpassCb.Name = "showpassCb";
             this.showpassCb.Size = new System.Drawing.Size(121, 20);
             this.showpassCb.TabIndex = 8;
@@ -122,7 +124,7 @@
             // regisBtn
             // 
             this.regisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regisBtn.Location = new System.Drawing.Point(186, 288);
+            this.regisBtn.Location = new System.Drawing.Point(186, 325);
             this.regisBtn.Name = "regisBtn";
             this.regisBtn.Size = new System.Drawing.Size(154, 33);
             this.regisBtn.TabIndex = 9;
@@ -140,12 +142,33 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // tbEmail
+            // 
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.Location = new System.Drawing.Point(219, 187);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(219, 31);
+            this.tbEmail.TabIndex = 11;
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.emailTb_Validating);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(119, 190);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 25);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Email:";
+            // 
             // RegisterFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(537, 345);
+            this.ClientSize = new System.Drawing.Size(537, 379);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.regisBtn);
             this.Controls.Add(this.showpassCb);
             this.Controls.Add(this.confirmPassTB);
@@ -176,5 +199,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox showpassCb;
         private System.Windows.Forms.Button regisBtn;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Label label5;
     }
 }
