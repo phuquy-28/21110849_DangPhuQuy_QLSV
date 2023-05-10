@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbId = new System.Windows.Forms.TextBox();
-            this.tbfname = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tblname = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvResult = new System.Windows.Forms.DataGridView();
@@ -56,65 +50,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Result";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "StudentID:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // tbId
-            // 
-            this.tbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbId.Location = new System.Drawing.Point(106, 62);
-            this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(100, 26);
-            this.tbId.TabIndex = 2;
-            // 
-            // tbfname
-            // 
-            this.tbfname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbfname.Location = new System.Drawing.Point(106, 94);
-            this.tbfname.Name = "tbfname";
-            this.tbfname.Size = new System.Drawing.Size(100, 26);
-            this.tbfname.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Firstname:";
-            // 
-            // tblname
-            // 
-            this.tblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tblname.Location = new System.Drawing.Point(106, 126);
-            this.tblname.Name = "tblname";
-            this.tblname.Size = new System.Drawing.Size(100, 26);
-            this.tblname.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Lastname:";
-            // 
             // tbSearch
             // 
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(66, 187);
+            this.tbSearch.Location = new System.Drawing.Point(65, 85);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(140, 26);
             this.tbSearch.TabIndex = 8;
@@ -123,7 +62,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 164);
+            this.label5.Location = new System.Drawing.Point(12, 62);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(176, 20);
             this.label5.TabIndex = 7;
@@ -143,7 +82,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(119, 219);
+            this.btnSearch.Location = new System.Drawing.Point(118, 117);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(87, 26);
             this.btnSearch.TabIndex = 10;
@@ -212,12 +151,6 @@
             this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tblname);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbfname);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbId);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ResultForm";
             this.Text = "ResultForm";
@@ -231,12 +164,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbId;
-        private System.Windows.Forms.TextBox tbfname;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tblname;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvResult;

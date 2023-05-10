@@ -12,6 +12,8 @@ namespace _21110849_DangPhuQuy_QLSV
 {
     public partial class MainForm : Form
     {
+        public string Username { get; set; }
+        public string TypeAccount { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -140,6 +142,43 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             ResultForm resultFrm = new ResultForm();
             resultFrm.Show(this);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            lbUname.Text = Username; 
+        }
+
+        private void myInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateDeleteStudentForm updateDeleteStudentFrm = new UpdateDeleteStudentForm();
+            updateDeleteStudentFrm.idTb.Text = lbUname.Text;
+            updateDeleteStudentFrm.idTb.Enabled = false;
+            updateDeleteStudentFrm.removeBtn.Visible = false;
+            updateDeleteStudentFrm.findFNameBtn.Visible = false;
+            updateDeleteStudentFrm.findPhoneBtn.Visible = false;
+            updateDeleteStudentFrm.Show(this);
+        }
+
+        private void myCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyCourse mycourseFrm = new MyCourse();
+            mycourseFrm.labelId.Text = lbUname.Text;
+            mycourseFrm.Show(this);
+        }
+
+        private void myResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyResultForm myresultFrm = new MyResultForm();
+            myresultFrm.labelId.Text = lbUname.Text;
+            myresultFrm.Show(this);
+        }
+
+        private void lbChangePassword_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm changePassFrm = new ChangePasswordForm();
+            changePassFrm.lbTypeAccount.Text = TypeAccount.ToUpper() + " ACCOUNT";
+            changePassFrm.Show(this);
         }
     }
 }

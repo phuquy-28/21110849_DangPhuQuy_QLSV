@@ -554,7 +554,6 @@
 
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -589,5 +588,6 @@
         internal System.Windows.Forms.Button findFNameBtn;
         internal System.Windows.Forms.Button findPhoneBtn;
         private System.Windows.Forms.Button btnAddCourse;
+        internal System.Windows.Forms.Button removeBtn;
     }
 }

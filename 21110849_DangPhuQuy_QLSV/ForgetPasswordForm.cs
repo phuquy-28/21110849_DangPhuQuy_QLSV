@@ -112,7 +112,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
-            if (lbTypeAccount.Text == "STUDENT ACCOUNT")
+            if (lbTypeAccount.Text == "STUDENT ACCOUNT" || lbTypeAccount.Text == "TEACHER ACCOUNT")
             {
                 if (returnEmailUser(usernameTB.Text) != "")
                 {

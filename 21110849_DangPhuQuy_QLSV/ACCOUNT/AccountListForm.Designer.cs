@@ -30,13 +30,13 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStd = new System.Windows.Forms.TabPage();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.dgvAccList = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageHr = new System.Windows.Forms.TabPage();
+            this.btnRemoveHr = new System.Windows.Forms.Button();
             this.dgvHr = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnRemoveHr = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageStd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccList)).BeginInit();
@@ -65,8 +65,20 @@
             this.tabPageStd.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageStd.Size = new System.Drawing.Size(728, 425);
             this.tabPageStd.TabIndex = 0;
-            this.tabPageStd.Text = "Student";
+            this.tabPageStd.Text = "User";
             this.tabPageStd.UseVisualStyleBackColor = true;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.Crimson;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(8, 390);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(92, 29);
+            this.btnRemove.TabIndex = 4;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // dgvAccList
             // 
@@ -83,9 +95,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(245, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 25);
+            this.label1.Size = new System.Drawing.Size(198, 25);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Student Account List";
+            this.label1.Text = "User Account List";
             // 
             // tabPageHr
             // 
@@ -99,6 +111,18 @@
             this.tabPageHr.TabIndex = 1;
             this.tabPageHr.Text = "HR";
             this.tabPageHr.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveHr
+            // 
+            this.btnRemoveHr.BackColor = System.Drawing.Color.Crimson;
+            this.btnRemoveHr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveHr.Location = new System.Drawing.Point(8, 389);
+            this.btnRemoveHr.Name = "btnRemoveHr";
+            this.btnRemoveHr.Size = new System.Drawing.Size(92, 29);
+            this.btnRemoveHr.TabIndex = 6;
+            this.btnRemoveHr.Text = "Remove";
+            this.btnRemoveHr.UseVisualStyleBackColor = false;
+            this.btnRemoveHr.Click += new System.EventHandler(this.btnRemoveHr_Click);
             // 
             // dgvHr
             // 
@@ -118,30 +142,6 @@
             this.label2.Size = new System.Drawing.Size(181, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "HR Account List";
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.Crimson;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(8, 390);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(92, 29);
-            this.btnRemove.TabIndex = 4;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnRemoveHr
-            // 
-            this.btnRemoveHr.BackColor = System.Drawing.Color.Crimson;
-            this.btnRemoveHr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveHr.Location = new System.Drawing.Point(8, 389);
-            this.btnRemoveHr.Name = "btnRemoveHr";
-            this.btnRemoveHr.Size = new System.Drawing.Size(92, 29);
-            this.btnRemoveHr.TabIndex = 6;
-            this.btnRemoveHr.Text = "Remove";
-            this.btnRemoveHr.UseVisualStyleBackColor = false;
-            this.btnRemoveHr.Click += new System.EventHandler(this.btnRemoveHr_Click);
             // 
             // AccountListForm
             // 

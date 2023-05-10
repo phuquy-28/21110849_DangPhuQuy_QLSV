@@ -71,7 +71,7 @@
             this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
             this.tabStudent.Size = new System.Drawing.Size(789, 421);
             this.tabStudent.TabIndex = 0;
-            this.tabStudent.Text = "Student";
+            this.tabStudent.Text = "User";
             this.tabStudent.UseVisualStyleBackColor = true;
             this.tabStudent.Click += new System.EventHandler(this.tabStudent_Click);
             // 
@@ -126,9 +126,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(251, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 25);
+            this.label1.Size = new System.Drawing.Size(246, 25);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Pending Student Account";
+            this.label1.Text = "Pending User Account";
             // 
             // tabHr
             // 

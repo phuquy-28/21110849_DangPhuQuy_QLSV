@@ -90,6 +90,12 @@
     <Compile Include="ACCOUNT\AccountListForm.Designer.cs">
       <DependentUpon>AccountListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ForgetPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,10 +120,22 @@
     <Compile Include="HR\AddCourseContactForm.Designer.cs">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportScoreForm.cs">
+    <Compile Include="MyCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportScoreForm.Designer.cs">
+    <Compile Include="MyCourse.Designer.cs">
+      <DependentUpon>MyCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyResultForm.Designer.cs">
+      <DependentUpon>MyResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SCORE\ImportScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCORE\ImportScoreForm.Designer.cs">
       <DependentUpon>ImportScoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RESULT\StudentResultForm.cs">
@@ -126,10 +144,10 @@
     <Compile Include="RESULT\StudentResultForm.Designer.cs">
       <DependentUpon>StudentResultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\AddCourseStudentForm.cs">
+    <Compile Include="TEACHER\AddCourseStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\AddCourseStudentForm.Designer.cs">
+    <Compile Include="TEACHER\AddCourseStudentForm.Designer.cs">
       <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GROUP.cs" />
@@ -207,10 +225,10 @@
       <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DGVPrinter.cs" />
-    <Compile Include="STUDENT\EditRemoveStudentForm.cs">
+    <Compile Include="TEACHER\EditRemoveStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\EditRemoveStudentForm.Designer.cs">
+    <Compile Include="TEACHER\EditRemoveStudentForm.Designer.cs">
       <DependentUpon>EditRemoveStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SCORE\RemoveScoreForm.cs">
@@ -268,17 +286,17 @@
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SCORE\SCORE.cs" />
-    <Compile Include="STUDENT\STUDENTs.cs" />
-    <Compile Include="STUDENT\ImportByExcelFile.cs">
+    <Compile Include="TEACHER\STUDENTs.cs" />
+    <Compile Include="TEACHER\ImportByExcelFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\ImportByExcelFile.Designer.cs">
+    <Compile Include="TEACHER\ImportByExcelFile.Designer.cs">
       <DependentUpon>ImportByExcelFile.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\AddStudentForm.cs">
+    <Compile Include="TEACHER\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\AddStudentForm.Designer.cs">
+    <Compile Include="TEACHER\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="COURSE\COURSE.cs" />
@@ -294,43 +312,43 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\ManageStudentForm.cs">
+    <Compile Include="TEACHER\ManageStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\ManageStudentForm.Designer.cs">
+    <Compile Include="TEACHER\ManageStudentForm.Designer.cs">
       <DependentUpon>ManageStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MY_DB.cs" />
-    <Compile Include="STUDENT\Print.cs">
+    <Compile Include="TEACHER\Print.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\Print.Designer.cs">
+    <Compile Include="TEACHER\Print.Designer.cs">
       <DependentUpon>Print.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STUDENT\RegisterFrm.cs">
+    <Compile Include="TEACHER\RegisterFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\RegisterFrm.Designer.cs">
+    <Compile Include="TEACHER\RegisterFrm.Designer.cs">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\StatisticForm.cs">
+    <Compile Include="TEACHER\StatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\StatisticForm.Designer.cs">
+    <Compile Include="TEACHER\StatisticForm.Designer.cs">
       <DependentUpon>StatisticForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\StudentListForm.cs">
+    <Compile Include="TEACHER\StudentListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\StudentListForm.Designer.cs">
+    <Compile Include="TEACHER\StudentListForm.Designer.cs">
       <DependentUpon>StudentListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="STUDENT\UpdateDeleteStudentForm.cs">
+    <Compile Include="TEACHER\UpdateDeleteStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STUDENT\UpdateDeleteStudentForm.Designer.cs">
+    <Compile Include="TEACHER\UpdateDeleteStudentForm.Designer.cs">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HR\USER.cs" />
@@ -339,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ACCOUNT\AccountListForm.resx">
       <DependentUpon>AccountListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ForgetPasswordForm.resx">
       <DependentUpon>ForgetPasswordForm.cs</DependentUpon>
@@ -352,13 +373,19 @@
     <EmbeddedResource Include="HR\AddCourseContactForm.resx">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportScoreForm.resx">
+    <EmbeddedResource Include="MyCourse.resx">
+      <DependentUpon>MyCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyResultForm.resx">
+      <DependentUpon>MyResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SCORE\ImportScoreForm.resx">
       <DependentUpon>ImportScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RESULT\StudentResultForm.resx">
       <DependentUpon>StudentResultForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\AddCourseStudentForm.resx">
+    <EmbeddedResource Include="TEACHER\AddCourseStudentForm.resx">
       <DependentUpon>AddCourseStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR\AddContactForm.resx">
@@ -394,7 +421,7 @@
     <EmbeddedResource Include="HR\ShowFullListForm.resx">
       <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\EditRemoveStudentForm.resx">
+    <EmbeddedResource Include="TEACHER\EditRemoveStudentForm.resx">
       <DependentUpon>EditRemoveStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SCORE\RemoveScoreForm.resx">
@@ -415,10 +442,10 @@
     <EmbeddedResource Include="COURSE\PrintCourseForm.resx">
       <DependentUpon>PrintCourseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\ImportByExcelFile.resx">
+    <EmbeddedResource Include="TEACHER\ImportByExcelFile.resx">
       <DependentUpon>ImportByExcelFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\RegisterFrm.resx">
+    <EmbeddedResource Include="TEACHER\RegisterFrm.resx">
       <DependentUpon>RegisterFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COURSE\AddNewCourse.resx">
@@ -430,7 +457,7 @@
     <EmbeddedResource Include="COURSE\RemoveCourseForm.resx">
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\AddStudentForm.resx">
+    <EmbeddedResource Include="TEACHER\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
@@ -439,10 +466,10 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\ManageStudentForm.resx">
+    <EmbeddedResource Include="TEACHER\ManageStudentForm.resx">
       <DependentUpon>ManageStudentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\Print.resx">
+    <EmbeddedResource Include="TEACHER\Print.resx">
       <DependentUpon>Print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -450,13 +477,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\StatisticForm.resx">
+    <EmbeddedResource Include="TEACHER\StatisticForm.resx">
       <DependentUpon>StatisticForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\StudentListForm.resx">
+    <EmbeddedResource Include="TEACHER\StudentListForm.resx">
       <DependentUpon>StudentListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STUDENT\UpdateDeleteStudentForm.resx">
+    <EmbeddedResource Include="TEACHER\UpdateDeleteStudentForm.resx">
       <DependentUpon>UpdateDeleteStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -508,6 +535,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fhq logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="STD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,7 +21,7 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (rbtnUser.Checked == true || rbtnAdmin.Checked == true)
+            if (rbtnStudent.Checked  || rbtnAdmin.Checked  || rbtnTeacher.Checked)
             {
                 try
                 {
@@ -35,13 +35,17 @@ namespace _21110849_DangPhuQuy_QLSV
 
                     command.Parameters.Add("@User", SqlDbType.VarChar).Value = userTextBox.Text;
                     command.Parameters.Add("@Pass", SqlDbType.VarChar).Value = passwordTextBox.Text;
-                    if (rbtnUser.Checked)
+                    if (rbtnStudent.Checked)
                     {
-                        command.Parameters.Add("@Rol", SqlDbType.VarChar).Value = rbtnUser.Text;
+                        command.Parameters.Add("@Rol", SqlDbType.VarChar).Value = rbtnStudent.Text;
+                    }
+                    else if (rbtnAdmin.Checked)
+                    {
+                        command.Parameters.Add("@Rol", SqlDbType.VarChar).Value = rbtnAdmin.Text;
                     }
                     else
                     {
-                        command.Parameters.Add("@Rol", SqlDbType.VarChar).Value = rbtnAdmin.Text;
+                        command.Parameters.Add("@Rol", SqlDbType.VarChar).Value = rbtnTeacher.Text;
                     }
 
 
@@ -144,10 +148,16 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private void lbForgetPass_Click(object sender, EventArgs e)
         {
-            if (rbtnUser.Checked)
+            if (rbtnStudent.Checked)
             {
                 ForgetPasswordForm forgetPasswordFrm = new ForgetPasswordForm();
                 forgetPasswordFrm.lbTypeAccount.Text = "STUDENT ACCOUNT";
+                forgetPasswordFrm.Show(this);
+            }
+            else if (rbtnTeacher.Checked)
+            {
+                ForgetPasswordForm forgetPasswordFrm = new ForgetPasswordForm();
+                forgetPasswordFrm.lbTypeAccount.Text = "TEACHER ACCOUNT";
                 forgetPasswordFrm.Show(this);
             }
             else if (rbtnHr.Checked)

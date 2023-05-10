@@ -22,12 +22,64 @@ namespace _21110849_DangPhuQuy_QLSV
             if (fLogin.ShowDialog() == DialogResult.OK)
             {
                 MainForm mainForm = new MainForm();
-                if (fLogin.rbtnUser.Checked)    //nếu là role User
+                if (fLogin.rbtnStudent.Checked)    //nếu là role Student
                 {
+                    mainForm.Username = fLogin.userTextBox.Text;
+                    mainForm.TypeAccount = fLogin.rbtnStudent.Text;
                     //Ẩn phần Account
                     mainForm.accountToolStripMenuItem.Visible = false;
+                    
+                    //Ẩn phần Student
+                    foreach(ToolStripMenuItem item in mainForm.sTUDENTToolStripMenuItem.DropDownItems)
+                    {
+                        if (item.Name == "addNewStudentToolStripMenuItem" ||
+                            item.Name == "studentListToolStripMenuItem" ||
+                            item.Name == "statisticToolStripMenuItem" ||
+                            item.Name == "editRemoveToolStripMenuItem"||
+                            item.Name == "managerStudentFormToolStripMenuItem"||
+                            item.Name == "printToolStripMenuItem")
+                        {
+                            item.Visible = false;
+                        }
+                    }
+
+                    //Ẩn phần Course
+                    foreach (ToolStripMenuItem item in mainForm.cOURSEToolStripMenuItem.DropDownItems)
+                    {
+                        if (item.Name == "aDDCORSEToolStripMenuItem" ||
+                            item.Name == "removeCourseToolStripMenuItem" ||
+                            item.Name == "editCourseToolStripMenuItem" ||
+                            item.Name == "manageCourseToolStripMenuItem" ||
+                            item.Name == "printToolStripMenuItem1")
+                        {
+                            item.Visible = false;
+                        }
+                    }
+
+                    //Ản phần Score
+                    mainForm.sCOREToolStripMenuItem.Visible = false;
+
+                    //Ẩn phần Result
+                    foreach (ToolStripMenuItem item in mainForm.rESULTToolStripMenuItem1.DropDownItems)
+                    {
+                        if (item.Name == "resultFormToolStripMenuItem" ||
+                            item.Name == "statisticResultFormToolStripMenuItem")
+                        {
+                            item.Visible = false;
+                        }
+                    }
                     Application.Run(mainForm);
 
+                }
+                else if (fLogin.rbtnTeacher.Checked)
+                {
+                    mainForm.Username = fLogin.userTextBox.Text;
+                    mainForm.TypeAccount = fLogin.rbtnTeacher.Text;
+                    mainForm.myInformationToolStripMenuItem.Visible = false;
+                    mainForm.myCourseToolStripMenuItem.Visible = false;
+                    mainForm.myResultToolStripMenuItem.Visible = false;
+                    mainForm.accountToolStripMenuItem.Visible = false;
+                    Application.Run(mainForm);
                 }
                 else if (fLogin.rbtnHr.Checked)
                 {
@@ -37,6 +89,11 @@ namespace _21110849_DangPhuQuy_QLSV
                 else
                 {
                     //Nếu là role Admin
+                    mainForm.Username = fLogin.userTextBox.Text;
+                    mainForm.lbChangePassword.Visible = false;
+                    mainForm.myInformationToolStripMenuItem.Visible = false;
+                    mainForm.myCourseToolStripMenuItem.Visible = false;
+                    mainForm.myResultToolStripMenuItem.Visible = false;
                     Application.Run(mainForm);
                 }
             }

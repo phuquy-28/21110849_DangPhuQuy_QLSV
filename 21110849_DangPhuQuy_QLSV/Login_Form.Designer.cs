@@ -37,11 +37,12 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.newUserLB = new System.Windows.Forms.Label();
-            this.rbtnUser = new System.Windows.Forms.RadioButton();
+            this.rbtnStudent = new System.Windows.Forms.RadioButton();
             this.rbtnAdmin = new System.Windows.Forms.RadioButton();
             this.rbtnHr = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbForgetPass = new System.Windows.Forms.Label();
+            this.rbtnTeacher = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,22 +147,21 @@
             this.newUserLB.Text = "New User?";
             this.newUserLB.Click += new System.EventHandler(this.newUserLB_Click);
             // 
-            // rbtnUser
+            // rbtnStudent
             // 
-            this.rbtnUser.AutoSize = true;
-            this.rbtnUser.Checked = true;
-            this.rbtnUser.Location = new System.Drawing.Point(135, 295);
-            this.rbtnUser.Name = "rbtnUser";
-            this.rbtnUser.Size = new System.Drawing.Size(62, 17);
-            this.rbtnUser.TabIndex = 0;
-            this.rbtnUser.TabStop = true;
-            this.rbtnUser.Text = "Student";
-            this.rbtnUser.UseVisualStyleBackColor = true;
+            this.rbtnStudent.AutoSize = true;
+            this.rbtnStudent.Checked = true;
+            this.rbtnStudent.Location = new System.Drawing.Point(135, 295);
+            this.rbtnStudent.Name = "rbtnStudent";
+            this.rbtnStudent.Size = new System.Drawing.Size(62, 17);
+            this.rbtnStudent.TabIndex = 0;
+            this.rbtnStudent.Text = "Student";
+            this.rbtnStudent.UseVisualStyleBackColor = true;
             // 
             // rbtnAdmin
             // 
             this.rbtnAdmin.AutoSize = true;
-            this.rbtnAdmin.Location = new System.Drawing.Point(246, 295);
+            this.rbtnAdmin.Location = new System.Drawing.Point(203, 316);
             this.rbtnAdmin.Name = "rbtnAdmin";
             this.rbtnAdmin.Size = new System.Drawing.Size(54, 17);
             this.rbtnAdmin.TabIndex = 1;
@@ -171,7 +171,7 @@
             // rbtnHr
             // 
             this.rbtnHr.AutoSize = true;
-            this.rbtnHr.Location = new System.Drawing.Point(199, 295);
+            this.rbtnHr.Location = new System.Drawing.Point(135, 316);
             this.rbtnHr.Name = "rbtnHr";
             this.rbtnHr.Size = new System.Drawing.Size(41, 17);
             this.rbtnHr.TabIndex = 10;
@@ -201,16 +201,27 @@
             this.lbForgetPass.Text = "Forget your password?";
             this.lbForgetPass.Click += new System.EventHandler(this.lbForgetPass_Click);
             // 
+            // rbtnTeacher
+            // 
+            this.rbtnTeacher.AutoSize = true;
+            this.rbtnTeacher.Location = new System.Drawing.Point(203, 295);
+            this.rbtnTeacher.Name = "rbtnTeacher";
+            this.rbtnTeacher.Size = new System.Drawing.Size(65, 17);
+            this.rbtnTeacher.TabIndex = 12;
+            this.rbtnTeacher.Text = "Teacher";
+            this.rbtnTeacher.UseVisualStyleBackColor = true;
+            // 
             // Login_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(388, 506);
+            this.Controls.Add(this.rbtnTeacher);
             this.Controls.Add(this.lbForgetPass);
             this.Controls.Add(this.rbtnHr);
             this.Controls.Add(this.rbtnAdmin);
-            this.Controls.Add(this.rbtnUser);
+            this.Controls.Add(this.rbtnStudent);
             this.Controls.Add(this.newUserLB);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.cancelButton);
@@ -235,16 +246,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox userTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox showPassCB;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label newUserLB;
-        internal System.Windows.Forms.RadioButton rbtnUser;
+        internal System.Windows.Forms.RadioButton rbtnStudent;
         internal System.Windows.Forms.RadioButton rbtnAdmin;
         internal System.Windows.Forms.RadioButton rbtnHr;
         private System.Windows.Forms.Label lbForgetPass;
+        internal System.Windows.Forms.RadioButton rbtnTeacher;
+        internal System.Windows.Forms.TextBox userTextBox;
     }
 }
