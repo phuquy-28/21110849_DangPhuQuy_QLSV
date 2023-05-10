@@ -38,7 +38,7 @@ namespace _21110849_DangPhuQuy_QLSV
                     for (int i = 0; i < dgvReadFile.Rows.Count - 1; i++)
                     {
                         STUDENTs s = new STUDENTs();
-                        s.Id = dt.Rows[i]["id"].ToString();
+                        s.Id = dt.Rows[i]["Id"].ToString();
                         s.FName = dt.Rows[i]["fname"].ToString();
                         s.LName = dt.Rows[i]["lname"].ToString();
 

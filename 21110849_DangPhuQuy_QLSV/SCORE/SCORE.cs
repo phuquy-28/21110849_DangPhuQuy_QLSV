@@ -14,6 +14,10 @@ namespace _21110849_DangPhuQuy_QLSV
 {
     internal class SCORE
     {
+        public int StudentId { get; set; }
+        public int CourseId { get; set; }
+        public double StudentScore { get; set; }
+        public string Description { get; set; }
         MY_DB mydb = new MY_DB();
 
         //thêm điểm

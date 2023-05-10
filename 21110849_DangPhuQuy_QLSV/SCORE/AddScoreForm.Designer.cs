@@ -38,6 +38,7 @@
             this.cbSelectedCourse = new System.Windows.Forms.ComboBox();
             this.dgvListScore = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListScore)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,23 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Selected Course:";
             // 
+            // btnImport
+            // 
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Location = new System.Drawing.Point(13, 314);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 22;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // AddScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 349);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.dgvListScore);
             this.Controls.Add(this.cbSelectedCourse);
             this.Controls.Add(this.btnAdd);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.ComboBox cbSelectedCourse;
         private System.Windows.Forms.DataGridView dgvListScore;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnImport;
     }
 }

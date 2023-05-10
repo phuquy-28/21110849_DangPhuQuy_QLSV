@@ -14,12 +14,13 @@ using Z.Dapper.Plus;
 
 namespace _21110849_DangPhuQuy_QLSV
 {
-    public partial class ImportCourseForm : Form
+    public partial class ImportScoreForm : Form
     {
-        public ImportCourseForm()
+        public ImportScoreForm()
         {
             InitializeComponent();
         }
+        public int CourseId { get; set; }
         MY_DB mydb = new MY_DB();
         BindingSource courseBindingSource = new BindingSource();
 
@@ -27,7 +28,7 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             try
             {
-                SqlCommand command = new SqlCommand("select * from course", mydb.getConnection);
+                SqlCommand command = new SqlCommand("select * from score", mydb.getConnection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
@@ -35,37 +36,36 @@ namespace _21110849_DangPhuQuy_QLSV
 
                 DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
                 dt.Columns[0].ColumnName = "id";
-                dt.Columns[1].ColumnName = "label";
-                dt.Columns[2].ColumnName = "period";
-                dt.Columns[3].ColumnName = "description";
-                dt.Columns[4].ColumnName = "semester";
+                dt.Columns[1].ColumnName = "fname";
+                dt.Columns[2].ColumnName = "lname";
+                dt.Columns[3].ColumnName = "score";
+                dt.Columns[4].ColumnName = "description";
                 for (int i = 2; i >= 0; i--)
                 {
                     dt.Rows.RemoveAt(i);
                 }
                 dgvReadFile.DataSource = dt;
                 dgvReadFile.Columns["id"].HeaderText = "Id";
-                dgvReadFile.Columns["label"].HeaderText = "Course name";
-                dgvReadFile.Columns["period"].HeaderText = "Period";
+                dgvReadFile.Columns["fname"].HeaderText = "First name";
+                dgvReadFile.Columns["lname"].HeaderText = "Last name";
+                dgvReadFile.Columns["score"].HeaderText = "Score";
                 dgvReadFile.Columns["description"].HeaderText = "Description";
-                dgvReadFile.Columns["semester"].HeaderText = "Semester";
                 dgvReadFile.AllowUserToAddRows = false;
 
 
                 if (dt != null)
                 {
-                    List<COURSE> course = new List<COURSE>();
+                    List<SCORE> score = new List<SCORE>();
                     for (int i = 0; i < dgvReadFile.Rows.Count; i++)
                     {
-                        COURSE c = new COURSE();
-                        c.Id = Convert.ToInt32(dt.Rows[i]["id"].ToString());
-                        c.Label = dt.Rows[i]["label"].ToString();
-                        c.Period = Convert.ToInt32(dt.Rows[i]["period"].ToString());
-                        c.Description = dt.Rows[i]["description"].ToString();
-                        c.Semester = Convert.ToInt32(dt.Rows[i]["semester"].ToString());
-                        course.Add(c);
+                        SCORE s = new SCORE();
+                        s.StudentId = Convert.ToInt32(dt.Rows[i]["id"].ToString());
+                        s.CourseId = CourseId;
+                        s.StudentScore = Convert.ToInt32(dt.Rows[i]["score"].ToString());
+                        s.Description = dt.Rows[i]["description"].ToString();
+                        score.Add(s);
                     }
-                    courseBindingSource.DataSource = course;
+                    courseBindingSource.DataSource = score;
                 }
             }
             catch (Exception ex)
@@ -101,19 +101,18 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             try
             {
-                DapperPlusManager.Entity<COURSE>()
-                    .Table("course")
-                    .Map(x => x.Id, "id")
-                    .Map(x => x.Label, "label")
-                    .Map(x => x.Period, "period")
-                    .Map(x => x.Description, "description")
-                    .Map(x => x.Semester, "semester");
+                DapperPlusManager.Entity<SCORE>()
+                    .Table("score")
+                    .Map(x => x.StudentId, "student_id")
+                    .Map(x => x.CourseId, "course_id")
+                    .Map(x => x.StudentScore, "student_score")
+                    .Map(x => x.Description, "description");
 
-                List<COURSE> course = courseBindingSource.DataSource as List<COURSE>;
-                if (course != null)
+                List<SCORE> score = courseBindingSource.DataSource as List<SCORE>;
+                if (score != null)
                 {
                     IDbConnection db = mydb.getConnection;
-                    db.BulkInsert(course);
+                    db.BulkInsert(score);
                     MessageBox.Show("Finish");
                 }
 
@@ -124,5 +123,4 @@ namespace _21110849_DangPhuQuy_QLSV
             }
         }
     }
-
 }

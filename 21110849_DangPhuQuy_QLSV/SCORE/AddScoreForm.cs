@@ -105,5 +105,12 @@ namespace _21110849_DangPhuQuy_QLSV
                 e.Handled = true;
             }
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            ImportScoreForm importScoreFrm = new ImportScoreForm();
+            importScoreFrm.CourseId = Convert.ToInt32(cbSelectedCourse.SelectedValue);
+            importScoreFrm.Show(this);
+        }
     }
 }

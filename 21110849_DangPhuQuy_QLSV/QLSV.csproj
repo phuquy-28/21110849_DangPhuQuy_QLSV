@@ -114,6 +114,12 @@
     <Compile Include="HR\AddCourseContactForm.Designer.cs">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportScoreForm.Designer.cs">
+      <DependentUpon>ImportScoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RESULT\StudentResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HR\AddCourseContactForm.resx">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportScoreForm.resx">
+      <DependentUpon>ImportScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RESULT\StudentResultForm.resx">
       <DependentUpon>StudentResultForm.cs</DependentUpon>
