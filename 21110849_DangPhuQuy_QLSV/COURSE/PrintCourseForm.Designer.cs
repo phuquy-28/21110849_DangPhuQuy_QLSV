@@ -102,7 +102,7 @@
             this.Controls.Add(this.btnToFile);
             this.Controls.Add(this.dgvListCourse);
             this.Name = "PrintCourseForm";
-            this.Text = "PrintCourseForm";
+            this.Text = "Print Course Form";
             this.Load += new System.EventHandler(this.PrintCourseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCourse)).EndInit();
             this.ResumeLayout(false);

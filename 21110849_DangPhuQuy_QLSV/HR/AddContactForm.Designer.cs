@@ -271,7 +271,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddContactForm";
-            this.Text = "AddContactForm";
+            this.Text = "Add Contact Form";
             this.Load += new System.EventHandler(this.AddContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).EndInit();
             this.ResumeLayout(false);

@@ -275,7 +275,7 @@
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label1);
             this.Name = "ManageCourseForm";
-            this.Text = "ManageCourseForm";
+            this.Text = "Manage Course Form";
             this.Load += new System.EventHandler(this.ManageCourseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPeriod)).EndInit();
             this.ResumeLayout(false);

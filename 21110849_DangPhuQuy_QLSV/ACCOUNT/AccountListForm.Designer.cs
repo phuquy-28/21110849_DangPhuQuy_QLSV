@@ -150,7 +150,7 @@
             this.ClientSize = new System.Drawing.Size(741, 454);
             this.Controls.Add(this.tabControl1);
             this.Name = "AccountListForm";
-            this.Text = "AccountListForm";
+            this.Text = "Account List Form";
             this.Load += new System.EventHandler(this.AccountListForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageStd.ResumeLayout(false);

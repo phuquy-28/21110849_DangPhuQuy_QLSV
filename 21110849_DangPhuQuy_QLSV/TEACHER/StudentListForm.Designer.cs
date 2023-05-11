@@ -101,7 +101,7 @@
             this.Controls.Add(this.findTb);
             this.Controls.Add(this.stdListDGV);
             this.Name = "StudentListForm";
-            this.Text = "StudentListForm";
+            this.Text = "Student List Form";
             this.Load += new System.EventHandler(this.StudentListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stdListDGV)).EndInit();
             this.ResumeLayout(false);

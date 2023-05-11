@@ -183,7 +183,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditCourseForm";
-            this.Text = "EditCourseForm";
+            this.Text = "Edit Course Form";
             this.Load += new System.EventHandler(this.EditCourseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPeriod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

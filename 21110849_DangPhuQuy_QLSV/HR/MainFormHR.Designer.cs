@@ -392,7 +392,7 @@
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.picbxAvatar);
             this.Name = "MainFormHR";
-            this.Text = "MainFormHR";
+            this.Text = "Main Form HR";
             this.Load += new System.EventHandler(this.MainFormHR_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(479, 530);
             this.Controls.Add(this.dgvSelectedContact);
             this.Name = "SelectedContact";
-            this.Text = "SelectedContact";
+            this.Text = "Selected Contact";
             this.Load += new System.EventHandler(this.SelectedContact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectedContact)).EndInit();
             this.ResumeLayout(false);

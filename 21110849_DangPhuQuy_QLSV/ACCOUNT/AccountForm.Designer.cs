@@ -207,7 +207,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabtablePending);
             this.Name = "AccountForm";
-            this.Text = "AccountForm";
+            this.Text = "Account Form";
             this.Load += new System.EventHandler(this.AccountForm_Load);
             this.tabtablePending.ResumeLayout(false);
             this.tabStudent.ResumeLayout(false);

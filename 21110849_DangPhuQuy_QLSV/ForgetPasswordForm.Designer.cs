@@ -180,7 +180,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ForgetPasswordForm";
-            this.Text = "ForgetPasswordForm";
+            this.Text = "Forget Password Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -99,7 +99,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvContactList);
             this.Name = "ShowFullListForm";
-            this.Text = "ShowFullListForm";
+            this.Text = "Show Full List Form";
             this.Load += new System.EventHandler(this.ShowFullListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).EndInit();
             this.ResumeLayout(false);

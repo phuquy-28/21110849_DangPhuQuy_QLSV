@@ -167,7 +167,7 @@
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.label1);
             this.Name = "AddScoreForm";
-            this.Text = "AddScoreForm";
+            this.Text = "Add Score Form";
             this.Load += new System.EventHandler(this.AddScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListScore)).EndInit();
             this.ResumeLayout(false);

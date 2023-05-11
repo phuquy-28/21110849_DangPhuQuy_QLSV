@@ -146,7 +146,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "StudentResultForm";
-            this.Text = "StudentDetailResultForm";
+            this.Text = "Student Detail Result Form";
             this.Load += new System.EventHandler(this.StudentResultForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentResult)).EndInit();
             this.ResumeLayout(false);

@@ -511,7 +511,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.idTB);
             this.Name = "AddStudentForm";
-            this.Text = "v";
+            this.Text = "Add New Student Form";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stdPicPB)).EndInit();

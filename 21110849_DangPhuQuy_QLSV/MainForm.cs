@@ -177,6 +177,8 @@ namespace _21110849_DangPhuQuy_QLSV
         private void lbChangePassword_Click(object sender, EventArgs e)
         {
             ChangePasswordForm changePassFrm = new ChangePasswordForm();
+            changePassFrm.usernameTB.Text = lbUname.Text;
+            changePassFrm.usernameTB.Enabled = false;
             changePassFrm.lbTypeAccount.Text = TypeAccount.ToUpper() + " ACCOUNT";
             changePassFrm.Show(this);
         }

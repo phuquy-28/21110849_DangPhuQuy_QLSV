@@ -108,7 +108,7 @@
             this.dgvReadFile.Size = new System.Drawing.Size(712, 448);
             this.dgvReadFile.TabIndex = 8;
             // 
-            // Form1
+            // ImportCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,8 +120,8 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvReadFile);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ImportCourseForm";
+            this.Text = "Import Course Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

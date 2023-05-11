@@ -73,7 +73,7 @@
             this.Controls.Add(this.tbCName);
             this.Controls.Add(this.label1);
             this.Name = "RemoveCourseForm";
-            this.Text = "RemoveCourseForm";
+            this.Text = "Remove Course Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 

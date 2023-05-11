@@ -174,7 +174,7 @@
             this.Controls.Add(this.tbContactId);
             this.Controls.Add(this.label1);
             this.Name = "AddCourseContactForm";
-            this.Text = "AddCourseContactForm";
+            this.Text = "Add Course Contact Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 

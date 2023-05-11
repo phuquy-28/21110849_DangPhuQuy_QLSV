@@ -30,20 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvReadFile = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.majorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pobDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nationalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
@@ -60,117 +46,15 @@
             this.dgvReadFile.AutoGenerateColumns = false;
             this.dgvReadFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReadFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReadFile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.fnameDataGridViewTextBoxColumn,
-            this.lnameDataGridViewTextBoxColumn,
-            this.bdateDataGridViewTextBoxColumn,
-            this.genderDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.pictureDataGridViewImageColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.facultyDataGridViewTextBoxColumn,
-            this.majorDataGridViewTextBoxColumn,
-            this.pobDataGridViewTextBoxColumn,
-            this.nationalityDataGridViewTextBoxColumn,
-            this.stateDataGridViewTextBoxColumn});
             this.dgvReadFile.DataSource = this.stdBindingSource;
             this.dgvReadFile.Location = new System.Drawing.Point(13, 13);
             this.dgvReadFile.Name = "dgvReadFile";
             this.dgvReadFile.Size = new System.Drawing.Size(967, 448);
             this.dgvReadFile.TabIndex = 0;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // fnameDataGridViewTextBoxColumn
-            // 
-            this.fnameDataGridViewTextBoxColumn.DataPropertyName = "fname";
-            this.fnameDataGridViewTextBoxColumn.HeaderText = "fname";
-            this.fnameDataGridViewTextBoxColumn.Name = "fnameDataGridViewTextBoxColumn";
-            // 
-            // lnameDataGridViewTextBoxColumn
-            // 
-            this.lnameDataGridViewTextBoxColumn.DataPropertyName = "lname";
-            this.lnameDataGridViewTextBoxColumn.HeaderText = "lname";
-            this.lnameDataGridViewTextBoxColumn.Name = "lnameDataGridViewTextBoxColumn";
-            // 
-            // bdateDataGridViewTextBoxColumn
-            // 
-            this.bdateDataGridViewTextBoxColumn.DataPropertyName = "bdate";
-            this.bdateDataGridViewTextBoxColumn.HeaderText = "bdate";
-            this.bdateDataGridViewTextBoxColumn.Name = "bdateDataGridViewTextBoxColumn";
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // pictureDataGridViewImageColumn
-            // 
-            this.pictureDataGridViewImageColumn.DataPropertyName = "picture";
-            this.pictureDataGridViewImageColumn.HeaderText = "picture";
-            this.pictureDataGridViewImageColumn.Name = "pictureDataGridViewImageColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // facultyDataGridViewTextBoxColumn
-            // 
-            this.facultyDataGridViewTextBoxColumn.DataPropertyName = "faculty";
-            this.facultyDataGridViewTextBoxColumn.HeaderText = "faculty";
-            this.facultyDataGridViewTextBoxColumn.Name = "facultyDataGridViewTextBoxColumn";
-            // 
-            // majorDataGridViewTextBoxColumn
-            // 
-            this.majorDataGridViewTextBoxColumn.DataPropertyName = "major";
-            this.majorDataGridViewTextBoxColumn.HeaderText = "major";
-            this.majorDataGridViewTextBoxColumn.Name = "majorDataGridViewTextBoxColumn";
-            // 
-            // pobDataGridViewTextBoxColumn
-            // 
-            this.pobDataGridViewTextBoxColumn.DataPropertyName = "pob";
-            this.pobDataGridViewTextBoxColumn.HeaderText = "pob";
-            this.pobDataGridViewTextBoxColumn.Name = "pobDataGridViewTextBoxColumn";
-            // 
-            // nationalityDataGridViewTextBoxColumn
-            // 
-            this.nationalityDataGridViewTextBoxColumn.DataPropertyName = "nationality";
-            this.nationalityDataGridViewTextBoxColumn.HeaderText = "nationality";
-            this.nationalityDataGridViewTextBoxColumn.Name = "nationalityDataGridViewTextBoxColumn";
-            // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "state";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "state";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
-            // 
             // stdBindingSource
             // 
             this.stdBindingSource.DataMember = "std";
-            // 
-            // viduDBDataSet
-            // 
             // 
             // label1
             // 
@@ -233,9 +117,6 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // stdTableAdapter
-            // 
-            // 
             // ImportByExcelFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,7 +132,7 @@
             this.MaximizeBox = false;
             this.Name = "ImportByExcelFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ImportByExcelFile";
+            this.Text = "Import By Excel File";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stdBindingSource)).EndInit();
             this.ResumeLayout(false);

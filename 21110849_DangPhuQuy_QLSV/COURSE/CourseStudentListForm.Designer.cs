@@ -159,7 +159,7 @@
             this.Controls.Add(this.dgvCourseStudent);
             this.Controls.Add(this.label1);
             this.Name = "CourseStudentListForm";
-            this.Text = "CourseStudentListForm";
+            this.Text = "Course Student List Form";
             this.Load += new System.EventHandler(this.CourseListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseStudent)).EndInit();
             this.ResumeLayout(false);

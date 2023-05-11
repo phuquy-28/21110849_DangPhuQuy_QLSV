@@ -161,42 +161,42 @@
             // aDDCORSEToolStripMenuItem
             // 
             this.aDDCORSEToolStripMenuItem.Name = "aDDCORSEToolStripMenuItem";
-            this.aDDCORSEToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aDDCORSEToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.aDDCORSEToolStripMenuItem.Text = "Add Course";
             this.aDDCORSEToolStripMenuItem.Click += new System.EventHandler(this.aDDCORSEToolStripMenuItem_Click);
             // 
             // removeCourseToolStripMenuItem
             // 
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
-            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.removeCourseToolStripMenuItem.Text = "Remove Course";
             this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
             // editCourseToolStripMenuItem
             // 
             this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
-            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.editCourseToolStripMenuItem.Text = "Edit Course";
             this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
             // 
             // manageCourseToolStripMenuItem
             // 
             this.manageCourseToolStripMenuItem.Name = "manageCourseToolStripMenuItem";
-            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.manageCourseToolStripMenuItem.Text = "Manage Course";
             this.manageCourseToolStripMenuItem.Click += new System.EventHandler(this.manageCourseToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem1
             // 
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
             this.printToolStripMenuItem1.Text = "Print";
             this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
             // 
             // myCourseToolStripMenuItem
             // 
             this.myCourseToolStripMenuItem.Name = "myCourseToolStripMenuItem";
-            this.myCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.myCourseToolStripMenuItem.Text = "My course";
             this.myCourseToolStripMenuItem.Click += new System.EventHandler(this.myCourseToolStripMenuItem_Click);
             // 
@@ -345,7 +345,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Main Form";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

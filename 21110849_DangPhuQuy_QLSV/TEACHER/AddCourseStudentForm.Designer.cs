@@ -174,7 +174,7 @@
             this.Controls.Add(this.tbStdId);
             this.Controls.Add(this.label1);
             this.Name = "AddCourseStudentForm";
-            this.Text = "AddCourseStudentForm";
+            this.Text = "Add Course Student Form";
             this.Load += new System.EventHandler(this.AddCourseStudentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

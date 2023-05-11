@@ -155,6 +155,7 @@
             this.rbtnStudent.Name = "rbtnStudent";
             this.rbtnStudent.Size = new System.Drawing.Size(62, 17);
             this.rbtnStudent.TabIndex = 0;
+            this.rbtnStudent.TabStop = true;
             this.rbtnStudent.Text = "Student";
             this.rbtnStudent.UseVisualStyleBackColor = true;
             // 
@@ -234,7 +235,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login_Form";
-            this.Text = "Login_Formcs";
+            this.Text = "Login Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

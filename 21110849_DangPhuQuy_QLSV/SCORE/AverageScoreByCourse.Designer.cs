@@ -60,7 +60,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAvgScore);
             this.Name = "AverageScoreByCourse";
-            this.Text = "AverageScoreByCourse";
+            this.Text = "Average Score By Course";
             this.Load += new System.EventHandler(this.AverageScore_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvgScore)).EndInit();
             this.ResumeLayout(false);

@@ -121,7 +121,7 @@
             this.Controls.Add(this.tbContactId);
             this.Controls.Add(this.label1);
             this.Name = "CourseContactForm";
-            this.Text = "CourseContactForm";
+            this.Text = "Course Contact Form";
             this.Load += new System.EventHandler(this.CourseContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseContact)).EndInit();
             this.ResumeLayout(false);

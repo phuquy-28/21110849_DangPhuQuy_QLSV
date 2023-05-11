@@ -541,7 +541,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.idTb);
             this.Name = "UpdateDeleteStudentForm";
-            this.Text = "UpdateDeleteStudentForm";
+            this.Text = "Update Delete Student Form";
             ((System.ComponentModel.ISupportInitialize)(this.picturePb)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

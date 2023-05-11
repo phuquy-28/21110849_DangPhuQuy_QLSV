@@ -130,8 +130,12 @@ namespace _21110849_DangPhuQuy_QLSV
                 registerFrmHr.Show();
                 return;
             }
-            Form frm = new RegisterFrm();
-            frm.Show();
+            else if (rbtnTeacher.Checked)
+            {
+                Form frm = new RegisterFrm();
+                frm.Show();
+            }
+            
         }
 
         private void showPassCB_CheckedChanged(object sender, EventArgs e)

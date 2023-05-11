@@ -44,6 +44,7 @@
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.showpassCb = new System.Windows.Forms.CheckBox();
+            this.lbChangePass = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +124,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(36, 171);
+            this.label5.Location = new System.Drawing.Point(30, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 24);
             this.label5.TabIndex = 7;
@@ -152,11 +153,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 263);
+            this.label7.Location = new System.Drawing.Point(59, 263);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 24);
+            this.label7.Size = new System.Drawing.Size(67, 24);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Firstname:";
+            this.label7.Text = "Image:";
             // 
             // picbxPic
             // 
@@ -201,11 +202,24 @@
             this.showpassCb.UseVisualStyleBackColor = true;
             this.showpassCb.CheckedChanged += new System.EventHandler(this.showpassCb_CheckedChanged);
             // 
+            // lbChangePass
+            // 
+            this.lbChangePass.AutoSize = true;
+            this.lbChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChangePass.Location = new System.Drawing.Point(305, 237);
+            this.lbChangePass.Name = "lbChangePass";
+            this.lbChangePass.Size = new System.Drawing.Size(116, 16);
+            this.lbChangePass.TabIndex = 18;
+            this.lbChangePass.Text = "Change password";
+            this.lbChangePass.Click += new System.EventHandler(this.lbChangePass_Click);
+            // 
             // EditUserDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 403);
+            this.Controls.Add(this.lbChangePass);
             this.Controls.Add(this.showpassCb);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnUpload);
@@ -223,7 +237,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditUserDataForm";
-            this.Text = "EditUserDataForm";
+            this.Text = "Edit User Data Form";
             this.Load += new System.EventHandler(this.EditUserDataForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).EndInit();
             this.ResumeLayout(false);
@@ -249,5 +263,6 @@
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.CheckBox showpassCb;
+        private System.Windows.Forms.Label lbChangePass;
     }
 }

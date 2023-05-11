@@ -588,7 +588,7 @@
             this.Controls.Add(this.idTB);
             this.Name = "ManageStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ManageStudentForm";
+            this.Text = "Manage Student Form";
             this.Load += new System.EventHandler(this.ManageStudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stdPicPB)).EndInit();
             this.groupBox1.ResumeLayout(false);

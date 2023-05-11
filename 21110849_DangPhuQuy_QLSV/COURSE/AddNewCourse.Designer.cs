@@ -193,7 +193,7 @@
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label1);
             this.Name = "AddNewCourse";
-            this.Text = "AddNewCourse";
+            this.Text = "Add New Course";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

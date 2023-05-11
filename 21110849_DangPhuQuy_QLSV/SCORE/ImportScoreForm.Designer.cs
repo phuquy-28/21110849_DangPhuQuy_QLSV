@@ -121,7 +121,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvReadFile);
             this.Name = "ImportScoreForm";
-            this.Text = "ImportScoreForm";
+            this.Text = "Import Score Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

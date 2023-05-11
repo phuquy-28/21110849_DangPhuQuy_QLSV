@@ -206,7 +206,7 @@
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.label1);
             this.Name = "ManageScoreForm";
-            this.Text = "ManageScoreForm";
+            this.Text = "Manage Score Form";
             this.Load += new System.EventHandler(this.ManageScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStdAndScore)).EndInit();
             this.ResumeLayout(false);

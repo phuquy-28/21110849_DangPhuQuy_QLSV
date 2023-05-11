@@ -17,6 +17,8 @@ namespace _21110849_DangPhuQuy_QLSV
         public EditUserDataForm()
         {
             InitializeComponent();
+            tbUname.Enabled = false;
+            tbPass.Enabled = false;
         }
 
         MY_DB mydb = new MY_DB();
@@ -117,6 +119,14 @@ namespace _21110849_DangPhuQuy_QLSV
             {
                 tbPass.PasswordChar = '●';
             }
+        }
+
+        private void lbChangePass_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm changePasswordFrm = new ChangePasswordForm();
+            changePasswordFrm.usernameTB.Text = tbUname.Text;
+            changePasswordFrm.usernameTB.Enabled = false;
+            changePasswordFrm.Show(this);
         }
     }
 }

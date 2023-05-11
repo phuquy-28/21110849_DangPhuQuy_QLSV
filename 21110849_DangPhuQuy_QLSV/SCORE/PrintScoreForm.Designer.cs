@@ -92,7 +92,7 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgvStudentScore);
             this.Name = "PrintScoreForm";
-            this.Text = "PrintScoreForm";
+            this.Text = "Print Score Form";
             this.Load += new System.EventHandler(this.PrintScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentScore)).EndInit();
             this.ResumeLayout(false);

@@ -112,82 +112,97 @@ namespace _21110849_DangPhuQuy_QLSV
 
         private async void btnSend_Click(object sender, EventArgs e)
         {
-            if (lbTypeAccount.Text == "STUDENT ACCOUNT" || lbTypeAccount.Text == "TEACHER ACCOUNT")
+            try
             {
-                if (returnEmailUser(usernameTB.Text) != "")
+                if (lbTypeAccount.Text == "STUDENT ACCOUNT" || lbTypeAccount.Text == "TEACHER ACCOUNT")
                 {
-                    string email = returnEmailUser(usernameTB.Text);
-                    optCode = GenerateRandomString(8);
-                    sendCode(email, optCode);
+                    if (returnEmailUser(usernameTB.Text) != "")
+                    {
+                        string email = returnEmailUser(usernameTB.Text);
+                        optCode = GenerateRandomString(8);
+                        sendCode(email, optCode);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username does not exist", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                else if (lbTypeAccount.Text == "HR ACCOUNT")
                 {
-                    MessageBox.Show("Username does not exist", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (returnEmailHR(usernameTB.Text) != "")
+                    {
+                        string email = returnEmailHR(usernameTB.Text);
+                        optCode = GenerateRandomString(8);
+                        sendCode(email, optCode);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username does not exist", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            else if (lbTypeAccount.Text == "HR ACCOUNT")
+            catch(Exception ex)
             {
-                if (returnEmailHR(usernameTB.Text) != "")
-                {
-                    string email = returnEmailHR(usernameTB.Text);
-                    optCode = GenerateRandomString(8);
-                    sendCode(email, optCode);
-                }
-                else
-                {
-                    MessageBox.Show("Username does not exist", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ex.Message, "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnRecovery_Click(object sender, EventArgs e)
         {
-            if(lbTypeAccount.Text == "STUDENT ACCOUNT" && tbVerifCode.Text == optCode)
+            try
             {
-                SqlCommand command = new SqlCommand("update log_in set password = @pwd where username = @uname", mydb.getConnection);
-                command.Parameters.Add("uname", SqlDbType.NChar).Value = usernameTB.Text;
-                command.Parameters.Add("pwd", SqlDbType.NChar).Value = passwordTB.Text;
-
-                mydb.openConnection();
-                if (command.ExecuteNonQuery() == 1)
+                if (lbTypeAccount.Text == "STUDENT ACCOUNT" && tbVerifCode.Text == optCode)
                 {
-                    mydb.closeConnection();
-                    MessageBox.Show("Recovering successfully", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    optCode = GenerateRandomString(8);
+                    SqlCommand command = new SqlCommand("update log_in set password = @pwd where username = @uname", mydb.getConnection);
+                    command.Parameters.Add("uname", SqlDbType.NChar).Value = usernameTB.Text;
+                    command.Parameters.Add("pwd", SqlDbType.NChar).Value = passwordTB.Text;
 
+                    mydb.openConnection();
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        mydb.closeConnection();
+                        MessageBox.Show("Recovering successfully", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        optCode = GenerateRandomString(8);
+
+                    }
+                    else
+                    {
+                        mydb.closeConnection();
+                        MessageBox.Show("Recovering fail", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        optCode = GenerateRandomString(8);
+                    }
+                }
+                else if (lbTypeAccount.Text == "HR ACCOUNT" && tbVerifCode.Text == optCode)
+                {
+                    SqlCommand command = new SqlCommand("update hr set pwd = @pwd where uname = @uname", mydb.getConnection);
+                    command.Parameters.Add("uname", SqlDbType.NChar).Value = usernameTB.Text;
+                    command.Parameters.Add("pwd", SqlDbType.NChar).Value = passwordTB.Text;
+
+                    mydb.openConnection();
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        mydb.closeConnection();
+                        MessageBox.Show("Recovering successfully", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        optCode = GenerateRandomString(8);
+
+                    }
+                    else
+                    {
+                        mydb.closeConnection();
+                        MessageBox.Show("Recovering fail", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        optCode = GenerateRandomString(8);
+                    }
                 }
                 else
                 {
-                    mydb.closeConnection();
-                    MessageBox.Show("Recovering fail", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    optCode = GenerateRandomString(8);
+                    MessageBox.Show("Wrong OPT code", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (lbTypeAccount.Text == "HR ACCOUNT" && tbVerifCode.Text == optCode)
+            catch(Exception ex)
             {
-                SqlCommand command = new SqlCommand("update hr set pwd = @pwd where uname = @uname", mydb.getConnection);
-                command.Parameters.Add("uname", SqlDbType.NChar).Value = usernameTB.Text;
-                command.Parameters.Add("pwd", SqlDbType.NChar).Value = passwordTB.Text;
-
-                mydb.openConnection();
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    mydb.closeConnection();
-                    MessageBox.Show("Recovering successfully", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    optCode = GenerateRandomString(8);
-
-                }
-                else
-                {
-                    mydb.closeConnection();
-                    MessageBox.Show("Recovering fail", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    optCode = GenerateRandomString(8);
-                }
+                MessageBox.Show(ex.Message, "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                MessageBox.Show("Wrong OPT code", "Recovery Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void showpassCb_CheckedChanged(object sender, EventArgs e)

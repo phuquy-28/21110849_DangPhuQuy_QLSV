@@ -91,6 +91,7 @@
             this.BtnChange.TabIndex = 35;
             this.BtnChange.Text = "CHANGE";
             this.BtnChange.UseVisualStyleBackColor = true;
+            this.BtnChange.Click += new System.EventHandler(this.BtnChange_Click);
             // 
             // showpassCb
             // 
@@ -102,6 +103,7 @@
             this.showpassCb.TabIndex = 34;
             this.showpassCb.Text = "Show password";
             this.showpassCb.UseVisualStyleBackColor = true;
+            this.showpassCb.Click += new System.EventHandler(this.showpassCb_CheckedChanged);
             // 
             // passwordTB
             // 
@@ -178,7 +180,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ChangePasswordForm";
-            this.Text = "ChangePasswordHrForm";
+            this.Text = "Change Password Hr Form";
             this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -196,9 +198,9 @@
         private System.Windows.Forms.CheckBox showpassCb;
         private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox usernameTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.TextBox usernameTB;
     }
 }

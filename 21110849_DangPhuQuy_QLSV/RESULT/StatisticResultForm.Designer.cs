@@ -84,7 +84,7 @@
             this.Controls.Add(this.chartByResult);
             this.Controls.Add(this.chartByCourse);
             this.Name = "StatisticResultForm";
-            this.Text = "StatisticResultForm";
+            this.Text = "Statistic Result Form";
             this.Load += new System.EventHandler(this.StatisticResultForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartByCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartByResult)).EndInit();

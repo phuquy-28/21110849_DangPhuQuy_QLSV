@@ -120,16 +120,16 @@
     <Compile Include="HR\AddCourseContactForm.Designer.cs">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyCourse.cs">
+    <Compile Include="STD\MyCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyCourse.Designer.cs">
+    <Compile Include="STD\MyCourse.Designer.cs">
       <DependentUpon>MyCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyResultForm.cs">
+    <Compile Include="STD\MyResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyResultForm.Designer.cs">
+    <Compile Include="STD\MyResultForm.Designer.cs">
       <DependentUpon>MyResultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SCORE\ImportScoreForm.cs">
@@ -373,10 +373,10 @@
     <EmbeddedResource Include="HR\AddCourseContactForm.resx">
       <DependentUpon>AddCourseContactForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyCourse.resx">
+    <EmbeddedResource Include="STD\MyCourse.resx">
       <DependentUpon>MyCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyResultForm.resx">
+    <EmbeddedResource Include="STD\MyResultForm.resx">
       <DependentUpon>MyResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SCORE\ImportScoreForm.resx">
@@ -536,8 +536,6 @@
   <ItemGroup>
     <None Include="Resources\fhq logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="STD\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

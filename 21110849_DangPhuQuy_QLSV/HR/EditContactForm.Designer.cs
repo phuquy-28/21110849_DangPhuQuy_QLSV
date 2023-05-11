@@ -311,7 +311,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditContactForm";
-            this.Text = "EditContactForm";
+            this.Text = "Edit Contact Form";
             this.Load += new System.EventHandler(this.EditContactForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picbxPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).EndInit();

@@ -63,7 +63,7 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.dgvStudentScore);
             this.Name = "RemoveScoreForm";
-            this.Text = "RemoveScoreForm";
+            this.Text = "Remove Score Form";
             this.Load += new System.EventHandler(this.RemoveScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentScore)).EndInit();
             this.ResumeLayout(false);

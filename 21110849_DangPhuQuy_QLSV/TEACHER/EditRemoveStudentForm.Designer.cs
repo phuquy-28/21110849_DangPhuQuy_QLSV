@@ -87,7 +87,7 @@
             this.Controls.Add(this.findTb);
             this.Controls.Add(this.stdListDGV);
             this.Name = "EditRemoveStudentForm";
-            this.Text = "EditRemoveStudentForm";
+            this.Text = "Edit Remove Student Form";
             this.Load += new System.EventHandler(this.EditRemoveStudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stdListDGV)).EndInit();
             this.ResumeLayout(false);

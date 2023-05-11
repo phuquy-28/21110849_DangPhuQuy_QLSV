@@ -133,12 +133,12 @@ namespace _21110849_DangPhuQuy_QLSV
             studentResultForm.Show(this);
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void cbSem_SelectedIndexChanged(object sender, EventArgs e)
         {
             ResultForm_Load(null, null);
         }
 
-        private void cbSem_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbShowAll_Click(object sender, EventArgs e)
         {
             ResultForm_Load(null, null);
         }

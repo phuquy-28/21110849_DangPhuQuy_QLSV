@@ -158,7 +158,7 @@
             this.Controls.Add(this.panelTotal);
             this.Controls.Add(this.chartGender);
             this.Name = "StatisticForm";
-            this.Text = "StatisticForm";
+            this.Text = "Statistic Form";
             this.Load += new System.EventHandler(this.StatisticForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartGender)).EndInit();
             this.panelTotal.ResumeLayout(false);
