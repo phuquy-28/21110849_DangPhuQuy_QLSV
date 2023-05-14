@@ -23,11 +23,18 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             InitializeComponent();
         }
+        BindingSource StdBindingSource = new BindingSource();
 
         private void cbSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                SqlCommand command = new SqlCommand("select * from std", mydb.getConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                StdBindingSource.DataSource = table;
+
                 DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
                 dgvReadFile.DataSource = dt;
                 dgvReadFile.AllowUserToAddRows = false;
@@ -72,7 +79,7 @@ namespace _21110849_DangPhuQuy_QLSV
                         s.State = dt.Rows[i]["state"].ToString();
                         student.Add(s);
                     }
-                    stdBindingSource.DataSource = student;
+                    StdBindingSource.DataSource = student;
                 }
             }
             catch(Exception ex)
@@ -125,7 +132,7 @@ namespace _21110849_DangPhuQuy_QLSV
                     .Map(x => x.Nationality, "nationality")
                     .Map(x => x.State, "state");
 
-                List<STUDENTs> student = stdBindingSource.DataSource as List<STUDENTs>;
+                List<STUDENTs> student = StdBindingSource.DataSource as List<STUDENTs>;
                 if (student != null)
                 {
                     IDbConnection db = mydb.getConnection;

@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Word;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
+using DataTable = System.Data.DataTable;
 
 namespace _21110849_DangPhuQuy_QLSV
 {
@@ -18,6 +23,7 @@ namespace _21110849_DangPhuQuy_QLSV
         {
             InitializeComponent();
         }
+        STUDENTs student = new STUDENTs();
 
         private void addNewStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -155,9 +161,53 @@ namespace _21110849_DangPhuQuy_QLSV
             updateDeleteStudentFrm.idTb.Text = lbUname.Text;
             updateDeleteStudentFrm.idTb.Enabled = false;
             updateDeleteStudentFrm.removeBtn.Visible = false;
+            updateDeleteStudentFrm.findIdBtn.Visible = false;
             updateDeleteStudentFrm.findFNameBtn.Visible = false;
             updateDeleteStudentFrm.findPhoneBtn.Visible = false;
-            updateDeleteStudentFrm.Show(this);
+            updateDeleteStudentFrm.stateCb.Enabled = false;
+            updateDeleteStudentFrm.facultyCb.Enabled = false;
+            updateDeleteStudentFrm.majorCb.Enabled = false;
+
+            int id = int.Parse(updateDeleteStudentFrm.idTb.Text);
+            SqlCommand command = new SqlCommand("SELECT * FROM std WHERE id = " + id);
+
+            DataTable table = student.getStudents(command);
+
+            if (table.Rows.Count > 0)
+            {
+                //first name, last name, date of birth
+                updateDeleteStudentFrm.firstnameTb.Text = table.Rows[0]["fname"].ToString();
+                updateDeleteStudentFrm.lastnameTb.Text = table.Rows[0]["lname"].ToString();
+                updateDeleteStudentFrm.dobDtp.Value = (DateTime)table.Rows[0]["bdate"];
+
+                //gender
+                if (table.Rows[0]["gender"].ToString() == "Female")
+                {
+                    updateDeleteStudentFrm.FemaleBtn.Checked = true;
+                }
+                else
+                {
+                    updateDeleteStudentFrm.maleBtn.Checked = true;
+                }
+
+                updateDeleteStudentFrm.phoneTB.Text = table.Rows[0]["phone"].ToString();
+                updateDeleteStudentFrm.addressTb.Text = table.Rows[0]["address"].ToString();
+
+                //picture
+                byte[] pic = (byte[])table.Rows[0]["picture"];
+                MemoryStream picture = new MemoryStream(pic);
+                updateDeleteStudentFrm.picturePb.Image = Image.FromStream(picture);
+
+                //email, faculty, major, place of birth, nationality, state
+                updateDeleteStudentFrm.emailTb.Text = table.Rows[0]["email"].ToString();
+                updateDeleteStudentFrm.facultyCb.Text = table.Rows[0]["faculty"].ToString();
+                updateDeleteStudentFrm.majorCb.Text = table.Rows[0]["major"].ToString();
+                updateDeleteStudentFrm.pobTb.Text = table.Rows[0]["pob"].ToString();
+                updateDeleteStudentFrm.nationalityTb.Text = table.Rows[0]["nationality"].ToString();
+                updateDeleteStudentFrm.stateCb.Text = table.Rows[0]["state"].ToString();
+
+                updateDeleteStudentFrm.Show(this);
+            }
         }
 
         private void myCourseToolStripMenuItem_Click(object sender, EventArgs e)

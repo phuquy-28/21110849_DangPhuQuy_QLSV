@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgvReadFile = new System.Windows.Forms.DataGridView();
             this.stdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
@@ -37,20 +36,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbFileName = new System.Windows.Forms.TextBox();
             this.btnImport = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).BeginInit();
+            this.dgvReadFile = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.stdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvReadFile
-            // 
-            this.dgvReadFile.AutoGenerateColumns = false;
-            this.dgvReadFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvReadFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReadFile.DataSource = this.stdBindingSource;
-            this.dgvReadFile.Location = new System.Drawing.Point(13, 13);
-            this.dgvReadFile.Name = "dgvReadFile";
-            this.dgvReadFile.Size = new System.Drawing.Size(967, 448);
-            this.dgvReadFile.TabIndex = 0;
             // 
             // stdBindingSource
             // 
@@ -117,32 +106,39 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // dgvReadFile
+            // 
+            this.dgvReadFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReadFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReadFile.Location = new System.Drawing.Point(13, 13);
+            this.dgvReadFile.Name = "dgvReadFile";
+            this.dgvReadFile.Size = new System.Drawing.Size(967, 450);
+            this.dgvReadFile.TabIndex = 8;
+            // 
             // ImportByExcelFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 551);
+            this.Controls.Add(this.dgvReadFile);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.tbFileName);
             this.Controls.Add(this.cbSheet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvReadFile);
             this.MaximizeBox = false;
             this.Name = "ImportByExcelFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Import By Excel File";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReadFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvReadFile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.ComboBox cbSheet;
@@ -164,5 +160,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pobDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nationalityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvReadFile;
     }
 }
